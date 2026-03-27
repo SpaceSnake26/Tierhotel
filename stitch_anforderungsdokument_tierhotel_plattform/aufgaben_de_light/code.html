@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aufgaben-Zentrale | Tierhotel 5 Stern</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e6e9e8",
+              "surface-container-low": "#f2f4f3",
+              "on-surface-variant": "#3e4944",
+              "on-secondary": "#ffffff",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#00513f",
+              "inverse-primary": "#82d7ba",
+              "secondary-fixed": "#c8eadc",
+              "surface-tint": "#016b54",
+              "on-error-container": "#93000a",
+              "on-primary-fixed": "#002118",
+              "on-background": "#191c1c",
+              "outline-variant": "#bec9c3",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#753229",
+              "tertiary-fixed": "#ffdad4",
+              "primary-fixed": "#9ef3d6",
+              "primary-container": "#006b54",
+              "on-secondary-container": "#4c6b5f",
+              "on-surface": "#191c1c",
+              "secondary-container": "#c8eadc",
+              "surface-container-highest": "#e1e3e2",
+              "on-secondary-fixed-variant": "#2f4d42",
+              "on-secondary-fixed": "#012018",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#ffcdc5",
+              "secondary": "#466559",
+              "outline": "#6f7a74",
+              "surface": "#f8faf9",
+              "inverse-on-surface": "#eff1f0",
+              "surface-variant": "#e1e3e2",
+              "on-primary-container": "#94e8cb",
+              "inverse-surface": "#2e3131",
+              "background": "#f8faf9",
+              "error-container": "#ffdad6",
+              "surface-bright": "#f8faf9",
+              "surface-dim": "#d8dada",
+              "tertiary-container": "#92493e",
+              "tertiary-fixed-dim": "#ffb4a8",
+              "on-tertiary-fixed": "#3c0804",
+              "on-error": "#ffffff",
+              "primary": "#00513f",
+              "secondary-fixed-dim": "#adcec0",
+              "tertiary": "#753229",
+              "primary-fixed-dim": "#82d7ba",
+              "surface-container": "#eceeed",
+              "on-tertiary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-50 bg-[#f8faf9] dark:bg-zinc-950 flex flex-col p-6 space-y-2">
+<div class="mb-8">
+<h1 class="text-lg font-extrabold text-[#006B54] dark:text-[#00A383] leading-none">Tierhotel 5 Stern</h1>
+<p class="text-xs font-medium text-on-surface-variant/60 tracking-wider uppercase mt-1">Concierge Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 dark:text-zinc-400 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 dark:text-zinc-400 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_view_day">calendar_view_day</span>
+<span>Roster</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 dark:text-zinc-400 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+<span>Absences</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white dark:bg-zinc-900 text-[#006B54] shadow-[0_4px_12px_rgba(0,81,63,0.05)] rounded-xl font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 dark:text-zinc-400 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Notes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 dark:text-zinc-400 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span>Events</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 dark:text-zinc-400 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 dark:text-zinc-400 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto pt-6">
+<div class="flex items-center gap-3 p-3 bg-surface-container-low rounded-xl">
+<img alt="Hotel Management Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="Professional hotel manager headshot in a bright office setting with soft natural lighting and neutral colors" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBbymIkMdn-lE1kFjUJJWRZvsWn55wzUpMpRkVvJzEC3MBee4LL7-vBmTzJWuLMxog49w283eQcNiZVod6wawD-UgpY5Q7Y-xdiCjn5ijfOFmr-9zFseMjJcwzLh6hUxgiDDFBn1nkk7qO9jSbjkwW6xniNUBCpNIxbwcGEGr9Sr3LLKU_GbLkGEZCJmzUCjclZYz7LLGYJ9M6uUA3onkjvJgiQPJhL8n1PO68kH-5BKMSOeYHSJs6EztArkFYnjzodoJ-uR51VDBI"/>
+<div class="overflow-hidden">
+<p class="text-sm font-bold text-on-surface truncate">Marcus Weber</p>
+<p class="text-xs text-on-surface-variant truncate">Chef de Concierge</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 z-40 w-full flex items-center justify-between px-8 h-16 ml-64 bg-white/80 dark:bg-zinc-900/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,81,63,0.04)] pl-[288px]">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-96">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="w-full bg-surface-container-low border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/20 transition-all font-manrope" placeholder="Aufgaben suchen..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-zinc-500 dark:text-zinc-400 hover:bg-zinc-50 dark:hover:bg-zinc-800 p-2 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 pt-24 px-10 pb-12 min-h-screen bg-surface-container-low">
+<!-- Header Section -->
+<div class="flex items-end justify-between mb-10">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-background font-headline mb-2">Aufgaben-Zentrale</h2>
+<p class="text-on-surface-variant body-lg max-w-md">Verwalten Sie die täglichen Abläufe und pflegen Sie den 5-Sterne-Standard für unsere Gäste.</p>
+</div>
+<div class="flex gap-3">
+<button class="bg-surface-container-highest text-primary font-bold px-6 py-3 rounded-xl hover:bg-primary-fixed transition-colors text-sm">
+                    Filter anpassen
+                </button>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary font-bold px-6 py-3 rounded-xl shadow-lg shadow-primary/10 hover:opacity-90 transition-all text-sm flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+                    Neue Aufgabe
+                </button>
+</div>
+</div>
+<!-- Task Stats / Bento Grid Start -->
+<div class="grid grid-cols-12 gap-6 mb-10">
+<!-- Summary Card -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest p-8 rounded-xl shadow-[0_8px_30px_rgb(0,81,63,0.02)] flex flex-col justify-between min-h-[220px]">
+<div>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold uppercase tracking-widest px-2 py-1 rounded">Heutiger Status</span>
+<h3 class="text-5xl font-extrabold text-primary mt-4">24</h3>
+<p class="text-on-surface-variant font-medium mt-1">Aufgaben für heute geplant</p>
+</div>
+<div class="w-full bg-surface-container rounded-full h-2 mt-6">
+<div class="bg-primary h-2 rounded-full w-[65%]"></div>
+</div>
+<p class="text-xs text-on-surface-variant mt-3 font-semibold">65% abgeschlossen</p>
+</div>
+<!-- Priority Focus -->
+<div class="col-span-12 lg:col-span-8 grid grid-cols-3 gap-6">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_8px_30px_rgb(0,81,63,0.02)] flex flex-col items-center justify-center text-center">
+<div class="w-12 h-12 rounded-full bg-error-container/30 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-error" data-icon="priority_high">priority_high</span>
+</div>
+<p class="text-2xl font-bold text-on-surface">3</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter font-bold">Kritisch</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_8px_30px_rgb(0,81,63,0.02)] flex flex-col items-center justify-center text-center border-b-2 border-primary/10">
+<div class="w-12 h-12 rounded-full bg-primary-fixed/30 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-primary" data-icon="medical_services">medical_services</span>
+</div>
+<p class="text-2xl font-bold text-on-surface">12</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter font-bold">Tierpflege</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_8px_30px_rgb(0,81,63,0.02)] flex flex-col items-center justify-center text-center">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed/30 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary" data-icon="restaurant">restaurant</span>
+</div>
+<p class="text-2xl font-bold text-on-surface">9</p>
+<p class="text-xs text-on-surface-variant uppercase tracking-tighter font-bold">Verpflegung</p>
+</div>
+</div>
+</div>
+<!-- Task Kanban / Columns -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+<!-- Column: Offen -->
+<div class="space-y-6">
+<div class="flex items-center justify-between px-2">
+<h4 class="font-bold text-on-surface flex items-center gap-2">
+                        Offen <span class="bg-surface-container-highest px-2 py-0.5 rounded-full text-xs">8</span>
+</h4>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<!-- Task Card 1 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] border-l-4 border-error group cursor-pointer hover:-translate-y-1 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-error-container text-on-error-container text-[10px] font-bold px-2 py-1 rounded">Dringend</span>
+<span class="text-xs text-on-surface-variant font-medium">08:00</span>
+</div>
+<h5 class="font-bold text-on-surface leading-tight mb-2">Medikamentenabgabe - Zimmer 204</h5>
+<p class="text-sm text-on-surface-variant line-clamp-2 mb-4">Goldie 'Bella' benötigt ihre Herztablette vor dem Frühstück. Bitte Vitalwerte kurz prüfen.</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<img alt="Sarah" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="Portrait of a female veterinary technician smiling in a bright clinical setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDQcDgJpenmNMQ1L76jKpgeVK69au7jxwIFOQ-Q21KdPjOcMHBcsA3rgByd2hou8w7QKrvPxXCzPRw9bvNMGvblxrb1yLGhnHEotwdWPNgUGiWL8KvyobehdQoJgrYzJixbAvOHol4qkt1EkYpJs49b-Tsi-F6vIjd7bhwLT4eOzpzfBMLrJNHRauZfePJl6PH96v9NWvTPdfmQbctXcw_rGEnWX8eM9hZkwK7KFr8ESIFYgBW-OBYA5-VQh76uekRUkphu2L9IHE"/>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant/60 text-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="chat_bubble">chat_bubble</span>
+<span>3</span>
+</div>
+</div>
+</div>
+<!-- Task Card 2 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] border-l-4 border-primary group cursor-pointer hover:-translate-y-1 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-2 py-1 rounded">Tierpflege</span>
+<span class="text-xs text-on-surface-variant font-medium">09:30</span>
+</div>
+<h5 class="font-bold text-on-surface leading-tight mb-2">Check-in Begrüßung: 'Max'</h5>
+<p class="text-sm text-on-surface-variant line-clamp-2 mb-4">Neue Ankunft. Bitte das Willkommens-Paket bereitstellen und das Zimmer final lüften.</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<img alt="Thomas" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="Close-up of a young man with a friendly expression in a modern professional uniform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjvFoaRW9sUBsWUfJXJS8ovq-I-Vb8AkczPghJL8Xm_9nzmXaoQ3UbdC5ZbRFnKAbBAGBWPIwv5UURmgugQBXKYjYT4mqpl0jVj5oD-sWAgNba_sqvZ9A969_bCrcTAElgkdwq1uM6buG6JW4VyBgNWSPxfBXYaGU8Am3rtToKr5VyjFGUKBwx8Lyv4oe7GTHXIpuNTyIT7GvhSFxhK5sVYM4NgjTi6og8luBYH97JkSObC6yLXPNGqVzJWf_ZL8pdTfDzzcg-vRU"/>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant/60 text-xs">
+<span class="material-symbols-outlined text-[14px]" data-icon="attachment">attachment</span>
+<span>1</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: In Bearbeitung -->
+<div class="space-y-6">
+<div class="flex items-center justify-between px-2">
+<h4 class="font-bold text-on-surface flex items-center gap-2">
+                        In Bearbeitung <span class="bg-surface-container-highest px-2 py-0.5 rounded-full text-xs">4</span>
+</h4>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_horiz">more_horiz</span>
+</button>
+</div>
+<!-- Task Card 3 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] border-l-4 border-secondary-container group cursor-pointer hover:-translate-y-1 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-1 rounded">Service</span>
+<span class="text-xs text-on-surface-variant font-medium">10:00</span>
+</div>
+<h5 class="font-bold text-on-surface leading-tight mb-2">Frühstücks-Service Gourmet</h5>
+<div class="flex items-center gap-2 mb-3">
+<div class="flex-1 bg-surface-container-low h-1 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[40%]"></div>
+</div>
+<span class="text-[10px] font-bold text-secondary">40%</span>
+</div>
+<div class="flex items-center justify-between mt-4">
+<div class="flex -space-x-2">
+<img alt="Lukas" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="Portrait of a smiling mature man in professional attire with soft focus background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXAHzZccl61jo0J6K00O7ZGqDGG8WVPCYgmsM9qWwM9BO8eqDXjVkrAA8eUGsU9zA00KiFcH8O6kQNWVZ0hevnpN62UXRUrVe3ZjgE56AeHSVhZrArZ8I75cZ0reOPhB10EYWC_mxpGp1KsKEOGsUYDVK-xEOQe7xHl4cAUA-xxznJiC0NGxwspeUHq08j-EhoFyFGtVunPVlYF3ipVU9469ROiZr3MJz4mYmcmSUQLOSGelojX5qEu0fWT0_JwzYf-75S048vtJE"/>
+<img alt="Elena" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="Close-up of a professional woman with a warm, focused expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwCc77U6CbLGjhNuST99pp_0Jkkm2R3k5lPGx9y2rQ7eTxpXvAlN5OvVkqHPENd-U-ubqu6r6j7OlerAMkQsiGlepbkDNHnSpoP86kBcwJZUjXB7u9f5rVm9bO-Pg_q7r7wKofWT-pwBFxG2tBT9QFKWArS6B3t8q_EZydNvnZQlkmOVty5z9cIkVGOqRsNwD8hLeIV16v6fI2E-fqDpGDfDrwROU67UGMkRYGJhjtikE7oXlW3MeKx_KLIEbfnlZeInZ9vsgv08k"/>
+</div>
+</div>
+</div>
+<!-- Task Card 4 -->
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] border-l-4 border-primary group cursor-pointer hover:-translate-y-1 transition-all">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold px-2 py-1 rounded">Reinigung</span>
+<span class="text-xs text-on-surface-variant font-medium">11:15</span>
+</div>
+<h5 class="font-bold text-on-surface leading-tight mb-2">Suiten-Reinigung (301-305)</h5>
+<p class="text-sm text-on-surface-variant mb-4">Tägliche Tiefenreinigung der Premium-Suiten inklusive Desinfektion.</p>
+<div class="flex items-center justify-between">
+<div class="flex -space-x-2">
+<img alt="Klaus" class="w-7 h-7 rounded-full border-2 border-white object-cover" data-alt="Portrait of a young professional male in a clean, minimalist setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDi-AGEiCJRQTQW0C8ImYAJMVTvjK_4OneJIDU-VCjYS6Bh4zCm_F9PDpGGQE24d1yHovp4zDXbJTxsdH8UCPcDiZMc3JjIbKjwFujqNrw9v-w7OtOZOy1GbNhxhIPy4aFYHyt9TqBzJ3-gFETgOnvP-hzh3Fdd4tgWHmhCY7snpVyPriqcYtcs1vJz0cRjh2CW9Vytl-PIKNSa1Il1jLsW2Dszkvd3rVWL5_ptIsWbb7CAxyxwc3ej5LMyxHukDTpG5-Hzf4a1IkA"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Column: Erledigt -->
+<div class="space-y-6 opacity-75">
+<div class="flex items-center justify-between px-2">
+<h4 class="font-bold text-on-surface flex items-center gap-2">
+                        Erledigt <span class="bg-surface-container-highest px-2 py-0.5 rounded-full text-xs">12</span>
+</h4>
+<button class="text-outline hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="done_all">done_all</span>
+</button>
+</div>
+<!-- Task Card 5 -->
+<div class="bg-white/50 rounded-xl p-6 border-l-4 border-outline-variant group grayscale-[0.5]">
+<div class="flex justify-between items-start mb-4">
+<span class="bg-surface-container-highest text-on-surface-variant text-[10px] font-bold px-2 py-1 rounded">Abgeschlossen</span>
+<span class="material-symbols-outlined text-primary text-sm" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<h5 class="font-bold text-on-surface/60 leading-tight mb-2 line-through">Morgenspaziergang Gruppe A</h5>
+<p class="text-sm text-on-surface-variant/60 line-clamp-1 mb-4">Alle Hunde wohlauf, keine Vorkommnisse im Park.</p>
+<div class="flex items-center justify-between">
+<span class="text-[10px] font-bold text-on-surface-variant/40">Abgeschlossen um 07:45</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Float Info Panel (Asymmetric Placement) -->
+<div class="fixed bottom-10 right-10 max-w-xs bg-surface-container-lowest/80 backdrop-blur-xl p-6 rounded-2xl shadow-2xl shadow-primary/5 border border-outline-variant/10">
+<div class="flex items-start gap-4">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-on-primary text-[20px]" data-icon="lightbulb">lightbulb</span>
+</div>
+<div>
+<h6 class="font-bold text-primary text-sm mb-1">Concierge Tipp</h6>
+<p class="text-xs text-on-surface-variant leading-relaxed">Die Nachmittagsfütterung steht in 45 Minuten an. Alle Vorräte in Lager 1 sind geprüft.</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

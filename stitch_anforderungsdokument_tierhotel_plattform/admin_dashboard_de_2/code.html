@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+
+<html lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Editorial Sanctuary | Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#263143",
+                        "secondary": "#9d4300",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002117",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "surface-container-lowest": "#ffffff",
+                        "background": "#f9f9ff",
+                        "on-secondary": "#ffffff",
+                        "on-primary-container": "#80bea6",
+                        "inverse-on-surface": "#ecf1ff",
+                        "outline-variant": "#bfc9c3",
+                        "surface-container": "#e7eeff",
+                        "surface-tint": "#2b6954",
+                        "surface-variant": "#d8e3fb",
+                        "on-background": "#111c2d",
+                        "on-tertiary-fixed": "#00201d",
+                        "surface-container-low": "#f0f3ff",
+                        "secondary-fixed": "#ffdbca",
+                        "primary-fixed": "#b0f0d6",
+                        "outline": "#707974",
+                        "error": "#ba1a1a",
+                        "on-surface-variant": "#404944",
+                        "secondary-fixed-dim": "#ffb690",
+                        "surface-container-highest": "#d8e3fb",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#95d3ba",
+                        "error-container": "#ffdad6",
+                        "primary": "#003527",
+                        "surface-dim": "#cfdaf2",
+                        "tertiary-container": "#004d46",
+                        "tertiary-fixed": "#89f5e7",
+                        "tertiary": "#00342f",
+                        "on-secondary-container": "#5c2400",
+                        "primary-fixed-dim": "#95d3ba",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "surface-container-high": "#dee8ff",
+                        "on-surface": "#111c2d",
+                        "on-tertiary-container": "#53c2b5",
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "primary-container": "#064e3b",
+                        "surface": "#f9f9ff",
+                        "surface-bright": "#f9f9ff",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed": "#341100"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .tonal-transition {
+            background: linear-gradient(180deg, rgba(6, 78, 59, 0.1) 0%, rgba(6, 78, 59, 0) 100%);
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #003527 0%, #064e3b 100%);
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #0b513d; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body antialiased">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-emerald-950 dark:bg-slate-950 shadow-2xl shadow-emerald-950/20 z-50 flex flex-col py-6 font-manrope text-sm font-medium tracking-tight">
+<div class="px-6 mb-10">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-orange-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
+<span class="material-symbols-outlined" data-icon="pets">pets</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-white tracking-tighter leading-none">The Sanctuary</h1>
+<p class="text-[10px] text-emerald-400/60 uppercase tracking-widest mt-1">Tierpflege Redaktion</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard Active -->
+<a class="flex items-center gap-3 px-4 py-3 bg-emerald-800 text-white rounded-lg mx-4 scale-95 active:scale-100 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-4 hover:bg-emerald-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span>Dienstplan</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-4 hover:bg-emerald-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+<span>Abwesenheiten</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-4 hover:bg-emerald-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>Aufgaben</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-4 hover:bg-emerald-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="sticky_note_2">sticky_note_2</span>
+<span>Notizen</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-4 hover:bg-emerald-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span>Events</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-4 hover:bg-emerald-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Benutzer</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-4 hover:bg-emerald-800/50 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Einstellungen</span>
+</a>
+</nav>
+<div class="px-6 mt-auto pt-6">
+<button class="w-full py-3 bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-bold transition-all shadow-lg shadow-orange-500/20 flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Neuer Check-in
+            </button>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen relative">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-slate-50/80 backdrop-blur-xl flex justify-between items-center px-8 font-inter text-sm font-semibold">
+<div class="flex items-center gap-4 bg-slate-100 dark:bg-slate-800/50 px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-slate-400" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 w-full text-sm placeholder:text-slate-400" placeholder="Suche Tiere, Personal oder Aufgaben..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 border-r border-slate-200 pr-6">
+<button class="text-slate-500 hover:text-emerald-700 transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-500 hover:text-emerald-700 transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold text-on-surface">Alex Rivera</p>
+<p class="text-[10px] text-slate-500">Leitung Betrieb</p>
+</div>
+<img alt="Personal-Avatar" class="w-10 h-10 rounded-full border-2 border-white shadow-sm object-cover" data-alt="professional portrait of a veterinary administrator in a modern office setting, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdxSwbS57m3CsyOxgqLxDi-YvAdu1zV9Zh50-mgVTUS637JvgzvlXlGtwdmreRMpzbB0GjQSrsbg6N2sDvLdwBH9moLnoFHAkOpuB3us5q4AqVAemb9XVDjQvHnKtM_9W76XBsp46isXwoMenfUgiCKVBY6U6i-cScqdW6Q3qozBY0jGVM7kge3dljtE8R7Fgy156O3SxQ7B78gVb7GquTvbFw5LB1eAF3-63ihWr26keYKV6FA1kbIysJHoofnOD9fdqvLTsSp-s"/>
+</div>
+</div>
+</header>
+<div class="pt-24 px-10 pb-12 space-y-10">
+<!-- Hero Section: Today's Daily Note -->
+<section class="hero-gradient rounded-[2rem] p-10 text-white relative overflow-hidden shadow-2xl shadow-primary/20">
+<div class="relative z-10 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+<div class="lg:col-span-2 space-y-4">
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-emerald-400/20 backdrop-blur-md rounded-full text-[10px] font-bold tracking-widest border border-emerald-400/30">HEUTE VERÖFFENTLICHT</span>
+<span class="text-emerald-300/80 text-sm font-medium">24. Oktober 2023 • Morgen-Briefing</span>
+</div>
+<h2 class="text-4xl font-headline font-extrabold tracking-tight">Fokus: Tag der sanften Pflege &amp; Gartenunterhalt</h2>
+<p class="text-emerald-100/80 text-lg leading-relaxed max-w-2xl">
+                            Ein Tag mit hoher Belegung erwartet, 4 Neuankünfte bis Mittag. Bitte priorisieren Sie den Nordgarten für Spaziergänge mit Senioren-Hunden. Erinnerung: Bella (Labrador) benötigt Medikamente pünktlich um 10:00 Uhr. Heizung in Zone 3 im Auge behalten.
+                        </p>
+<div class="flex gap-4 pt-4">
+<button class="bg-white text-primary px-6 py-2.5 rounded-xl font-bold text-sm flex items-center gap-2 hover:bg-emerald-50 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+                                Notiz aktualisieren
+                            </button>
+<button class="bg-emerald-800/40 backdrop-blur-md border border-emerald-700/50 text-white px-6 py-2.5 rounded-xl font-bold text-sm hover:bg-emerald-800/60 transition-colors">
+                                Verlauf anzeigen
+                            </button>
+</div>
+</div>
+<div class="hidden lg:block relative h-full">
+<div class="absolute inset-0 bg-white/5 rounded-3xl backdrop-blur-sm border border-white/10 p-6 flex flex-col justify-center">
+<div class="flex justify-between items-center mb-6">
+<span class="text-xs font-bold opacity-60 uppercase">Beteiligung</span>
+<span class="material-symbols-outlined opacity-60" data-icon="trending_up">trending_up</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium">Von Mitarbeitenden gelesen</span>
+<span class="text-xl font-headline font-bold">14/16</span>
+</div>
+<div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+<div class="bg-emerald-400 h-full w-[87.5%]"></div>
+</div>
+<div class="flex -space-x-2 pt-2">
+<img class="w-8 h-8 rounded-full border-2 border-primary-container" data-alt="Staff member profile circle portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxwnOZgYDwuGJoAXDNuz8y-WxhiJS-Sl38yc8r9XlwKbQNyn2mMyC97wj9LVjTPmgNqyLUMIcy3MdqkepdEWIIupMu_t_7IXrdmog56WIEGlQlmvRT3G0tv-hoyiJOzFRZrySW-UsXrKcqvNT9GtyRa2pmkMKPdYVT7bdJpA50GSSjZFVrI75BFDTonvPheKVRCrMWvKqM4MZ7TABTyiDwRjFPUXFAXCuv1MONr2IvBW8MIKdqZV5n1AbD-3ICAdlIN19-hzHbdUY"/>
+<img class="w-8 h-8 rounded-full border-2 border-primary-container" data-alt="Staff member profile circle portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC0OtGjjsZuLFEyg9uPpcstRnIGEltGa1s5lH8BuRMnaloRTesjFUcPgL5Naim9tTKeUljSrYXeMYXlwRWrgGWmQWMoLpE9HwZh4-iidoqyuZpsNB8TDfc6Tzly6afJA9gKQIhH0K0CH8rNVyPE6iHcJMXlCj9Bw2vyu4eesTiI3xMDwdvuwQ1Llk1dZUDMmI3nDf8PsBFigLLaSnqMhVXzou3o6DO3VaZzAM8AkO1t3xnWend5HdZZ37yHcKYudFvMK8tswwTH2Q"/>
+<img class="w-8 h-8 rounded-full border-2 border-primary-container" data-alt="Staff member profile circle portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAkHsaBlWHdFVzb7rOYYt5duw5PpNPbm7E2Y5SyFd-x0H5nUn7GZVQD0zjLd6xt-uXyKniIx-mGKzUAoR94IwbSBnL-mkf0COk9-_AfcSU-fiqY-9tvaDstfACT5MWwBp1ljn1W2klXzynJe0biyuh62rDwdXluLNDWf_dKphVxM7Mt_b06kznNy6AOzNVpE3CUzw2mSPuJBKMHP_TRZ-jWjym20gJIs3WcWHCdP4j8DksyGY9X7khpoTiuxG2wimmYW5kduI3SXME"/>
+<div class="w-8 h-8 rounded-full border-2 border-primary-container bg-emerald-700 flex items-center justify-center text-[10px] font-bold">+11</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Abstract Texture -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-orange-500/10 rounded-full blur-[100px]"></div>
+<div class="absolute -left-10 -top-10 w-60 h-60 bg-emerald-400/10 rounded-full blur-[80px]"></div>
+</section>
+<!-- Grid Layout with Widgets (Bento-style) -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 items-start">
+<!-- Today's Shifts Summary (Large) -->
+<div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-8 shadow-2xl shadow-emerald-950/5 relative overflow-hidden">
+<div class="flex justify-between items-center mb-8">
+<div>
+<h3 class="text-xl font-headline font-bold text-primary">Heutiger Dienstplan</h3>
+<p class="text-xs text-slate-500 font-medium">Abdeckung 08:00 — 22:00 Uhr</p>
+</div>
+<button class="text-primary hover:bg-primary-fixed p-2 rounded-lg transition-colors">
+<span class="material-symbols-outlined" data-icon="fullscreen">fullscreen</span>
+</button>
+</div>
+<div class="space-y-6">
+<!-- Shift Block: Morning -->
+<div class="flex items-start gap-4 p-4 bg-primary-fixed rounded-2xl">
+<div class="bg-white/50 p-3 rounded-xl flex flex-col items-center justify-center min-w-[64px]">
+<span class="text-[10px] font-bold uppercase tracking-wider text-on-primary-fixed-variant">Morgen</span>
+<span class="text-lg font-headline font-black text-on-primary-fixed">8-14</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-on-primary-fixed">Schichtleitung: Marco Reus</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-2 py-0.5 bg-white/40 text-[10px] font-bold rounded-full text-on-primary-fixed-variant">Empfang</span>
+<span class="px-2 py-0.5 bg-white/40 text-[10px] font-bold rounded-full text-on-primary-fixed-variant">Medikation</span>
+<span class="px-2 py-0.5 bg-white/40 text-[10px] font-bold rounded-full text-on-primary-fixed-variant">+3 Personal</span>
+</div>
+</div>
+</div>
+<!-- Shift Block: Evening -->
+<div class="flex items-start gap-4 p-4 bg-surface-container-low rounded-2xl border-l-4 border-emerald-900">
+<div class="bg-emerald-900/10 p-3 rounded-xl flex flex-col items-center justify-center min-w-[64px]">
+<span class="text-[10px] font-bold uppercase tracking-wider text-primary">Abend</span>
+<span class="text-lg font-headline font-black text-primary">14-22</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-primary">Schichtleitung: Sarah Jenkins</p>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="px-2 py-0.5 bg-emerald-900/5 text-[10px] font-bold rounded-full text-primary">Nachtpflege</span>
+<span class="px-2 py-0.5 bg-emerald-900/5 text-[10px] font-bold rounded-full text-primary">Sicherheit</span>
+<span class="px-2 py-0.5 bg-emerald-900/5 text-[10px] font-bold rounded-full text-primary">+2 Personal</span>
+</div>
+</div>
+</div>
+<!-- Night Shift -->
+<div class="flex items-start gap-4 p-4 bg-inverse-surface rounded-2xl">
+<div class="bg-white/10 p-3 rounded-xl flex flex-col items-center justify-center min-w-[64px]">
+<span class="text-[10px] font-bold uppercase tracking-wider text-emerald-200">Nacht</span>
+<span class="text-lg font-headline font-black text-white">22-08</span>
+</div>
+<div class="flex-1">
+<p class="text-sm font-bold text-white">Auf Abruf: Dr. Linda Meyer</p>
+<p class="text-xs text-emerald-200/60 mt-1 italic">Notfall-Tierarzt-Protokoll aktiv</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Absent Staff (Small Card) -->
+<div class="lg:col-span-3 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-2xl shadow-emerald-950/5">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline font-bold text-primary">Abwesenheiten</h3>
+<span class="px-2 py-1 bg-error-container text-on-error-container text-[10px] font-black rounded-full uppercase">Heute</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 border border-slate-200">
+<span class="material-symbols-outlined" data-icon="person_off">person_off</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Julian Black</p>
+<p class="text-[10px] text-error font-bold uppercase tracking-tight">Krank</p>
+</div>
+</div>
+<div class="flex items-center gap-3 opacity-60">
+<div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 border border-slate-200">
+<span class="material-symbols-outlined" data-icon="beach_access">beach_access</span>
+</div>
+<div>
+<p class="text-sm font-semibold">Emma Watson</p>
+<p class="text-[10px] text-slate-500 font-bold uppercase tracking-tight">Ferien</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 bg-surface-container text-primary text-xs font-bold rounded-lg hover:bg-surface-container-high transition-colors">
+                            Abwesenheiten verwalten
+                        </button>
+</div>
+<!-- Mini Stat Card -->
+<div class="bg-secondary-fixed rounded-xl p-6 relative overflow-hidden">
+<span class="material-symbols-outlined absolute -right-4 -bottom-4 text-7xl opacity-10 text-on-secondary-fixed-variant" data-icon="pets">pets</span>
+<p class="text-[10px] font-bold uppercase tracking-widest text-on-secondary-fixed-variant opacity-70">Belegung</p>
+<p class="text-4xl font-headline font-black text-on-secondary-fixed-variant mt-1">42/48</p>
+<p class="text-xs text-on-secondary-fixed-variant/80 mt-2 font-medium">87.5% Kapazität genutzt</p>
+</div>
+</div>
+<!-- Upcoming Events (Small Card) -->
+<div class="lg:col-span-4 bg-surface-container-highest rounded-xl p-8 shadow-2xl shadow-emerald-950/5">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-xl font-headline font-bold text-primary">Nächste 7 Tage</h3>
+<span class="material-symbols-outlined text-primary/40" data-icon="event">event</span>
+</div>
+<div class="space-y-6">
+<div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-1 before:bottom-0 before:w-1 before:bg-orange-400/30 before:rounded-full">
+<p class="text-[10px] font-bold text-orange-600">FREITAG, 26. OKT</p>
+<p class="text-sm font-bold text-primary mt-0.5">Welpen-Sozialisierungskurs</p>
+<p class="text-xs text-slate-600">10:00 - 12:00 • Gartenbereich</p>
+</div>
+<div class="relative pl-6 before:content-[''] before:absolute before:left-0 before:top-1 before:bottom-0 before:w-1 before:bg-emerald-400/30 before:rounded-full">
+<p class="text-[10px] font-bold text-emerald-600">SONNTAG, 28. OKT</p>
+<p class="text-sm font-bold text-primary mt-0.5">Tiefenreinigung Anlage (Nacht)</p>
+<p class="text-xs text-slate-600">22:00 - 04:00 • Zone A/B</p>
+</div>
+<div class="relative pl-6 opacity-50 before:content-[''] before:absolute before:left-0 before:top-1 before:bottom-0 before:w-1 before:bg-slate-400 before:rounded-full">
+<p class="text-[10px] font-bold text-slate-600">MONTAG, 29. OKT</p>
+<p class="text-sm font-bold text-primary mt-0.5">Mitarbeiter-Workshop: Ethologie</p>
+<p class="text-xs text-slate-600">14:00 - 16:00 • Büro</p>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 text-xs font-bold text-primary mt-8 group" href="#">
+                        Ganze Kalenderansicht
+                        <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1" data-icon="arrow_forward">arrow_forward</span>
+</a>
+</div>
+<!-- Open Tasks Grouped by Priority (Wide) -->
+<div class="lg:col-span-12 bg-white rounded-2xl p-8 shadow-sm">
+<div class="flex justify-between items-end mb-8">
+<div>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-secondary">MASSNAHMEN ERFORDERLICH</span>
+<h3 class="text-2xl font-headline font-extrabold text-primary">Offene operative Aufgaben</h3>
+</div>
+<div class="flex gap-2">
+<button class="px-4 py-2 bg-slate-100 rounded-lg text-xs font-bold hover:bg-slate-200">Filter</button>
+<button class="px-4 py-2 bg-primary text-white rounded-lg text-xs font-bold flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="add_task">add_task</span>
+                                Neue Aufgabe
+                            </button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- High Priority -->
+<div>
+<div class="flex items-center gap-2 mb-4">
+<div class="w-2 h-2 rounded-full bg-error animate-pulse"></div>
+<h4 class="text-xs font-black text-slate-900 uppercase tracking-widest">Dringend</h4>
+</div>
+<div class="space-y-3">
+<div class="p-4 bg-error-container/20 rounded-xl border-l-4 border-error hover:bg-error-container/30 transition-colors cursor-pointer group">
+<div class="flex justify-between items-start">
+<p class="text-sm font-bold text-primary">Medikations-Check Zone 3</p>
+<span class="material-symbols-outlined text-error opacity-0 group-hover:opacity-100 transition-opacity" data-icon="emergency">emergency</span>
+</div>
+<p class="text-[11px] text-slate-600 mt-1 line-clamp-2">Sicherstellen, dass alle Morgen-Medikamente für Pensionshunde vor 11:00 Uhr abgezeichnet sind.</p>
+<div class="mt-3 flex items-center justify-between">
+<span class="text-[10px] font-bold text-error">Seit 14 Min. überfällig</span>
+<div class="flex -space-x-1">
+<img class="w-5 h-5 rounded-full border border-white" data-alt="Staff profile small" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJx0QJ_L9DClafR5YmrmtUnz5r_N7_hn-BRlPZBTNYO485rUtQeemwRyBQB8USQmV1hEnHc3tI_k-ctoxPeErpzl40NWbDexkFaS8-J6v20HexigmP3VQi4x59dQd7Rxx5NYVg41ywOO3Np_0L_gGx_TiR4Wxv6SF1rJ25NRjCl8oVq_Rro8pu1XGNzNDceYt2qbfDjwfrg5r8JkpaIbDZK0Ff0VwmJMhu9-DFnINKpIvPCsDmBnUHIN5fNrnXGFY0Larw7Rwa1xk"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Medium Priority -->
+<div>
+<div class="flex items-center gap-2 mb-4">
+<div class="w-2 h-2 rounded-full bg-secondary"></div>
+<h4 class="text-xs font-black text-slate-900 uppercase tracking-widest">Aktiv</h4>
+</div>
+<div class="space-y-3">
+<div class="p-4 bg-surface-container-low rounded-xl border-l-4 border-secondary hover:bg-surface-container-high transition-colors cursor-pointer">
+<p class="text-sm font-bold text-primary">Prüfung Tier-Abreisen</p>
+<p class="text-[11px] text-slate-600 mt-1">Check-out Unterlagen für 12 heute Nachmittag geplante Abreisen prüfen.</p>
+<div class="mt-3 flex items-center justify-between">
+<span class="text-[10px] font-bold text-secondary">Fällig in 3 Std.</span>
+<div class="flex -space-x-1">
+<img class="w-5 h-5 rounded-full border border-white" data-alt="Staff profile small" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwJ4SsOGWlRgaBzLlBld2g56yLg7x55l7o9e_URR6Xno8MXnNAhCEqxkhhU9OPI_JogaTja1Jr3kyIfdy_cd-Klg3JtrvcjhdEXqxITOmKSbzqOqf0pHTKj2gxrZ6GDfw0iEZDoKBq5AjejY132Vu0o84qwnEBwMQ97xqjktzHP1QU2rLmlRZ3g_kZJ9CGRZ369ce8mYs7f_BBd-81V_le4h6BRp9tQK2lEJkrgB6lA0ma-Lqint3jVjyT9-5EMa6GU-9VIMenlBw"/>
+<img class="w-5 h-5 rounded-full border border-white" data-alt="Staff profile small" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBB_Wg0l1o7RdjFdNYZRAApkm1EJajUtXGFkqXf0Hd1nnD9Ee6oZuwvWbaU9-gdSwoWSIXHm0fRiysCU5XiwAcVv2OTbGZ1DsIp5llCqz-heXmhOFm8cW1bQmkhtyaJnv6gFLqYdBnwWMRNzUMcBCkMNGmDwNKWqBRD6wghdXowmxw_y6oJtosSlofUQFDeVYvzXJ4vHOxyLwB-EG4mvrrFxv-Q3_w4fazYmMbzUsd4jO9uWrr504SXRPgbukkJ9diDEjsn7dJYwU4"/>
+</div>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low rounded-xl border-l-4 border-secondary hover:bg-surface-container-high transition-colors cursor-pointer">
+<p class="text-sm font-bold text-primary">Inventur-Check</p>
+<p class="text-[11px] text-slate-600 mt-1">Futterbestände für 'Premium Kibble' Linie aktualisieren.</p>
+<div class="mt-3 flex items-center justify-between">
+<span class="text-[10px] font-bold text-secondary">Fällig in 5 Std.</span>
+<div class="flex -space-x-1">
+<img class="w-5 h-5 rounded-full border border-white" data-alt="Staff profile small" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4kfozDqJPehM4XWtmUw9-KaBUeM4FWv3NlChvxxL8RUc4GmPHPwwRbqd-qgRL8hItJ3uhX9IzOpTa2B5BDozrMJIRKnSfJrnzaZ8ogVmyLJkuIFYusdNS2xO2ebJIEqyiN6gD-hVjb8CELzBjJNd0fvrphJ7diK4u2S0md9m842_tD1WG3ySJdl2VaRJ71NwVHtUXA7jrK3zNEwT6FmAV5xyAB8tWd8LkBDOiJCiFWnM8aLsdjDOSzZTao5YNNVpFVlA7ou9XpFM"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Low Priority -->
+<div>
+<div class="flex items-center gap-2 mb-4">
+<div class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></div>
+<h4 class="text-xs font-black text-slate-900 uppercase tracking-widest">Backlog</h4>
+</div>
+<div class="space-y-3">
+<div class="p-4 bg-slate-50 rounded-xl border-l-4 border-slate-200 hover:bg-slate-100 transition-colors cursor-pointer group">
+<p class="text-sm font-bold text-primary/70 group-hover:text-primary">Gartenzaun-Inspektion</p>
+<p class="text-[11px] text-slate-500 mt-1">Routineprüfung des westlichen Perimeters auf Grablöcher.</p>
+<div class="mt-3 flex items-center justify-between">
+<span class="text-[10px] font-bold text-slate-400">Bis Ende der Woche</span>
+<div class="flex -space-x-1">
+<span class="w-5 h-5 rounded-full bg-slate-200 flex items-center justify-center text-[8px] font-bold text-slate-500">?</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Float Action for specific Admin Task - Suppressed on sub-pages as per hierarchy -->
+<button class="fixed bottom-10 right-10 w-16 h-16 bg-primary rounded-full shadow-2xl flex items-center justify-center text-white hover:scale-110 active:scale-100 transition-all z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="smart_toy">smart_toy</span>
+<div class="absolute -top-1 -right-1 w-5 h-5 bg-orange-500 rounded-full border-2 border-white flex items-center justify-center text-[10px] font-bold">2</div>
+</button>
+</main>
+</body></html>

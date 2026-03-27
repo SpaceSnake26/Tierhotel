@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-container": "#53c2b5",
+            "tertiary-fixed-dim": "#6bd8cb",
+            "on-tertiary-fixed-variant": "#005049",
+            "inverse-on-surface": "#ecf1ff",
+            "tertiary-container": "#004d46",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "on-surface-variant": "#404944",
+            "on-background": "#111c2d",
+            "surface-bright": "#f9f9ff",
+            "secondary-fixed": "#ffdbca",
+            "primary-container": "#064e3b",
+            "surface-variant": "#d8e3fb",
+            "surface-tint": "#2b6954",
+            "secondary-fixed-dim": "#ffb690",
+            "on-error": "#ffffff",
+            "tertiary": "#00342f",
+            "surface-dim": "#cfdaf2",
+            "primary": "#003527",
+            "tertiary-fixed": "#89f5e7",
+            "secondary": "#9d4300",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "on-secondary-fixed-variant": "#783200",
+            "on-primary-fixed-variant": "#0b513d",
+            "surface-container-highest": "#d8e3fb",
+            "surface-container-high": "#dee8ff",
+            "surface": "#f9f9ff",
+            "error": "#ba1a1a",
+            "background": "#f9f9ff",
+            "on-primary-fixed": "#002117",
+            "surface-container-low": "#f0f3ff",
+            "secondary-container": "#fd761a",
+            "primary-fixed": "#b0f0d6",
+            "on-surface": "#111c2d",
+            "on-primary-container": "#80bea6",
+            "inverse-primary": "#95d3ba",
+            "surface-container": "#e7eeff",
+            "primary-fixed-dim": "#95d3ba",
+            "on-primary": "#ffffff",
+            "on-tertiary-fixed": "#00201d",
+            "inverse-surface": "#263143",
+            "outline": "#707974",
+            "on-secondary-fixed": "#341100",
+            "on-secondary-container": "#5c2400",
+            "error-container": "#ffdad6",
+            "outline-variant": "#bfc9c3"
+          },
+          fontFamily: {
+            "headline": ["Manrope"],
+            "body": ["Inter"],
+            "label": ["Inter"]
+          },
+          borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #003527 0%, #064e3b 100%);
+    }
+    .glass-effect {
+      background: rgba(216, 227, 251, 0.6);
+      backdrop-filter: blur(24px);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body antialiased">
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-50 bg-emerald-950 dark:bg-black shadow-[20px_0_40px_rgba(17,28,45,0.06)] flex flex-col p-4 gap-2">
+<div class="flex items-center gap-3 px-4 py-6 mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="pets">pets</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-white leading-tight">The Sanctuary</h1>
+<p class="text-[10px] uppercase tracking-widest text-emerald-200/50">Pet Hotel Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-emerald-200/70 hover:bg-emerald-800 hover:text-white transition-all px-4 py-2 flex items-center gap-3 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</a>
+<a class="text-emerald-200/70 hover:bg-emerald-800 hover:text-white transition-all px-4 py-2 flex items-center gap-3 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+<span>Absences</span>
+</a>
+<a class="text-emerald-200/70 hover:bg-emerald-800 hover:text-white transition-all px-4 py-2 flex items-center gap-3 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span>Tasks</span>
+</a>
+<a class="bg-emerald-800/50 text-white rounded-lg px-4 py-2 flex items-center gap-3" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Daily Notes</span>
+</a>
+<a class="text-emerald-200/70 hover:bg-emerald-800 hover:text-white transition-all px-4 py-2 flex items-center gap-3 rounded-lg group" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span>Events</span>
+</a>
+</nav>
+<div class="mt-auto pt-4 border-t border-emerald-900/50 space-y-1">
+<a class="text-emerald-200/70 hover:bg-emerald-800 hover:text-white transition-all px-4 py-2 flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="text-emerald-200/70 hover:bg-emerald-800 hover:text-white transition-all px-4 py-2 flex items-center gap-3 rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-40 bg-slate-50 flex justify-between items-center w-full px-10 py-4 font-['Manrope'] antialiased">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-emerald-900">Evergreen Paws</span>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-slate-500 hover:text-emerald-800 transition-colors" href="#">Dashboard</a>
+<a class="text-slate-500 hover:text-emerald-800 transition-colors" href="#">Staff</a>
+<a class="text-slate-500 hover:text-emerald-800 transition-colors" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-emerald-50 rounded-full transition-colors relative">
+<span class="material-symbols-outlined text-slate-600" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-secondary rounded-full"></span>
+</button>
+<button class="p-2 hover:bg-emerald-50 rounded-full transition-colors">
+<span class="material-symbols-outlined text-slate-600" data-icon="settings">settings</span>
+</button>
+<img alt="Manager Profile" class="w-10 h-10 rounded-full object-cover" data-alt="Professional headshot of a sanctuary manager in a soft lit office setting, friendly expression, natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC747wL7y4AtBAh9SKOVhNjjN0CcIhq2ux9oztY7qJZwakbz-3LWJCOy1r_EThjJG0eSoSeAL7L1P0vNC0q8HKcMDKzdnzl84pK2NXu5vZRN-4xueGTI5-LJM4yVllNqft5Zc8-jIwex9ffBCcXScavHUqMXTS2QSiS_0G07JOy30E2e77ZA5ALNJhHyDXXNbVNz92ThN9O2iAx1q3Wi6mEQ-qe_8QdomlxhsISp9Zts7wBUrGNDxDv3sepfjkrS-Y1ZpDASndMVFs"/>
+</div>
+</header>
+<!-- Page Content -->
+<div class="p-10 max-w-7xl mx-auto">
+<!-- Editorial Header Section -->
+<section class="mb-12">
+<div class="flex justify-between items-end mb-4">
+<div>
+<span class="text-label-sm font-semibold tracking-widest text-secondary uppercase block mb-2">Internal Communications</span>
+<h2 class="text-5xl font-extrabold font-headline tracking-tight text-on-surface">Daily Notes</h2>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 bg-surface-container-highest text-primary font-semibold rounded-md transition-all active:scale-95">
+              Export Archive
+            </button>
+</div>
+</div>
+<p class="text-on-surface-variant max-w-2xl leading-relaxed">
+          The central pulse of Evergreen Paws. Share critical updates, temperament alerts, and operational shifts with the entire sanctuary team.
+        </p>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Today's Draft Section (Editor) -->
+<div class="col-span-12 lg:col-span-8 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(17,28,45,0.04)] relative overflow-hidden">
+<div class="absolute top-0 right-0 p-6">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase">DRAFTING MODE</span>
+</div>
+<div class="flex items-center gap-4 mb-8">
+<div class="w-12 h-12 rounded-full hero-gradient flex items-center justify-center text-white">
+<span class="material-symbols-outlined" data-icon="edit_note">edit_note</span>
+</div>
+<div>
+<h3 class="text-xl font-bold font-headline text-on-surface">Today's Broadcast</h3>
+<p class="text-sm text-on-surface-variant">October 24, 2023 — Thursday Morning</p>
+</div>
+</div>
+<div class="space-y-6">
+<div class="p-6 bg-surface-container-low rounded-xl">
+<label class="block text-xs font-bold text-secondary uppercase mb-3 tracking-widest">Urgent Temperament Alerts</label>
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-slate-300 resize-none min-h-[80px] font-body" placeholder="e.g. 'Cooper (Golden Retriever) is showing signs of anxiety near the pool area...'"></textarea>
+</div>
+<div class="grid grid-cols-2 gap-6">
+<div class="p-6 bg-surface-container-low rounded-xl">
+<label class="block text-xs font-bold text-emerald-700 uppercase mb-3 tracking-widest">Feeding Adjustments</label>
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-slate-300 resize-none min-h-[60px] font-body" placeholder="Any changes to diet plans today?"></textarea>
+</div>
+<div class="p-6 bg-surface-container-low rounded-xl">
+<label class="block text-xs font-bold text-emerald-700 uppercase mb-3 tracking-widest">Maintenance Tasks</label>
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-slate-300 resize-none min-h-[60px] font-body" placeholder="Facility repairs or updates..."></textarea>
+</div>
+</div>
+<div class="p-6 border-2 border-dashed border-outline-variant/30 rounded-xl">
+<label class="block text-xs font-bold text-on-surface-variant uppercase mb-3 tracking-widest">General Announcements</label>
+<textarea class="w-full bg-transparent border-none focus:ring-0 text-on-surface placeholder:text-slate-300 resize-none min-h-[120px] font-body" placeholder="Write the main note content here..."></textarea>
+</div>
+</div>
+<div class="mt-10 flex justify-end items-center gap-6">
+<span class="text-sm text-on-surface-variant italic">Last autosaved at 09:42 AM</span>
+<button class="hero-gradient px-8 py-3 text-white font-bold rounded-md flex items-center gap-2 shadow-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+                Publish Note
+              </button>
+</div>
+</div>
+<!-- Pinned Knowledge or Resources (Asymmetric element) -->
+<div class="grid grid-cols-2 gap-6">
+<div class="bg-primary-container p-6 rounded-xl text-primary-fixed flex items-start gap-4">
+<span class="material-symbols-outlined text-3xl" data-icon="verified_user">verified_user</span>
+<div>
+<h4 class="font-bold mb-1">Safety Protocols</h4>
+<p class="text-sm text-on-primary-container">Ensure all gate latches are checked during the morning shift swap.</p>
+</div>
+</div>
+<div class="bg-tertiary-container p-6 rounded-xl text-tertiary-fixed flex items-start gap-4">
+<span class="material-symbols-outlined text-3xl" data-icon="emergency_home">emergency_home</span>
+<div>
+<h4 class="font-bold mb-1">Clinic Contact</h4>
+<p class="text-sm text-on-tertiary-container">Main Vet: Dr. Aris (555-0192) available until 6:00 PM today.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Archive Sidebar -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<div class="bg-surface-container-low rounded-xl p-6 flex flex-col h-full">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-xl font-bold font-headline text-on-surface">Past Broadcasts</h3>
+<button class="p-2 hover:bg-surface-container-highest rounded-lg transition-colors">
+<span class="material-symbols-outlined text-slate-500" data-icon="search">search</span>
+</button>
+</div>
+<!-- List with alternating backgrounds -->
+<div class="space-y-3">
+<!-- Item 1 -->
+<div class="p-4 bg-surface-container-lowest rounded-xl hover:translate-x-1 transition-transform cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Oct 23, 2023</span>
+<span class="material-symbols-outlined text-emerald-800 opacity-0 group-hover:opacity-100 transition-opacity" data-icon="chevron_right">chevron_right</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Wednesday Wrap-up</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Quiet afternoon. 12 dogs in the main play yard. Max needs ear drops at 8 PM tonight...</p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 bg-tertiary-fixed text-[9px] font-bold rounded-full text-on-tertiary-fixed-variant">STABLE</span>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="p-4 rounded-xl hover:translate-x-1 transition-transform cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Oct 22, 2023</span>
+<span class="material-symbols-outlined text-emerald-800 opacity-0 group-hover:opacity-100 transition-opacity" data-icon="chevron_right">chevron_right</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Tuesday Inventory Check</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Kibble delivery arrived. Please restock Bay 3 and Bay 4. New guest joining at 3 PM...</p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 bg-secondary-fixed text-[9px] font-bold rounded-full text-on-secondary-fixed-variant">INVENTORY</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-4 bg-surface-container-lowest rounded-xl hover:translate-x-1 transition-transform cursor-pointer group border-l-4 border-error">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Oct 21, 2023</span>
+<span class="material-symbols-outlined text-emerald-800 opacity-0 group-hover:opacity-100 transition-opacity" data-icon="chevron_right">chevron_right</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Monday Storm Protocol</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Severe weather warning. All pets indoors by 2 PM. Extra blankets for the senior wing...</p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 bg-error-container text-[9px] font-bold rounded-full text-on-error-container">URGENT</span>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="p-4 rounded-xl hover:translate-x-1 transition-transform cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Oct 20, 2023</span>
+<span class="material-symbols-outlined text-emerald-800 opacity-0 group-hover:opacity-100 transition-opacity" data-icon="chevron_right">chevron_right</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Sunday Shift Schedule</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">Team meeting at 10 AM. Reviewing the upcoming holiday peak season staffing...</p>
+</div>
+<!-- Item 5 -->
+<div class="p-4 bg-surface-container-lowest rounded-xl hover:translate-x-1 transition-transform cursor-pointer group">
+<div class="flex justify-between items-start mb-2">
+<span class="text-[10px] font-bold text-secondary uppercase tracking-tighter">Oct 19, 2023</span>
+<span class="material-symbols-outlined text-emerald-800 opacity-0 group-hover:opacity-100 transition-opacity" data-icon="chevron_right">chevron_right</span>
+</div>
+<h4 class="font-bold text-on-surface mb-1">Saturday Arrival List</h4>
+<p class="text-xs text-on-surface-variant line-clamp-2">High occupancy day. 24 check-ins expected. Stagger lunch breaks to maintain ratio...</p>
+</div>
+</div>
+<button class="mt-8 py-4 w-full border-2 border-emerald-900/10 rounded-xl text-primary font-bold hover:bg-emerald-50 transition-colors">
+              View Older Archives
+            </button>
+</div>
+<!-- Tip of the day Glass card -->
+<div class="glass-effect p-8 rounded-xl relative overflow-hidden">
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary mb-4 block" data-icon="lightbulb">lightbulb</span>
+<h4 class="text-lg font-bold text-primary mb-2">Editorial Tip</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                Clearer notes mean better care. Use bullet points for medical instructions and highlight pet names in **bold** for quick scanning during busy shifts.
+              </p>
+</div>
+<div class="absolute -bottom-10 -right-10 w-32 h-32 bg-primary/5 rounded-full blur-3xl"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual Floating Action Button -->
+<button class="fixed bottom-10 right-10 w-16 h-16 hero-gradient rounded-full text-white shadow-2xl flex items-center justify-center group hover:scale-110 transition-transform active:scale-100 z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+<span class="absolute right-full mr-4 bg-inverse-surface text-inverse-on-surface px-4 py-2 rounded-lg text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+      New Incident Report
+    </span>
+</button>
+</body></html>

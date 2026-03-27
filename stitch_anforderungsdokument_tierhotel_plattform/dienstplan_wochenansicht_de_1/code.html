@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+
+<html lang="de-CH"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dienstplan | The Editorial Sanctuary</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "inverse-surface": "#263143",
+              "secondary": "#9d4300",
+              "on-error-container": "#93000a",
+              "on-primary-fixed": "#002117",
+              "on-primary-fixed-variant": "#0b513d",
+              "surface-container-lowest": "#ffffff",
+              "background": "#f9f9ff",
+              "on-secondary": "#ffffff",
+              "on-primary-container": "#80bea6",
+              "inverse-on-surface": "#ecf1ff",
+              "outline-variant": "#bfc9c3",
+              "surface-container": "#e7eeff",
+              "surface-tint": "#2b6954",
+              "surface-variant": "#d8e3fb",
+              "on-background": "#111c2d",
+              "on-tertiary-fixed": "#00201d",
+              "surface-container-low": "#f0f3ff",
+              "secondary-fixed": "#ffdbca",
+              "primary-fixed": "#b0f0d6",
+              "outline": "#707974",
+              "error": "#ba1a1a",
+              "on-surface-variant": "#404944",
+              "secondary-fixed-dim": "#ffb690",
+              "surface-container-highest": "#d8e3fb",
+              "on-surface": "#111c2d",
+              "on-primary": "#ffffff",
+              "inverse-primary": "#95d3ba",
+              "error-container": "#ffdad6",
+              "primary": "#003527",
+              "surface-dim": "#cfdaf2",
+              "tertiary-container": "#004d46",
+              "tertiary-fixed": "#89f5e7",
+              "tertiary": "#00342f",
+              "on-secondary-container": "#5c2400",
+              "primary-fixed-dim": "#95d3ba",
+              "on-tertiary": "#ffffff",
+              "on-tertiary-fixed-variant": "#005049",
+              "surface-container-high": "#dee8ff",
+              "on-tertiary-container": "#53c2b5",
+              "tertiary-fixed-dim": "#6bd8cb",
+              "primary-container": "#064e3b",
+              "surface": "#f9f9ff",
+              "surface-bright": "#f9f9ff",
+              "on-error": "#ffffff",
+              "on-secondary-fixed": "#341100"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .tonal-transition { transition: background-color 0.3s ease; }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background antialiased overflow-x-hidden">
+<!-- SideNavBar -->
+<nav class="bg-emerald-950 dark:bg-slate-950 h-screen w-64 fixed left-0 top-0 overflow-y-auto z-50 shadow-2xl shadow-emerald-950/20 flex flex-col py-6">
+<div class="px-6 mb-8 flex items-center gap-3">
+<div class="w-10 h-10 bg-orange-500 rounded-xl flex items-center justify-center">
+<span class="material-symbols-outlined text-white" style="font-variation-settings: 'FILL' 1;">pets</span>
+</div>
+<div>
+<h1 class="text-xl font-bold text-white tracking-tighter font-headline">The Sanctuary</h1>
+<p class="text-[10px] uppercase tracking-widest text-emerald-400 font-bold">Haustier-Redaktion</p>
+</div>
+</div>
+<div class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-2 hover:bg-emerald-800/50 transition-colors duration-200 font-manrope text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-emerald-800 text-white rounded-lg mx-2 font-manrope text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+                Dienstplan
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-2 hover:bg-emerald-800/50 transition-colors duration-200 font-manrope text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+                Absenzen
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-2 hover:bg-emerald-800/50 transition-colors duration-200 font-manrope text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+                Aufgaben
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-2 hover:bg-emerald-800/50 transition-colors duration-200 font-manrope text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="sticky_note_2">sticky_note_2</span>
+                Notizen
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-2 hover:bg-emerald-800/50 transition-colors duration-200 font-manrope text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+                Events
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-2 hover:bg-emerald-800/50 transition-colors duration-200 font-manrope text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Benutzer
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-200/70 hover:text-white mx-2 hover:bg-emerald-800/50 transition-colors duration-200 font-manrope text-sm font-medium tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                Einstellungen
+            </a>
+</div>
+<div class="px-4 mt-auto">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-white py-3 rounded-lg font-semibold flex items-center justify-center gap-2 hover:shadow-lg transition-all scale-95 active:scale-100">
+<span class="material-symbols-outlined text-sm">add</span>
+                Neuer Check-in
+            </button>
+</div>
+</nav>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-slate-50/80 backdrop-blur-xl flex justify-between items-center px-8 tonal-transition">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-96 group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">search</span>
+<input class="w-full bg-slate-100 border-none rounded-full pl-10 pr-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all placeholder:text-slate-400" placeholder="Suche nach Mitarbeitenden, Plänen oder Events..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<button class="p-2 text-slate-500 hover:text-emerald-700 transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:text-emerald-700 transition-opacity opacity-80 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-slate-200"></div>
+<div class="flex items-center gap-3">
+<div class="text-right">
+<p class="text-sm font-bold text-emerald-900 leading-none">Admin-Benutzer</p>
+<p class="text-[10px] text-slate-500 font-medium">Internes Management</p>
+</div>
+<img class="w-10 h-10 rounded-full object-cover ring-2 ring-emerald-100" data-alt="Staff Avatar, focused middle-aged man with glasses in a professional studio setting with warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCICsiFVe-mHxrONOups8PwtM2J9yHFGwk9IXiANczBUGBriNCtmdiYCCt76YJjhHMddfAPuMMtTJsDr8xTwwRZvaQ2nklSezFP-t77dAmPAzD5Jayn0NMln6CfZFqiB-5UJVMC9BYB8hXQp-vRlZcPi68iLo7esQjvAvAbhlesE4NU7b46s2FHrUITzMPiKDXN1JcmCfnJKsw5vNRF9CsbgZrhYD0w6Fs15dhsp2F70avign1ouZ-_OedDX2nfgLMIfYPJQtk1JO0"/>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="ml-64 pt-16 min-h-screen p-8">
+<!-- Dashboard Header & Week Switcher -->
+<div class="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div>
+<p class="text-label-sm font-label font-bold text-secondary uppercase tracking-widest mb-1">Einsatzplanung</p>
+<h2 class="text-3xl font-headline font-extrabold text-on-surface tracking-tight">Dienstplan</h2>
+</div>
+<div class="flex items-center gap-2 p-1.5 bg-surface-container-low rounded-xl">
+<button class="p-2 hover:bg-surface-container-highest rounded-lg text-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<div class="px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-surface-container-highest rounded-lg transition-all group">
+<span class="material-symbols-outlined text-slate-400">calendar_today</span>
+<span class="font-headline font-bold text-on-surface">23. Okt - 29. Okt 2023</span>
+<span class="material-symbols-outlined text-slate-400 group-hover:text-primary">expand_more</span>
+</div>
+<button class="p-2 hover:bg-surface-container-highest rounded-lg text-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<div class="h-6 w-[1px] bg-slate-200 mx-2"></div>
+<button class="px-4 py-2 bg-surface-container-highest text-primary font-bold rounded-lg text-sm hover:brightness-95 transition-all">Heute</button>
+</div>
+</div>
+<!-- Roster Grid Container -->
+<div class="bg-surface-container-lowest rounded-xl shadow-2xl shadow-on-surface/5 overflow-hidden">
+<!-- Grid Header: Days of the Week -->
+<div class="grid grid-cols-[240px_repeat(7,1fr)] bg-surface-container-low border-b border-outline-variant/10">
+<div class="p-6 font-headline font-bold text-on-surface text-sm border-r border-outline-variant/10 flex items-center justify-between">
+<span>Mitarbeitende</span>
+<span class="material-symbols-outlined text-slate-400 text-lg">filter_list</span>
+</div>
+<!-- Monday -->
+<div class="p-4 text-center border-r border-outline-variant/10">
+<p class="text-xs font-label font-bold text-slate-500 uppercase tracking-tighter">Mon</p>
+<p class="text-xl font-headline font-extrabold text-on-surface">23</p>
+</div>
+<!-- Tuesday -->
+<div class="p-4 text-center border-r border-outline-variant/10">
+<p class="text-xs font-label font-bold text-slate-500 uppercase tracking-tighter">Die</p>
+<p class="text-xl font-headline font-extrabold text-on-surface">24</p>
+</div>
+<!-- Wednesday (Active Today Example) -->
+<div class="p-4 text-center border-r border-outline-variant/10 bg-primary-container/5 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-primary"></div>
+<p class="text-xs font-label font-bold text-primary uppercase tracking-tighter">Mit</p>
+<p class="text-xl font-headline font-extrabold text-primary">25</p>
+</div>
+<!-- Thursday -->
+<div class="p-4 text-center border-r border-outline-variant/10">
+<p class="text-xs font-label font-bold text-slate-500 uppercase tracking-tighter">Don</p>
+<p class="text-xl font-headline font-extrabold text-on-surface">26</p>
+</div>
+<!-- Friday -->
+<div class="p-4 text-center border-r border-outline-variant/10">
+<p class="text-xs font-label font-bold text-slate-500 uppercase tracking-tighter">Fre</p>
+<p class="text-xl font-headline font-extrabold text-on-surface">27</p>
+</div>
+<!-- Saturday -->
+<div class="p-4 text-center border-r border-outline-variant/10 bg-slate-50">
+<p class="text-xs font-label font-bold text-slate-400 uppercase tracking-tighter">Sam</p>
+<p class="text-xl font-headline font-extrabold text-slate-400">28</p>
+</div>
+<!-- Sunday -->
+<div class="p-4 text-center bg-slate-50">
+<p class="text-xs font-label font-bold text-slate-400 uppercase tracking-tighter">Son</p>
+<p class="text-xl font-headline font-extrabold text-slate-400">29</p>
+</div>
+</div>
+<!-- Grid Rows: Staff Members -->
+<div class="divide-y divide-outline-variant/10">
+<!-- Staff Row 1 -->
+<div class="grid grid-cols-[240px_repeat(7,1fr)] group/row">
+<div class="p-6 flex items-center gap-3 border-r border-outline-variant/10 bg-surface-container-lowest group-hover/row:bg-surface-container-low transition-colors">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Candid portrait of a smiling male pet caretaker with a gentle expression, natural outdoor lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBh_6edFuIygxiJA-sqqlLLIadMB26GoewQgo8uB3JxJ4V0HMF_U9kBimcKwwzGP1k7z7_rKURIQ4wAXj0fLTVFE0ndI8QdTnGl2-7KBjEDZ5GHu0K6aoZAhxjku84qzbFJHfkLuMrgaVTpk3W7H4oaRJ7rQv1JAPnC7v6uUTdeYX6cKxhnq35DL6AFQKwauiwUcqwyixaTbb-bLZwfiaHXmyJ4KI3en0hkOjYDJzI-Hv3uM8zCxmIRJ5mGVuhaa2a1Y9kyk9ErCs4"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Marcus Weber</p>
+<p class="text-[10px] text-slate-500 font-medium">Hauptpfleger</p>
+</div>
+</div>
+<!-- Mon -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell">
+<div class="bg-primary-fixed text-on-primary-fixed-variant p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Frühschicht</span>
+<span class="material-symbols-outlined text-[14px]">wb_sunny</span>
+</div>
+<p class="mt-1 font-medium opacity-80">07:00 - 15:30</p>
+</div>
+<button class="absolute inset-0 bg-primary/40 opacity-0 group-hover/cell:opacity-100 flex items-center justify-center transition-opacity rounded-lg m-1">
+<span class="material-symbols-outlined text-white">edit</span>
+</button>
+</div>
+<!-- Tue -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell">
+<div class="bg-inverse-surface text-inverse-on-surface p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Nachtschicht</span>
+<span class="material-symbols-outlined text-[14px]">dark_mode</span>
+</div>
+<p class="mt-1 font-medium opacity-80">22:00 - 06:00</p>
+</div>
+</div>
+<!-- Wed -->
+<div class="p-2 border-r border-outline-variant/10 relative bg-primary-container/5 group/cell">
+<div class="bg-primary-fixed text-on-primary-fixed-variant p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Frühschicht</span>
+<span class="material-symbols-outlined text-[14px]">wb_sunny</span>
+</div>
+<p class="mt-1 font-medium opacity-80">07:00 - 15:30</p>
+</div>
+</div>
+<!-- Thu -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell flex items-center justify-center">
+<button class="opacity-0 group-hover/cell:opacity-100 p-2 rounded-full bg-surface-container-highest text-primary transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Fri -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell">
+<div class="bg-secondary-fixed text-on-secondary-fixed-variant p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Ganztag</span>
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+</div>
+<p class="mt-1 font-medium opacity-80">09:00 - 18:00</p>
+</div>
+</div>
+<!-- Sat -->
+<div class="p-2 border-r border-outline-variant/10 bg-slate-50 flex items-center justify-center">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Frei</span>
+</div>
+<!-- Sun -->
+<div class="p-2 bg-slate-50 flex items-center justify-center">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Frei</span>
+</div>
+</div>
+<!-- Staff Row 2 (Conflict/Overdue State) -->
+<div class="grid grid-cols-[240px_repeat(7,1fr)] group/row">
+<div class="p-6 flex items-center gap-3 border-r border-outline-variant/10 bg-surface-container-lowest group-hover/row:bg-surface-container-low transition-colors">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Professional woman with short dark hair, wearing a navy polo shirt, soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_WV6lOTSC3rT6uT2IO9gxiwXYWS8SGhzTTi7N4hBkybmsCi9_yyz73BiV_xO_uTSP9Dhtby_ypYAcqnlEXAkTQMarJ0CNdEAxCv_hrueGsHU5t_dq2an_JeQ-9isRMG3dMtV-dwSKNTNOb04aD_H6yGt-MNyPmL0Q-2zmAsOddFi3MP0P6OQ1fiToMMg1f7yXcCb3-tXQJiX_dyZh22MUIlvGPP2CDATUN332xZK9tt4gNaL0vbrZV1JsYuMlI4l25gaFbM9sRUI"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Elena Rodriguez</p>
+<p class="text-[10px] text-slate-500 font-medium">Tierarzt-Technikerin</p>
+</div>
+</div>
+<!-- Mon -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell">
+<div class="bg-primary-fixed text-on-primary-fixed-variant p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Frühschicht</span>
+<span class="material-symbols-outlined text-[14px]">wb_sunny</span>
+</div>
+<p class="mt-1 font-medium opacity-80">07:00 - 15:30</p>
+</div>
+</div>
+<!-- Tue -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell">
+<div class="bg-error-container text-on-error-container p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm border border-error/20">
+<div class="flex justify-between items-start">
+<span>Krankheit</span>
+<span class="material-symbols-outlined text-[16px] text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<p class="mt-1 font-medium opacity-80">Ganztag</p>
+</div>
+</div>
+<!-- Wed -->
+<div class="p-2 border-r border-outline-variant/10 relative bg-primary-container/5 group/cell">
+<div class="bg-error-container text-on-error-container p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm border border-error/20">
+<div class="flex justify-between items-start">
+<span>Krankheit</span>
+<span class="material-symbols-outlined text-[16px] text-error" style="font-variation-settings: 'FILL' 1;">warning</span>
+</div>
+<p class="mt-1 font-medium opacity-80">Ganztag</p>
+</div>
+<div class="absolute -top-1 -right-1">
+<span class="flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-error"></span>
+</span>
+</div>
+</div>
+<!-- Thu -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell">
+<div class="bg-secondary-fixed text-on-secondary-fixed-variant p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Ganztag</span>
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+</div>
+<p class="mt-1 font-medium opacity-80">09:00 - 18:00</p>
+</div>
+</div>
+<!-- Fri -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell flex items-center justify-center">
+<button class="opacity-0 group-hover/cell:opacity-100 p-2 rounded-full bg-surface-container-highest text-primary transition-all">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Sat -->
+<div class="p-2 border-r border-outline-variant/10 bg-slate-50 flex items-center justify-center">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Frei</span>
+</div>
+<!-- Sun -->
+<div class="p-2 bg-slate-50 flex items-center justify-center">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Frei</span>
+</div>
+</div>
+<!-- Staff Row 3 (Vacation State) -->
+<div class="grid grid-cols-[240px_repeat(7,1fr)] group/row">
+<div class="p-6 flex items-center gap-3 border-r border-outline-variant/10 bg-surface-container-lowest group-hover/row:bg-surface-container-low transition-colors">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Portrait of a young blonde woman with a friendly smile, casual attire, bright natural window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAt1o1tBSYc6Y8h1YdlTyy7TzcoAK-rzqcz0GQvHZDIC_vy4wD5hkCYKE-9zVnMhFUmmmKZIxDW0FS5HM5QTR5JpBH3cHl1NyYy62AWihtAPT-hPj0Nj8wAk4l3FWsoX6CGSbW24X0G-H44v1riu_K7yIRiaUoAQiRunl1tU3nYzU2m3CJ7chTLdxbtHHakD52-iBFgOdbj5udY8fTv_EJzjnFx5CF94ErEFHN982eBrmZSceAu19llrN5PE13dyK8EgocmMXteHxY"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Sophie Laurent</p>
+<p class="text-[10px] text-slate-500 font-medium">Gästerelationen</p>
+</div>
+</div>
+<!-- Mon to Sun: Long block spanning -->
+<div class="col-span-7 p-2 grid grid-cols-7 gap-2">
+<div class="col-span-7 bg-tertiary-fixed text-on-tertiary-fixed-variant p-2 rounded-lg text-[11px] font-bold flex items-center justify-center gap-2 border border-tertiary/10">
+<span class="material-symbols-outlined text-sm">beach_access</span>
+<span>Jahresurlaub - Sophie Laurent (Zurück am 30. Okt)</span>
+<span class="material-symbols-outlined text-sm">beach_access</span>
+</div>
+</div>
+</div>
+<!-- Staff Row 4 (Standard) -->
+<div class="grid grid-cols-[240px_repeat(7,1fr)] group/row">
+<div class="p-6 flex items-center gap-3 border-r border-outline-variant/10 bg-surface-container-lowest group-hover/row:bg-surface-container-low transition-colors">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="Middle-aged man with short hair and a beard, neutral expression, soft focus garden background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWUSgBDJCMKk10q4jIcioMwUqsQtEqKhfa2SqdQPg5sTCIZUralRDCmCthbtuUU0L9Zdpn9MrSXFR4LqZLNsanhmwbAyTOUkdiWU1qwQkyQgGxnIarTBSImgtfZDr5U5dsjsWrbpNdcagtVMbpIIe-PpQ_7tDM8FwNfnVT0D0FXigP1amsKQoejJiqFRpJUKBiPwbgFseOfsN0MGq8n7PePCz56BFQOxLRyRIuCrU7FPDUkmW4D4N0VBRBLI7navlAzL3xM0pgxMI"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Thomas Müller</p>
+<p class="text-[10px] text-slate-500 font-medium">Nacht-Supervisor</p>
+</div>
+</div>
+<!-- Mon -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell flex items-center justify-center">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Frei</span>
+</div>
+<!-- Tue -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell flex items-center justify-center">
+<span class="text-[10px] font-bold text-slate-400 uppercase">Frei</span>
+</div>
+<!-- Wed -->
+<div class="p-2 border-r border-outline-variant/10 relative bg-primary-container/5 group/cell">
+<div class="bg-inverse-surface text-inverse-on-surface p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Nachtschicht</span>
+<span class="material-symbols-outlined text-[14px]">dark_mode</span>
+</div>
+<p class="mt-1 font-medium opacity-80">22:00 - 06:00</p>
+</div>
+</div>
+<!-- Thu -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell">
+<div class="bg-inverse-surface text-inverse-on-surface p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Nachtschicht</span>
+<span class="material-symbols-outlined text-[14px]">dark_mode</span>
+</div>
+<p class="mt-1 font-medium opacity-80">22:00 - 06:00</p>
+</div>
+</div>
+<!-- Fri -->
+<div class="p-2 border-r border-outline-variant/10 relative group/cell">
+<div class="bg-inverse-surface text-inverse-on-surface p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Nachtschicht</span>
+<span class="material-symbols-outlined text-[14px]">dark_mode</span>
+</div>
+<p class="mt-1 font-medium opacity-80">22:00 - 06:00</p>
+</div>
+</div>
+<!-- Sat -->
+<div class="p-2 border-r border-outline-variant/10 bg-slate-50 relative group/cell">
+<div class="bg-inverse-surface text-inverse-on-surface p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Nachtschicht</span>
+<span class="material-symbols-outlined text-[14px]">dark_mode</span>
+</div>
+<p class="mt-1 font-medium opacity-80">22:00 - 06:00</p>
+</div>
+</div>
+<!-- Sun -->
+<div class="p-2 bg-slate-50 relative group/cell">
+<div class="bg-inverse-surface text-inverse-on-surface p-2 rounded-lg text-[11px] font-bold leading-tight h-full shadow-sm">
+<div class="flex justify-between items-start">
+<span>Nachtschicht</span>
+<span class="material-symbols-outlined text-[14px]">dark_mode</span>
+</div>
+<p class="mt-1 font-medium opacity-80">22:00 - 06:00</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Grid Footer: Daily Summary -->
+<div class="grid grid-cols-[240px_repeat(7,1fr)] bg-surface-container-high border-t border-outline-variant/10">
+<div class="p-6 font-headline font-bold text-on-surface text-sm border-r border-outline-variant/10 flex items-center">
+                    Tägliche Personalanzehl
+                </div>
+<!-- Monday -->
+<div class="p-4 text-center border-r border-outline-variant/10">
+<p class="text-xs font-bold text-primary">8 Personen</p>
+<div class="flex justify-center gap-0.5 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+</div>
+</div>
+<!-- Tuesday -->
+<div class="p-4 text-center border-r border-outline-variant/10">
+<p class="text-xs font-bold text-error">5 Personen</p>
+<div class="flex justify-center gap-0.5 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-error"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+</div>
+</div>
+<!-- Wednesday -->
+<div class="p-4 text-center border-r border-outline-variant/10 bg-primary-container/10">
+<p class="text-xs font-bold text-primary">7 Personen</p>
+<div class="flex justify-center gap-0.5 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+</div>
+</div>
+<!-- Thursday -->
+<div class="p-4 text-center border-r border-outline-variant/10">
+<p class="text-xs font-bold text-primary">9 Personen</p>
+<div class="flex justify-center gap-0.5 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+</div>
+</div>
+<!-- Friday -->
+<div class="p-4 text-center border-r border-outline-variant/10">
+<p class="text-xs font-bold text-primary">8 Personen</p>
+<div class="flex justify-center gap-0.5 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-emerald-500"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-slate-300"></div>
+</div>
+</div>
+<!-- Saturday -->
+<div class="p-4 text-center border-r border-outline-variant/10">
+<p class="text-xs font-bold text-slate-500">4 Personen</p>
+<div class="flex justify-center gap-0.5 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+</div>
+</div>
+<!-- Sunday -->
+<div class="p-4 text-center">
+<p class="text-xs font-bold text-slate-500">3 Personen</p>
+<div class="flex justify-center gap-0.5 mt-1">
+<div class="w-1.5 h-1.5 rounded-full bg-secondary"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Insights / Legends -->
+<div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
+<div class="p-6 bg-surface-container-low rounded-xl">
+<h3 class="font-headline font-bold text-sm text-on-surface mb-4">Legende Schichttypen</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded bg-primary-fixed"></div>
+<span class="text-xs font-medium text-slate-600">Frühschicht (07:00 - 15:30)</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded bg-secondary-fixed"></div>
+<span class="text-xs font-medium text-slate-600">Ganztag (09:00 - 18:00)</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded bg-inverse-surface"></div>
+<span class="text-xs font-medium text-slate-600">Nachtschicht (22:00 - 06:00)</span>
+</div>
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded bg-tertiary-fixed"></div>
+<span class="text-xs font-medium text-slate-600">Ferien / Urlaub</span>
+</div>
+</div>
+</div>
+<div class="p-6 bg-error-container/20 rounded-xl border border-error-container/30">
+<div class="flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-error">report_problem</span>
+<h3 class="font-headline font-bold text-sm text-on-error-container">Personal-Warnungen</h3>
+</div>
+<ul class="space-y-2">
+<li class="text-xs font-medium text-on-error-container/80 flex items-start gap-2">
+<span class="text-error font-bold">•</span>
+                        Dienstag: Unterbesetzt für die Frühschicht wegen 1 Krankheit.
+                    </li>
+<li class="text-xs font-medium text-on-error-container/80 flex items-start gap-2">
+<span class="text-error font-bold">•</span>
+                        Mittwoch: Potenzieller Konflikt bei Nacht-Supervisor Überschneidung.
+                    </li>
+</ul>
+</div>
+<div class="p-6 bg-surface-container-high rounded-xl relative overflow-hidden group">
+<div class="relative z-10">
+<h3 class="font-headline font-bold text-sm text-on-surface mb-1">Optimierung Dienstplan</h3>
+<p class="text-[11px] text-slate-500 mb-4 leading-relaxed">KI schlägt Marcus Weber für die Wochenendschicht vor, um monatliche Überstunden auszugleichen.</p>
+<button class="text-xs font-bold text-primary flex items-center gap-1 hover:underline">
+                        Vorschläge prüfen
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+<div class="absolute -right-4 -bottom-4 opacity-10 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-7xl text-primary" style="font-variation-settings: 'FILL' 1;">psychology</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button for Mobile / Quick Action -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-gradient-to-br from-primary to-primary-container text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform group z-50">
+<span class="material-symbols-outlined group-hover:rotate-90 transition-transform">add</span>
+</button>
+</body></html>

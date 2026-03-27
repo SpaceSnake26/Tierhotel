@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tierhotel 5 Stern - Einsatzplanung Dienstplan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e6e9e8",
+              "surface-container-low": "#f2f4f3",
+              "on-surface-variant": "#3e4944",
+              "on-secondary": "#ffffff",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#00513f",
+              "inverse-primary": "#82d7ba",
+              "secondary-fixed": "#c8eadc",
+              "surface-tint": "#016b54",
+              "on-error-container": "#93000a",
+              "on-primary-fixed": "#002118",
+              "on-background": "#191c1c",
+              "outline-variant": "#bec9c3",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#753229",
+              "tertiary-fixed": "#ffdad4",
+              "primary-fixed": "#9ef3d6",
+              "primary-container": "#006b54",
+              "on-secondary-container": "#4c6b5f",
+              "on-surface": "#191c1c",
+              "secondary-container": "#c8eadc",
+              "surface-container-highest": "#e1e3e2",
+              "on-secondary-fixed-variant": "#2f4d42",
+              "on-secondary-fixed": "#012018",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#ffcdc5",
+              "secondary": "#466559",
+              "outline": "#6f7a74",
+              "surface": "#f8faf9",
+              "inverse-on-surface": "#eff1f0",
+              "surface-variant": "#e1e3e2",
+              "on-primary-container": "#94e8cb",
+              "inverse-surface": "#2e3131",
+              "background": "#f8faf9",
+              "error-container": "#ffdad6",
+              "surface-bright": "#f8faf9",
+              "surface-dim": "#d8dada",
+              "tertiary-container": "#92493e",
+              "tertiary-fixed-dim": "#ffb4a8",
+              "on-tertiary-fixed": "#3c0804",
+              "on-error": "#ffffff",
+              "primary": "#00513f",
+              "secondary-fixed-dim": "#adcec0",
+              "tertiary": "#753229",
+              "primary-fixed-dim": "#82d7ba",
+              "surface-container": "#eceeed",
+              "on-tertiary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      body { font-family: 'Manrope', sans-serif; }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+      }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- SideNavBar -->
+<nav class="fixed left-0 top-0 h-full w-64 z-50 bg-[#f8faf9] flex flex-col p-6 space-y-2">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-extrabold text-[#006B54]">Tierhotel 5 Stern</h1>
+<p class="text-[12px] text-zinc-500 font-medium tracking-wide uppercase">Concierge Portal</p>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-[#006B54] shadow-[0_4px_12px_rgba(0,81,63,0.05)] rounded-xl font-manrope text-[15px] font-semibold" href="#">
+<span class="material-symbols-outlined">calendar_view_day</span>
+<span>Roster</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined">event_busy</span>
+<span>Absences</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined">description</span>
+<span>Notes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined">event</span>
+<span>Events</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-manrope text-[15px] font-medium" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</div>
+<div class="mt-auto pt-10 px-2">
+<div class="flex items-center gap-3 p-3 rounded-2xl bg-surface-container-low">
+<img class="w-10 h-10 rounded-full object-cover shadow-sm" data-alt="professional portrait of a luxury hotel manager in a sharp suit with a confident smile" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBo9skSMwckHEtvkj9QsyyHPi2d71Zr1_bl27PfFgUxRdkapPXkbAF0-V3M-JWmhm6J4iG7h6tmL9OQ5eiobYDl3_ai6t9hW2H5NdFjzfpjZJWgqiBJgHySIr4YVg3XK7YfMguiZHlBnca3pK0YZO0UPj2PEywaDsJxgUoHQtSs7Vq8yTzQYlC9wHKfdMyTx85E0Yp3rpH6wDH9N_PTcwbhqwdr9JF-cm_k3ByOzB0VEzBDb6yTcdgOJHDtfjf8x-5bGHhSrrBQrPU"/>
+<div>
+<p class="text-sm font-bold text-on-background">M. Weber</p>
+<p class="text-[11px] text-on-surface-variant">General Manager</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="ml-64 min-h-screen bg-surface-container-low pb-12">
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 z-40 w-[calc(100%-16rem)] h-16 bg-white/80 backdrop-blur-xl flex items-center justify-between px-8 shadow-[0_8px_30px_rgb(0,81,63,0.04)]">
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-zinc-400 text-lg">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-sm w-64 focus:ring-1 focus:ring-primary/20 transition-all" placeholder="Suche nach Mitarbeitern..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<button class="p-2 text-zinc-500 hover:bg-zinc-50 rounded-full transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
+</button>
+<button class="p-2 text-zinc-500 hover:bg-zinc-50 rounded-full transition-colors">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="pt-24 px-8">
+<div class="flex items-end justify-between mb-8">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-background mb-2">Einsatzplanung Dienstplan</h2>
+<p class="text-on-surface-variant flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm">calendar_today</span>
+                        Woche 42: 14. Oktober - 20. Oktober 2024
+                    </p>
+</div>
+<div class="flex items-center gap-3">
+<div class="flex bg-white rounded-xl p-1 shadow-sm">
+<button class="px-4 py-2 text-sm font-semibold bg-surface-container-high text-primary rounded-lg">Woche</button>
+<button class="px-4 py-2 text-sm font-medium text-zinc-500 hover:text-primary transition-colors">Monat</button>
+</div>
+<button class="flex items-center gap-2 bg-gradient-to-r from-primary to-primary-container text-white px-6 py-2.5 rounded-xl font-semibold shadow-[0_4px_12px_rgba(0,81,63,0.15)] active:scale-95 transition-all">
+<span class="material-symbols-outlined text-lg">add</span>
+                        Neue Schicht
+                    </button>
+</div>
+</div>
+<!-- Roster Table Container -->
+<div class="bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,81,63,0.02)] overflow-hidden">
+<div class="overflow-x-auto no-scrollbar">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface/50">
+<th class="sticky left-0 z-20 bg-white p-6 border-b border-surface-container-high min-w-[240px]">
+<span class="text-xs font-bold uppercase tracking-widest text-zinc-400">Mitarbeiter</span>
+</th>
+<th class="p-6 border-b border-surface-container-high min-w-[140px]">
+<div class="text-center">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Mo</p>
+<p class="text-lg font-bold text-on-background">14</p>
+</div>
+</th>
+<th class="p-6 border-b border-surface-container-high min-w-[140px]">
+<div class="text-center">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Di</p>
+<p class="text-lg font-bold text-on-background">15</p>
+</div>
+</th>
+<th class="p-6 border-b border-surface-container-high min-w-[140px]">
+<div class="text-center">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Mi</p>
+<p class="text-lg font-bold text-on-background">16</p>
+</div>
+</th>
+<th class="p-6 border-b border-surface-container-high min-w-[140px]">
+<div class="text-center">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Do</p>
+<p class="text-lg font-bold text-on-background">17</p>
+</div>
+</th>
+<th class="p-6 border-b border-surface-container-high min-w-[140px]">
+<div class="text-center">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Fr</p>
+<p class="text-lg font-bold text-on-background">18</p>
+</div>
+</th>
+<th class="p-6 border-b border-surface-container-high min-w-[140px] bg-secondary-container/10">
+<div class="text-center">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">Sa</p>
+<p class="text-lg font-bold text-on-background">19</p>
+</div>
+</th>
+<th class="p-6 border-b border-surface-container-high min-w-[140px] bg-secondary-container/10">
+<div class="text-center">
+<p class="text-xs font-bold text-zinc-400 uppercase tracking-widest">So</p>
+<p class="text-lg font-bold text-on-background">20</p>
+</div>
+</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-low">
+<!-- Employee Row 1 -->
+<tr class="group hover:bg-surface transition-colors">
+<td class="sticky left-0 z-20 bg-white group-hover:bg-surface p-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="professional headshot of a smiling female employee in an elegant workplace setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-KPBqMNzEHh2BilK0RWH9Ey_9qfBn0kPz97Y_68Q7JNTLdhsV750FMUWvfcWCgicHBuw0URxej88lqml3FkVmzInF08PsOANoZ099q2AKj_AYJz2h_kGoGKexO1-pg3Iy656iEXsJ-Vr3Rrg8U0rmDbo84VRsXib4vf2UOA-ShI-X3zL1NnQSfivkgB8Nu-pUr-RWLEDLEPnfmGbLmxBWLneDUQaLbuL3C0YQDrDwc8PylzxZZfKZyMTAlb27xc7Q8jyddxNHi7w"/>
+<div>
+<p class="text-sm font-bold text-on-background">Anna Schmidt</p>
+<p class="text-xs text-zinc-500">Tierpflege Leitung</p>
+</div>
+</div>
+</td>
+<td class="p-3">
+<div class="bg-secondary-container/50 border border-secondary-container text-on-secondary-container p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        FRÜH (07-15)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-secondary-container/50 border border-secondary-container text-on-secondary-container p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        FRÜH (07-15)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-primary-fixed/30 border border-primary-fixed text-primary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        TAG (09-17)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-surface-container text-zinc-400 p-2 rounded-xl text-[11px] font-medium text-center italic">
+                                        FREI
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-surface-container text-zinc-400 p-2 rounded-xl text-[11px] font-medium text-center italic">
+                                        FREI
+                                    </div>
+</td>
+<td class="p-3 bg-secondary-container/5">
+<div class="bg-tertiary-fixed/40 border border-tertiary-fixed text-tertiary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        SPÄT (14-22)
+                                    </div>
+</td>
+<td class="p-3 bg-secondary-container/5">
+<div class="bg-tertiary-fixed/40 border border-tertiary-fixed text-tertiary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        SPÄT (14-22)
+                                    </div>
+</td>
+</tr>
+<!-- Employee Row 2 -->
+<tr class="group hover:bg-surface transition-colors">
+<td class="sticky left-0 z-20 bg-white group-hover:bg-surface p-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="professional male employee portrait with a friendly expression in a modern office environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSqbkflpAV8rsa_T9MlyDiiiKRcligv3EoIxC7YinzvN0n7JF0TcHZQn0H6XXjKze5LhB0TOf0O-OF45nZpHd8aCcWfHe8gX-HyKyayQlqEeHn-DSP7UpDw7FdB93Zf8oGapaouAWnoSkLctqtwDjmljU2yJ7EkNDfgRouxAfEd1piaSEY-w_1tzkHfwZMsppS0R5d03Nr4YY45rY6vvd78DWDonIK3hQzks9pMzYQZWkYV3T38APm-ILyb1xHHdScZ5JIGhJSO6Y"/>
+<div>
+<p class="text-sm font-bold text-on-background">Lukas Mayer</p>
+<p class="text-xs text-zinc-500">Concierge Service</p>
+</div>
+</div>
+</td>
+<td class="p-3">
+<div class="bg-surface-container text-zinc-400 p-2 rounded-xl text-[11px] font-medium text-center italic">
+                                        FREI
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-tertiary-fixed/40 border border-tertiary-fixed text-tertiary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        SPÄT (14-22)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-tertiary-fixed/40 border border-tertiary-fixed text-tertiary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        SPÄT (14-22)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-tertiary-fixed/40 border border-tertiary-fixed text-tertiary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        SPÄT (14-22)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-secondary-container/50 border border-secondary-container text-on-secondary-container p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        FRÜH (07-15)
+                                    </div>
+</td>
+<td class="p-3 bg-secondary-container/5">
+<div class="bg-secondary-container/50 border border-secondary-container text-on-secondary-container p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        FRÜH (07-15)
+                                    </div>
+</td>
+<td class="p-3 bg-secondary-container/5">
+<div class="bg-surface-container text-zinc-400 p-2 rounded-xl text-[11px] font-medium text-center italic">
+                                        FREI
+                                    </div>
+</td>
+</tr>
+<!-- Employee Row 3 -->
+<tr class="group hover:bg-surface transition-colors">
+<td class="sticky left-0 z-20 bg-white group-hover:bg-surface p-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="focused professional woman in business casual attire looking at the camera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCPT8VRf-4BGUhVT70XkVwap7qFfFWWPxbYbaSy-GMq8YJlaTMyWCw5MnWcdB0beIETE_WvkyjUQCkU4c2CVWl1kJFYheZmBMq5R6MGT1uuWAFG80wfhlnErXvdHnYjz882x8sh4qZLKTwjJeDoiJNYmy9HtVdTFYCHBiRxl_WqPBsYItxFojxX1gCGdTSkKvlrm3pxN1Q6MXcWDdQ9byWIHStCKjlMpuCFM86H4NJkof06umv4U-8bP8LZOnn-p8u_DsmP3TvrkEc"/>
+<div>
+<p class="text-sm font-bold text-on-background">Sara Klein</p>
+<p class="text-xs text-zinc-500">Nachtwache</p>
+</div>
+</div>
+</td>
+<td class="p-3">
+<div class="bg-on-background/5 border border-on-background/10 text-on-background p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        NACHT (22-07)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-on-background/5 border border-on-background/10 text-on-background p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        NACHT (22-07)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-on-background/5 border border-on-background/10 text-on-background p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        NACHT (22-07)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-on-background/5 border border-on-background/10 text-on-background p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        NACHT (22-07)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-on-background/5 border border-on-background/10 text-on-background p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        NACHT (22-07)
+                                    </div>
+</td>
+<td class="p-3 bg-secondary-container/5">
+<div class="bg-surface-container text-zinc-400 p-2 rounded-xl text-[11px] font-medium text-center italic">
+                                        FREI
+                                    </div>
+</td>
+<td class="p-3 bg-secondary-container/5">
+<div class="bg-surface-container text-zinc-400 p-2 rounded-xl text-[11px] font-medium text-center italic">
+                                        FREI
+                                    </div>
+</td>
+</tr>
+<!-- Employee Row 4 -->
+<tr class="group hover:bg-surface transition-colors">
+<td class="sticky left-0 z-20 bg-white group-hover:bg-surface p-6">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="charming male staff member with a friendly smile, professional and welcoming" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcPshuGsUXWJS6W8m4ABTyPmVgwypdKHcdXNPIXJ1aB5zBczROlqZzKWcHnItYbt9d_3PeCS-EncWov7wTRWnODX6kV6YPX1HZPGISPIc90-svWB4XHys3k5V5DGghWd8TBwerWd19um2M9BNQWX6R2rB3-f4O5eaQqqEgaUlRjWY3cyKB8V4fylBeZxy_XbB2tpGX33KEK2MB-0pw7-9-clZIT7aGSzsADI0T5xeNhrpQ2pbKdN4DzEd54zPNxbZ1CU1xFu5c7SU"/>
+<div>
+<p class="text-sm font-bold text-on-background">Erik Hoffmann</p>
+<p class="text-xs text-zinc-500">Haustechnik</p>
+</div>
+</div>
+</td>
+<td class="p-3">
+<div class="bg-primary-fixed/30 border border-primary-fixed text-primary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        TAG (09-17)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-primary-fixed/30 border border-primary-fixed text-primary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        TAG (09-17)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-primary-fixed/30 border border-primary-fixed text-primary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        TAG (09-17)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-primary-fixed/30 border border-primary-fixed text-primary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        TAG (09-17)
+                                    </div>
+</td>
+<td class="p-3">
+<div class="bg-primary-fixed/30 border border-primary-fixed text-primary p-2 rounded-xl text-[11px] font-semibold text-center">
+                                        TAG (09-17)
+                                    </div>
+</td>
+<td class="p-3 bg-secondary-container/5">
+<div class="bg-surface-container text-zinc-400 p-2 rounded-xl text-[11px] font-medium text-center italic">
+                                        FREI
+                                    </div>
+</td>
+<td class="p-3 bg-secondary-container/5">
+<div class="bg-surface-container text-zinc-400 p-2 rounded-xl text-[11px] font-medium text-center italic">
+                                        FREI
+                                    </div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Dashboard Stats & Info (Asymmetric Layout) -->
+<div class="mt-10 grid grid-cols-12 gap-8">
+<!-- Info Card -->
+<div class="col-span-8 bg-surface-container-lowest p-8 rounded-3xl shadow-[0_8px_30px_rgb(0,81,63,0.02)]">
+<h3 class="text-xl font-bold text-on-background mb-6">Wochenübersicht Personal</h3>
+<div class="grid grid-cols-3 gap-6">
+<div class="p-4 rounded-2xl bg-secondary-container/30">
+<p class="text-xs font-bold text-on-secondary-container uppercase tracking-widest mb-1">Besetzung</p>
+<p class="text-2xl font-extrabold text-primary">94%</p>
+<div class="mt-2 w-full bg-white rounded-full h-1.5 overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 94%"></div>
+</div>
+</div>
+<div class="p-4 rounded-2xl bg-tertiary-fixed/30">
+<p class="text-xs font-bold text-on-tertiary-fixed-variant uppercase tracking-widest mb-1">Überstunden</p>
+<p class="text-2xl font-extrabold text-tertiary">12.5h</p>
+<p class="text-[10px] text-zinc-500 mt-1">Ganze Abteilung</p>
+</div>
+<div class="p-4 rounded-2xl bg-primary-fixed/30">
+<p class="text-xs font-bold text-on-primary-fixed-variant uppercase tracking-widest mb-1">Krankenstand</p>
+<p class="text-2xl font-extrabold text-[#006B54]">2%</p>
+<p class="text-[10px] text-zinc-500 mt-1">1 Mitarbeiter abwesend</p>
+</div>
+</div>
+</div>
+<!-- Legend / Status -->
+<div class="col-span-4 bg-white/40 backdrop-blur-sm p-8 rounded-3xl border border-white">
+<h3 class="text-lg font-bold text-on-background mb-4">Schicht-Legende</h3>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+<span class="text-sm font-medium text-zinc-600">Frühschicht (07:00 - 15:00)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-primary-fixed"></span>
+<span class="text-sm font-medium text-zinc-600">Tagschicht (09:00 - 17:00)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="text-sm font-medium text-zinc-600">Spätschicht (14:00 - 22:00)</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="w-3 h-3 rounded-full bg-on-background/20"></span>
+<span class="text-sm font-medium text-zinc-600">Nachtschicht (22:00 - 07:00)</span>
+</div>
+</div>
+<div class="mt-8">
+<button class="w-full py-3 bg-white text-primary border border-primary/10 rounded-xl font-bold text-sm shadow-sm hover:bg-primary/5 transition-colors">
+                            Dienstplan Exportieren
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-2xl">print</span>
+</button>
+</body></html>

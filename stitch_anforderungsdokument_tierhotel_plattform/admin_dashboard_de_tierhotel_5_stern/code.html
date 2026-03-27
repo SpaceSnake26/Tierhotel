@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html lang="de-CH"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tierhotel 5 Stern - Admin Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#006b54",
+              "surface-variant": "#e1e3e4",
+              "surface": "#f8f9fa",
+              "on-secondary-container": "#713b00",
+              "on-primary-fixed-variant": "#00513f",
+              "surface-container-highest": "#e1e3e4",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container": "#edeeef",
+              "on-secondary-fixed-variant": "#6e3900",
+              "on-secondary-fixed": "#2f1500",
+              "tertiary-container": "#934a00",
+              "secondary": "#904d00",
+              "on-tertiary-fixed": "#301400",
+              "on-primary-fixed": "#002118",
+              "secondary-fixed": "#ffdcc3",
+              "on-tertiary": "#ffffff",
+              "primary-fixed": "#9ef3d6",
+              "on-tertiary-container": "#ffcead",
+              "primary": "#00513f",
+              "secondary-fixed-dim": "#ffb77d",
+              "on-surface": "#191c1d",
+              "outline": "#6f7a74",
+              "on-error-container": "#93000a",
+              "on-surface-variant": "#3e4944",
+              "tertiary-fixed-dim": "#ffb783",
+              "secondary-container": "#ffa454",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#713700",
+              "surface-tint": "#016b54",
+              "on-background": "#191c1d",
+              "inverse-primary": "#82d7ba",
+              "surface-container-high": "#e7e8e9",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "background": "#f8f9fa",
+              "on-primary-container": "#94e8cb",
+              "surface-dim": "#d9dadb",
+              "tertiary-fixed": "#ffdcc5",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "primary-fixed-dim": "#82d7ba",
+              "outline-variant": "#bec9c3",
+              "tertiary": "#703700"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex min-h-screen">
+<!-- SideNavBar (Authority: JSON) -->
+<aside class="h-screen w-72 flex-col flex sticky top-0 left-0 bg-[#f3f4f5] dark:bg-slate-900 shadow-none border-none font-['Manrope'] antialiased tracking-tight">
+<div class="flex flex-col h-full py-8">
+<div class="px-8 mb-12">
+<div class="flex items-center gap-3">
+<img alt="Hotel Logo" class="w-10 h-10 rounded-full object-cover" data-alt="luxury pet hotel minimalist logo design featuring a stylized emerald paw print inside a golden circle on a clean background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGLdVMIjNhc9rqFpqnZAP_msxi9_a0za5n7HUxFkR-6qlySJxp0wS3pcHRld0jXR-h0gg3_h1GLyMjMR-LLjbLC-Ypby6S9pS2WVdwLVXBm2r6MOslli1hxRSgRTmE8kPoc4QJyGVdBPkdG2zAM4yHqXItGdy-RnmWY_Dnmmb9jaKVUwICGufUV3ww8lvJHdfKH6mcf-soL8wswGMSt82ZzU-3GGNCVIFYNyAX3puaHrdkHojrvkWffzUd7G0b7t7tmQ7AoyxWnu4"/>
+<div>
+<h1 class="text-xl font-bold tracking-tighter text-[#006B54] dark:text-emerald-500">Tierhotel 5 Stern</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-outline">The Modern Concierge</p>
+</div>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard Active (Semantic Mapping) -->
+<a class="text-[#006B54] dark:text-emerald-400 font-extrabold flex items-center gap-3 py-3 px-8 bg-white/50 dark:bg-slate-800/50 hover:bg-white/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span>Roster</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person_off">person_off</span>
+<span>Absences</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>Tasks</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="sticky_note_2">sticky_note_2</span>
+<span>Notes</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span>Events</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-8 mt-auto">
+<button class="w-full bg-primary text-on-primary py-4 rounded shadow-lg flex items-center justify-center gap-2 font-bold tracking-tight scale-98 active:scale-95 transition-transform">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+<span>New Entry</span>
+</button>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col">
+<!-- TopNavBar (Authority: JSON) -->
+<header class="w-full h-16 sticky top-0 z-40 bg-[#f8f9fa]/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-12 ml-auto">
+<div class="flex items-center gap-6">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-sm" data-icon="search">search</span>
+<input class="bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-1.5 text-[11px] font-bold tracking-widest focus:ring-1 focus:ring-primary w-64 placeholder:text-outline uppercase" placeholder="SUCHEN..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-slate-400 hover:text-[#904d00] cursor-pointer transition-colors" data-icon="notifications">notifications</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-[#904d00] cursor-pointer transition-colors" data-icon="help_outline">help_outline</span>
+<span class="material-symbols-outlined text-slate-400 hover:text-[#904d00] cursor-pointer transition-colors" data-icon="account_circle">account_circle</span>
+</div>
+<div class="h-6 w-[1px] bg-outline-variant/20"></div>
+<div class="text-[11px] font-bold tracking-widest text-primary uppercase">Tierhotel 5 Stern</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<div class="p-12 space-y-12 max-w-7xl mx-auto w-full">
+<!-- Hero Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-end gap-8 border-none">
+<div class="space-y-2 max-w-2xl">
+<p class="text-secondary font-bold uppercase tracking-[0.3em] text-[11px]">Herzlich Willkommen</p>
+<h2 class="text-5xl font-headline font-extrabold tracking-tighter text-on-surface">Dashboard Übersicht</h2>
+<p class="text-on-surface-variant text-lg leading-relaxed">Verwalten Sie heute die exklusiven Aufenthalte Ihrer Gäste. Der Fokus liegt auf Exzellenz und Detailgenauigkeit.</p>
+</div>
+<div class="bg-surface-container-low px-8 py-6 rounded-xl flex items-center gap-4">
+<div class="text-right">
+<div class="text-xs uppercase tracking-widest font-bold text-outline">Aktuelles Datum</div>
+<div class="text-xl font-headline font-bold">Montag, 12. Mai</div>
+</div>
+<div class="h-10 w-[2px] bg-primary"></div>
+<div class="text-4xl font-headline font-black text-primary">09:42</div>
+</div>
+</section>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+<!-- Today's Shifts (Large Card) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-xl p-8 transition-all border-none">
+<div class="flex justify-between items-center mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+<h3 class="text-xl font-headline font-bold">Heutige Schichten</h3>
+</div>
+<button class="text-[11px] font-bold tracking-widest text-primary uppercase hover:underline">Gesamter Plan</button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-6 p-4 rounded-lg bg-surface-container-low/40 hover:bg-surface-container-low transition-colors group">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white">
+<img alt="Mitarbeiter" data-alt="professional headshot of a smiling young woman with dark hair in a hospitality uniform against a soft neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCs76CfBS57pyC7hMlsUF5RhTVGhcp-CLQC1V5Ah-4-ARzUvS3LGa7rRnDK7gR1kIdkdL_LzRu3xs5hFcfzaunW2PcenR4pBFWUTTlk82d7-hMmDWYR88QpiMdDmAx8CGOspOmkeKVb1Uik_KGX5YZ38EOn9KoZFJs0euJ1QPSfhW2Ty7WvY05jf-wySg_8teaU70QWldOvM-plZCxdMDlcppfJEILdf7kQ2Ekj8fVwS6vyOHbYhF_HRWKM07i0rILWZja-2uA7lwA"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Elena Fischer</h4>
+<p class="text-xs text-outline">Lead Concierge • Morgenschicht</p>
+</div>
+<div class="text-right">
+<div class="font-headline font-bold text-primary">07:00 - 15:30</div>
+<span class="text-[10px] px-2 py-0.5 rounded bg-primary-fixed text-on-primary-fixed-variant font-bold uppercase">Aktiv</span>
+</div>
+</div>
+<div class="flex items-center gap-6 p-4 rounded-lg bg-surface-container-low/40 hover:bg-surface-container-low transition-colors group">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white">
+<img alt="Mitarbeiter" data-alt="professional headshot of a mature man with a friendly expression wearing a green polo shirt in a bright office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClhIMRCBwJpT7Jr52Unx3GFc78maYRRi8oz5rNZfLRDkQK6-xlzciuLLj8XDDMZYEpr20iv3RO3B2vfUXGmGqkZDnANBXTW1N-bahDd5-gMEwnAKLX_3FBVOuTstny6iKyB-SdylAz6UltwLAKJvGykouo2nsoQlxrF9yfphLxR8KRpxtnBYn22547esumB4RzR9XR0N4mAK0xQoYYB1BcuiFZoiakragNbn2mhgeWh8r3yiGqEh7lZ_gCx7Si20Bkq2j_PQ4NnUQ"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Markus Weber</h4>
+<p class="text-xs text-outline">Tierpfleger Spezialist • Mittagschicht</p>
+</div>
+<div class="text-right">
+<div class="font-headline font-bold text-on-surface-variant">11:00 - 19:30</div>
+<span class="text-[10px] px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-bold uppercase">Anstehend</span>
+</div>
+</div>
+<div class="flex items-center gap-6 p-4 rounded-lg bg-surface-container-low/40 hover:bg-surface-container-low transition-colors group">
+<div class="w-12 h-12 rounded-full overflow-hidden border-2 border-white">
+<img alt="Mitarbeiter" data-alt="professional portrait of a confident woman with spectacles and a warm smile in a high-end corporate environment" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoqKhD6pnhpbPLekrIjeV6xhpPBErwPfNQ9bQHgb20atCy5WmazBYPVeQpNmC3hwsty-5fRM0UlEe6Fwh0zpIXDM8YSiYhuov_H4sfAmxRdtS66im6cRpsS5cZAw4wco4p2pqzf8WT7ZgRrUJtdjL1BA7UrZXTNES0F9FlDPvOrUFeSbX0C5gTT0aSpOJ4l0UASgZNDYU28wkLW2xRZX2jZRzezAdVSr8jMrl5ISRKRiS9wpsQJNnXV6LOMw-BEiNGNFTGE-e07_s"/>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-on-surface">Sarah Lüthi</h4>
+<p class="text-xs text-outline">Nachtwache • Nachtschicht</p>
+</div>
+<div class="text-right">
+<div class="font-headline font-bold text-on-surface-variant">22:00 - 06:30</div>
+<span class="text-[10px] px-2 py-0.5 rounded bg-surface-variant text-on-surface-variant font-bold uppercase">Anstehend</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Absences (Small Card) -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-xl p-8 flex flex-col border-none relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-secondary" data-icon="person_off">person_off</span>
+<h3 class="text-xl font-headline font-bold">Abwesenheiten</h3>
+</div>
+<div class="space-y-6 flex-1">
+<div class="space-y-1">
+<div class="flex justify-between items-baseline">
+<span class="font-bold">Lukas Meier</span>
+<span class="text-xs text-secondary font-bold">Krank</span>
+</div>
+<p class="text-xs text-outline">Bis Freitag, 16. Mai</p>
+</div>
+<div class="h-[1px] bg-outline-variant/10"></div>
+<div class="space-y-1">
+<div class="flex justify-between items-baseline">
+<span class="font-bold">Julia Steiner</span>
+<span class="text-xs text-primary font-bold">Ferien</span>
+</div>
+<p class="text-xs text-outline">Bis Montag, 19. Mai</p>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-outline-variant/10">
+<div class="text-[10px] uppercase tracking-widest font-bold text-outline mb-4">Urlaubsanträge (2)</div>
+<div class="flex -space-x-3">
+<img alt="User" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="headshot of a man with a beard smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB26Pev0W_IlZpLPcH3GEGstkIO1QxRDE5ABxsCQ88Ub69IT0WSqiBE6xildctfwC9qF62ZWPmpI33gG_8VSsCl7OucfVNQe1GRdzrJ5RAQbztwquDU6qGR-3zwV1qmvbIaRiSbrCvhXGU9pc0Msh2CR4j-YtgJr0xyTCj2yThMDjooT6yM0UFodj8R-9j41kzK3Wo0N1EnezNO69C7bTnKyDnG7hRhz-oFFydSBhIr-hS_aAxY38hZ2TyQdtDAuHd0LvuMOsmQWRk"/>
+<img alt="User" class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="headshot of a woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAaS49fIsksoFf_X7YCN-Xv9_SXAXVow74bJNwSB5JzOD1OqjEebh73YHwynJz8M_ow59EzyiI8mRlMBPcD1iKqZsZTy5sb4KxjARxTdzv-DdAh6wPb7rHQMVXcF4_-L8lDi-H2mPBKlnhQCPywFgXq72h2H0p_x-fZ0sn-jAjZCaV2IFmdhC3SvYFAKj95SxITcvi_FgvoFmxHtUNKZuNu7e4sjm6OFhZs7e3lt_Ec-RjXL6Mj0aI7z9DUtSpEQPpf0q8t3MsdCk"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-surface-container-high flex items-center justify-center text-[10px] font-bold">+2</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Events (Medium Card) -->
+<div class="md:col-span-6 bg-surface-container-low rounded-xl p-8 border-none">
+<div class="flex justify-between items-center mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="event_note">event_note</span>
+<h3 class="text-xl font-headline font-bold">Anstehende Events</h3>
+</div>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<div class="bg-surface-container-lowest p-5 rounded-lg flex gap-5 group hover:scale-[1.01] transition-transform">
+<div class="flex flex-col items-center justify-center bg-primary-fixed/30 rounded px-4 py-2 min-w-[70px]">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-primary-fixed-variant">MAI</span>
+<span class="text-2xl font-headline font-black text-primary">15</span>
+</div>
+<div class="flex-1 space-y-1">
+<h4 class="font-bold">Teambildung &amp; Apéro</h4>
+<p class="text-xs text-outline">18:00 • Dachterrasse Lounge</p>
+</div>
+<span class="material-symbols-outlined self-center text-outline group-hover:text-primary transition-colors" data-icon="arrow_forward_ios">arrow_forward_ios</span>
+</div>
+<div class="bg-surface-container-lowest p-5 rounded-lg flex gap-5 group hover:scale-[1.01] transition-transform">
+<div class="flex flex-col items-center justify-center bg-secondary-fixed/30 rounded px-4 py-2 min-w-[70px]">
+<span class="text-[10px] font-bold uppercase tracking-widest text-on-secondary-fixed-variant">MAI</span>
+<span class="text-2xl font-headline font-black text-secondary">20</span>
+</div>
+<div class="flex-1 space-y-1">
+<h4 class="font-bold">Grosser Hotel-Check</h4>
+<p class="text-xs text-outline">09:00 • Gesamte Anlage</p>
+</div>
+<span class="material-symbols-outlined self-center text-outline group-hover:text-secondary transition-colors" data-icon="arrow_forward_ios">arrow_forward_ios</span>
+</div>
+</div>
+</div>
+<!-- Open Tasks (Medium Card) -->
+<div class="md:col-span-6 bg-surface-container-lowest rounded-xl p-8 border-none">
+<div class="flex justify-between items-center mb-8">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary" data-icon="checklist">checklist</span>
+<h3 class="text-xl font-headline font-bold">Offene Aufgaben</h3>
+</div>
+</div>
+<div class="space-y-4">
+<label class="flex items-center gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant/20">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div class="flex-1">
+<span class="block font-bold">VIP-Suite Endreinigung (Zimmer 402)</span>
+<span class="text-[10px] text-error font-bold uppercase tracking-wider">Hohe Priorität</span>
+</div>
+</label>
+<label class="flex items-center gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant/20">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div class="flex-1">
+<span class="block font-bold">Futterbestellung Premium-Line</span>
+<span class="text-[10px] text-outline font-bold uppercase tracking-wider">Bis 12:00 Uhr</span>
+</div>
+</label>
+<label class="flex items-center gap-4 p-4 rounded-lg hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant/20">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary" type="checkbox"/>
+<div class="flex-1">
+<span class="block font-bold">Social Media Update (Neue Gäste)</span>
+<span class="text-[10px] text-outline font-bold uppercase tracking-wider">Marketing</span>
+</div>
+</label>
+</div>
+</div>
+</div>
+<!-- Visual Texture Section (Glassmorphism / Editorial) -->
+<section class="relative rounded-2xl overflow-hidden h-[300px] flex items-center p-12 group">
+<div class="absolute inset-0 z-0">
+<img alt="Hotel Atmosphere" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="a luxurious dog sitting on a plush emerald velvet sofa in a sun-drenched, high-ceilinged modern lobby with marble floors and soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyQklNfvy2Yw5vlvKqQuH0OkJHzwCEckpYEe8a644USdxfp2BBQzBeiqN1ZaNJT8i4GAecFPce5X4SRhi_G6kmRyrT-tMqBWrZC3FWSNrQlaRjCg2gRjcRdSHjbm1zV4lMvxxfEcYDWIF4lJZv-9GfA2QFUqioTb80c1e1esUs9-sCRiTb1GQhJOV0lGc-birfQ3kO7HWsTvsa96WsOmKCNwiD3RPdLjkA2VWE4ftqlZjS9nuW3GzJq1WE9WFjl4itAumtulVgVo8"/>
+<div class="absolute inset-0 bg-gradient-to-r from-primary/80 to-transparent"></div>
+</div>
+<div class="relative z-10 max-w-lg space-y-4 text-white">
+<h3 class="text-4xl font-headline font-black leading-tight">Exzellenz in jeder Pfote.</h3>
+<p class="text-white/80 font-medium">Unser heutiges Ziel: Eine Auslastung von 95% bei maximaler Kundenzufriedenheit. Vergessen Sie nicht das Willkommens-Paket für den neuen Gast 'Bello'.</p>
+<div class="pt-4 flex gap-4">
+<button class="bg-white text-primary px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-primary-fixed transition-colors">Gästeliste ansehen</button>
+<button class="border border-white/30 backdrop-blur-md text-white px-6 py-2 rounded-full font-bold text-xs uppercase tracking-widest hover:bg-white/10 transition-colors">Notizen (12)</button>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer / Semantic Navigation Check -->
+<footer class="mt-auto py-8 px-12 border-t border-outline-variant/10 flex justify-between items-center text-[10px] font-bold tracking-[0.2em] text-outline uppercase">
+<div>© 2024 Tierhotel 5 Stern — Swiss Luxury Standards</div>
+<div class="flex gap-8">
+<a class="hover:text-primary transition-colors" href="#">Datenschutz</a>
+<a class="hover:text-primary transition-colors" href="#">Impressum</a>
+<a class="hover:text-primary transition-colors" href="#">Support</a>
+</div>
+</footer>
+</main>
+<!-- Contextual FAB (Restricted to Home/Dashboard as per instructions) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-secondary rounded-full flex items-center justify-center text-on-secondary shadow-2xl hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="bolt">bolt</span>
+</button>
+</body></html>

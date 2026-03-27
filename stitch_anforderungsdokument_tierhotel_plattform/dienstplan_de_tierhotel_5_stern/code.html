@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="de-CH"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#006b54",
+              "surface-variant": "#e1e3e4",
+              "surface": "#f8f9fa",
+              "on-secondary-container": "#713b00",
+              "on-primary-fixed-variant": "#00513f",
+              "surface-container-highest": "#e1e3e4",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container": "#edeeef",
+              "on-secondary-fixed-variant": "#6e3900",
+              "on-secondary-fixed": "#2f1500",
+              "tertiary-container": "#934a00",
+              "secondary": "#904d00",
+              "on-tertiary-fixed": "#301400",
+              "on-primary-fixed": "#002118",
+              "secondary-fixed": "#ffdcc3",
+              "on-tertiary": "#ffffff",
+              "primary-fixed": "#9ef3d6",
+              "on-tertiary-container": "#ffcead",
+              "primary": "#00513f",
+              "secondary-fixed-dim": "#ffb77d",
+              "on-surface": "#191c1d",
+              "outline": "#6f7a74",
+              "on-error-container": "#93000a",
+              "on-surface-variant": "#3e4944",
+              "tertiary-fixed-dim": "#ffb783",
+              "secondary-container": "#ffa454",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#713700",
+              "surface-tint": "#016b54",
+              "on-background": "#191c1d",
+              "inverse-primary": "#82d7ba",
+              "surface-container-high": "#e7e8e9",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "background": "#f8f9fa",
+              "on-primary-container": "#94e8cb",
+              "surface-dim": "#d9dadb",
+              "tertiary-fixed": "#ffdcc5",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "primary-fixed-dim": "#82d7ba",
+              "outline-variant": "#bec9c3",
+              "tertiary": "#703700"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: #f8f9fa;
+      }
+      .font-headline { font-family: 'Manrope', sans-serif; }
+      .hide-scrollbar::-webkit-scrollbar { display: none; }
+      .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar Anchor -->
+<aside class="h-screen w-72 flex-col flex sticky top-0 left-0 bg-[#f3f4f5] dark:bg-slate-900 shadow-none border-none font-['Manrope'] antialiased tracking-tight">
+<div class="flex flex-col h-full py-8">
+<div class="px-8 mb-12">
+<div class="flex items-center gap-3 mb-2">
+<img alt="Hotel Logo" class="w-8 h-8 rounded-lg" data-alt="minimalist luxury hotel logo featuring a stylized golden paw print on an emerald green background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJfoQGxiv58Gd07LgWdG0L2yH5FDns5Nls-xC6o8t_jTe0eNSNBCRuu8L5t0Coib16oNwj939or8kU5UZ9s_U4FLy7tAGw_7uyQTnyt4_0jgXLngku_PpYzXSdBn3a3-EQTVK4Y353UEldNEJAPuNeZbWgJ7DRiN_IjZsE5Muo9Qiy4SHrXZpY80nsetqbXy8sPymWBRGweFrUW6C1-sU3A1V3AIrQ6OHHTSFbZF9sGlwM3XKK6Ak0JfoLKVlRhpnW35UgOorH9bI"/>
+<h1 class="text-xl font-bold tracking-tighter text-[#006B54] dark:text-emerald-500">Tierhotel 5 Stern</h1>
+</div>
+<p class="text-[10px] uppercase tracking-[0.2em] text-outline opacity-70">The Modern Concierge</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-[#006B54] dark:text-emerald-400 font-extrabold flex items-center gap-3 py-3 px-8 bg-white/50 dark:bg-slate-800/50 scale-98 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span>Roster</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person_off">person_off</span>
+<span>Absences</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>Tasks</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="sticky_note_2">sticky_note_2</span>
+<span>Notes</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span>Events</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/10 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                    New Entry
+                </button>
+</div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col min-w-0">
+<!-- TopNavBar Anchor -->
+<header class="w-full h-16 sticky top-0 z-40 bg-[#f8f9fa]/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-12 ml-auto">
+<div class="flex items-center bg-surface-container-highest/50 rounded-full px-4 py-2 w-96">
+<span class="material-symbols-outlined text-outline-variant mr-2" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-outline/50" placeholder="Suche nach Mitarbeitenden oder Diensten..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4">
+<button class="text-slate-400 dark:text-slate-500 hover:text-[#904d00] transition-colors opacity-90 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-slate-400 dark:text-slate-500 hover:text-[#904d00] transition-colors opacity-90 hover:opacity-100">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span>
+</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3 cursor-pointer group">
+<div class="text-right">
+<p class="font-headline font-bold text-[10px] tracking-widest uppercase text-on-surface">M. Müller</p>
+<p class="text-[9px] text-outline uppercase tracking-wider">Manager</p>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="account_circle" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<div class="p-12 max-w-[1600px] w-full mx-auto">
+<!-- Editorial Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-8">
+<div>
+<h2 class="font-headline text-5xl font-extrabold tracking-tight text-on-surface mb-2">Dienstplan</h2>
+<p class="text-secondary font-semibold tracking-wide uppercase text-sm">KW 42 • 16. Okt — 22. Okt 2023</p>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low p-1.5 rounded-xl">
+<button class="px-6 py-2.5 rounded-lg bg-surface-container-lowest shadow-sm font-bold text-sm text-primary transition-all">Woche</button>
+<button class="px-6 py-2.5 rounded-lg hover:bg-surface-container-highest transition-all font-medium text-sm text-outline">Monat</button>
+<button class="px-6 py-2.5 rounded-lg hover:bg-surface-container-highest transition-all font-medium text-sm text-outline">Team</button>
+</div>
+</div>
+<!-- Schedule Grid Container -->
+<div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-[0_12px_40px_rgba(25,28,29,0.04)]">
+<!-- Grid Header -->
+<div class="grid grid-cols-8 border-b border-surface-variant/50">
+<div class="p-6 bg-surface-container-low/50">
+<span class="font-headline uppercase text-[10px] tracking-widest font-bold text-outline">Teammitglieder</span>
+</div>
+<!-- Days -->
+<div class="p-6 text-center">
+<p class="text-[10px] uppercase tracking-widest text-outline mb-1">Mo</p>
+<p class="font-headline font-extrabold text-xl">16</p>
+</div>
+<div class="p-6 text-center bg-surface-container-low/20">
+<p class="text-[10px] uppercase tracking-widest text-outline mb-1">Di</p>
+<p class="font-headline font-extrabold text-xl">17</p>
+</div>
+<div class="p-6 text-center">
+<p class="text-[10px] uppercase tracking-widest text-outline mb-1">Mi</p>
+<p class="font-headline font-extrabold text-xl">18</p>
+</div>
+<div class="p-6 text-center bg-surface-container-low/20">
+<p class="text-[10px] uppercase tracking-widest text-outline mb-1">Do</p>
+<p class="font-headline font-extrabold text-xl">19</p>
+</div>
+<div class="p-6 text-center">
+<p class="text-[10px] uppercase tracking-widest text-outline mb-1">Fr</p>
+<p class="font-headline font-extrabold text-xl">20</p>
+</div>
+<div class="p-6 text-center bg-secondary-fixed/30">
+<p class="text-[10px] uppercase tracking-widest text-secondary mb-1">Sa</p>
+<p class="font-headline font-extrabold text-xl text-on-secondary-fixed">21</p>
+</div>
+<div class="p-6 text-center bg-secondary-fixed/30">
+<p class="text-[10px] uppercase tracking-widest text-secondary mb-1">So</p>
+<p class="font-headline font-extrabold text-xl text-on-secondary-fixed">22</p>
+</div>
+</div>
+<!-- Grid Rows -->
+<div class="divide-y divide-surface-variant/30">
+<!-- Staff Row 1 -->
+<div class="grid grid-cols-8 group">
+<div class="p-6 flex items-center gap-4 bg-surface-container-low/30">
+<img alt="Sarah Huber" class="w-10 h-10 rounded-full object-cover" data-alt="professional portrait of a young smiling woman with blonde hair in a luxury hotel uniform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYn3P4lGU54Y72Zlpe3oNEbfWbZnULvTzY2WM08Uv_egaER4RczA_wVI59Viehpbibtn4B8kh6STmlUY1T7nD_I9PHjuKCprhXaGdgxiS7uiCajHBbsZtBtARqr3FQEmlML3ogmmD0e4GEWg2z-ViQM92ESledYFKklQLo8eqR11b51xUKFlPg3CgJkmta1pBIdWjGBRPcTRX2wKKHwSzP_8MkEnuggfTFpYyFMF9ZgbK6vQY6phwNkyZ_3s47q-rqPHXjeh1Oy3k"/>
+<div>
+<p class="font-bold text-sm">Sarah Huber</p>
+<p class="text-[10px] text-outline uppercase tracking-tighter">Chef-Tierpflegerin</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2">
+<div class="bg-primary/5 border-l-4 border-primary p-3 rounded-md">
+<p class="text-[10px] font-bold text-primary uppercase">Morgen</p>
+<p class="text-xs font-semibold">07:00 - 15:30</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-surface-container-low/10">
+<div class="bg-primary/5 border-l-4 border-primary p-3 rounded-md">
+<p class="text-[10px] font-bold text-primary uppercase">Morgen</p>
+<p class="text-xs font-semibold">07:00 - 15:30</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2">
+<div class="bg-surface-container-high/50 p-3 rounded-md border-l-4 border-outline-variant">
+<p class="text-[10px] font-bold text-outline uppercase">Frei</p>
+<p class="text-xs font-medium text-outline">Kompensation</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-surface-container-low/10">
+<div class="bg-primary/5 border-l-4 border-primary p-3 rounded-md">
+<p class="text-[10px] font-bold text-primary uppercase">Morgen</p>
+<p class="text-xs font-semibold">07:00 - 15:30</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2">
+<div class="bg-primary/5 border-l-4 border-primary p-3 rounded-md">
+<p class="text-[10px] font-bold text-primary uppercase">Morgen</p>
+<p class="text-xs font-semibold">07:00 - 15:30</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-secondary-fixed/10">
+<!-- Empty -->
+</div>
+<div class="p-2 flex flex-col gap-2 bg-secondary-fixed/10">
+<!-- Empty -->
+</div>
+</div>
+<!-- Staff Row 2 -->
+<div class="grid grid-cols-8 group">
+<div class="p-6 flex items-center gap-4 bg-surface-container-low/30">
+<img alt="Marc Brunner" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a middle-aged man with short hair and glasses, friendly expression, professional attire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzzzxDLl2tUm0N9vcugRYRAu2TiT-cNL_2MwzJ4rNvwK4hLX_TICR-M6Ble0JmUzeshhkiMbvIOfYDJbS_IZhhgojWAKu2dgG7jOGMyoLZmp7T8HhUDyLtk2dKOfSXkIEdSfddw_cPwj-wj4nT56SZ2DfD8DB0C5ejN5bvUSLeHbMGEREjeJx3CwG5jnvzzCVhDV6wMfmBL2hyk8AdYQEplHgFqUyncHtEKCWgFKZekO6vyz0-hHmBkag2bzgzKTp1i04pdYcRyRE"/>
+<div>
+<p class="font-bold text-sm">Marc Brunner</p>
+<p class="text-[10px] text-outline uppercase tracking-tighter">Concierge</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2">
+<div class="bg-secondary-container/10 border-l-4 border-secondary p-3 rounded-md">
+<p class="text-[10px] font-bold text-secondary uppercase">Spät</p>
+<p class="text-xs font-semibold">13:30 - 22:00</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-surface-container-low/10">
+<div class="bg-secondary-container/10 border-l-4 border-secondary p-3 rounded-md">
+<p class="text-[10px] font-bold text-secondary uppercase">Spät</p>
+<p class="text-xs font-semibold">13:30 - 22:00</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2">
+<div class="bg-secondary-container/10 border-l-4 border-secondary p-3 rounded-md">
+<p class="text-[10px] font-bold text-secondary uppercase">Spät</p>
+<p class="text-xs font-semibold">13:30 - 22:00</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-surface-container-low/10">
+<div class="bg-secondary-container/10 border-l-4 border-secondary p-3 rounded-md">
+<p class="text-[10px] font-bold text-secondary uppercase">Spät</p>
+<p class="text-xs font-semibold">13:30 - 22:00</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2">
+<div class="bg-secondary-container/10 border-l-4 border-secondary p-3 rounded-md">
+<p class="text-[10px] font-bold text-secondary uppercase">Spät</p>
+<p class="text-xs font-semibold">13:30 - 22:00</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-secondary-fixed/10">
+<div class="bg-secondary-container/20 border-l-4 border-secondary p-3 rounded-md">
+<p class="text-[10px] font-bold text-secondary uppercase">Wochenende</p>
+<p class="text-xs font-semibold">10:00 - 18:00</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-secondary-fixed/10">
+<div class="bg-secondary-container/20 border-l-4 border-secondary p-3 rounded-md">
+<p class="text-[10px] font-bold text-secondary uppercase">Wochenende</p>
+<p class="text-xs font-semibold">10:00 - 18:00</p>
+</div>
+</div>
+</div>
+<!-- Staff Row 3 -->
+<div class="grid grid-cols-8 group">
+<div class="p-6 flex items-center gap-4 bg-surface-container-low/30">
+<img alt="Elena Koch" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a young woman with dark hair tied back, wearing a neat green polo shirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaaO2McNJfJtrZaN0fY-lfm3EzSxnkmpl3QDHjpZDjTZjnlLV0aAdq8kVt2cDLswStzqS_5kAGZyPeBTihjw0XkWHyQobw73OznTK5cjpFfG2gQ2seTqR-hV8bEwmhIqoRRvnuJ0dY_mY-6aLJIFF14YJ2xmBYW8oLlqzbKFIZ_LWOLxhCrAlVA9wUkUXIPbTCepZuoNXLsBQzh74AK2RBFSpDvk3HpK-ElwE838N_xCVUDReC0q6GijxQh9WMCJeh8z58MeAKlAY"/>
+<div>
+<p class="font-bold text-sm">Elena Koch</p>
+<p class="text-[10px] text-outline uppercase tracking-tighter">Auszubildende</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2">
+<div class="bg-tertiary-container/10 border-l-4 border-tertiary p-3 rounded-md">
+<p class="text-[10px] font-bold text-tertiary uppercase">Nacht</p>
+<p class="text-xs font-semibold">21:45 - 07:15</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-surface-container-low/10">
+<div class="bg-tertiary-container/10 border-l-4 border-tertiary p-3 rounded-md">
+<p class="text-[10px] font-bold text-tertiary uppercase">Nacht</p>
+<p class="text-xs font-semibold">21:45 - 07:15</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2">
+<div class="bg-tertiary-container/10 border-l-4 border-tertiary p-3 rounded-md">
+<p class="text-[10px] font-bold text-tertiary uppercase">Nacht</p>
+<p class="text-xs font-semibold">21:45 - 07:15</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-surface-container-low/10">
+<div class="bg-tertiary-container/10 border-l-4 border-tertiary p-3 rounded-md">
+<p class="text-[10px] font-bold text-tertiary uppercase">Nacht</p>
+<p class="text-xs font-semibold">21:45 - 07:15</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2">
+<div class="bg-tertiary-container/10 border-l-4 border-tertiary p-3 rounded-md">
+<p class="text-[10px] font-bold text-tertiary uppercase">Nacht</p>
+<p class="text-xs font-semibold">21:45 - 07:15</p>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-secondary-fixed/10">
+<!-- Empty -->
+</div>
+<div class="p-2 flex flex-col gap-2 bg-secondary-fixed/10">
+<!-- Empty -->
+</div>
+</div>
+<!-- Staff Row 4 (Absence Example) -->
+<div class="grid grid-cols-8 group">
+<div class="p-6 flex items-center gap-4 bg-surface-container-low/30">
+<img alt="Thomas Nef" class="w-10 h-10 rounded-full object-cover" data-alt="portrait of a man with a beard, friendly eyes, wearing a dark professional sweater" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXQsXohytse2jMhwr87DICbS4E65vUJDi-Xke61NUtZIygW_amkvv_Gjst3aOw-DPPWVfeT0iAsefDctP7Gajkk8go6DhkGOwW21_0TdUnTQX3EqI-hEkLuAj--MhjnfGzCQ0m0qOAG_zuTHYzcqkF9AjfPD5jWtvViXUk5thWsXD6Nob2to7nHF3s8fwoPJY_wh5duutT3ieCOMLzVgXo5D9Yg4cvpd0m7PjNkAl4MbabTnsPwZYhiFAxWIlVBhhiRh16Vg7uWXI"/>
+<div>
+<p class="font-bold text-sm">Thomas Nef</p>
+<p class="text-[10px] text-outline uppercase tracking-tighter">Hunde-Trainer</p>
+</div>
+</div>
+<div class="col-span-3 p-2">
+<div class="h-full bg-error-container/20 border-l-4 border-error p-3 rounded-md flex items-center gap-3">
+<span class="material-symbols-outlined text-error text-sm" data-icon="beach_access">beach_access</span>
+<div>
+<p class="text-[10px] font-bold text-error uppercase">Urlaub</p>
+<p class="text-xs font-medium">Jahresurlaub (Südtirol)</p>
+</div>
+</div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-surface-container-low/10">
+<!-- Extension of holiday -->
+<div class="h-full bg-error-container/10 border-l-4 border-error/50 p-3 rounded-md"></div>
+</div>
+<div class="p-2 flex flex-col gap-2">
+<div class="h-full bg-error-container/10 border-l-4 border-error/50 p-3 rounded-md"></div>
+</div>
+<div class="p-2 flex flex-col gap-2 bg-secondary-fixed/10">
+<!-- Empty -->
+</div>
+<div class="p-2 flex flex-col gap-2 bg-secondary-fixed/10">
+<!-- Empty -->
+</div>
+</div>
+</div>
+</div>
+<!-- Dashboard Style Bento Summary -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm">
+<div class="flex items-center justify-between mb-4">
+<p class="text-xs font-bold uppercase tracking-widest text-outline">Gesamtstunden</p>
+<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
+</div>
+<p class="font-headline text-4xl font-extrabold text-on-surface">342.5 h</p>
+<p class="text-xs text-primary mt-2 font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="trending_up">trending_up</span>
+                        +12% gegenüber Vorwoche
+                    </p>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-2xl shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between mb-4">
+<p class="text-xs font-bold uppercase tracking-widest text-outline">Team-Präsenz</p>
+<span class="material-symbols-outlined text-secondary" data-icon="group">group</span>
+</div>
+<p class="font-headline text-4xl font-extrabold text-on-surface">88%</p>
+<div class="w-full bg-surface-container mt-4 h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary h-full w-[88%]"></div>
+</div>
+<!-- Subtle Glass Texture -->
+<div class="absolute -right-4 -bottom-4 w-24 h-24 bg-secondary/5 rounded-full blur-2xl"></div>
+</div>
+<div class="bg-primary text-on-primary p-8 rounded-2xl shadow-lg relative">
+<div class="relative z-10">
+<p class="text-xs font-bold uppercase tracking-widest opacity-70">Heutige Notiz</p>
+<p class="font-medium mt-4 text-lg leading-relaxed">Bitte sicherstellen, dass die Übergabe für die neue Dogge "Luna" detailliert im System erfasst wird.</p>
+<button class="mt-6 text-xs font-bold uppercase tracking-widest flex items-center gap-2 hover:gap-3 transition-all">
+                            Details ansehen <span class="material-symbols-outlined text-[14px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="absolute top-0 right-0 p-4 opacity-20">
+<span class="material-symbols-outlined text-6xl" data-icon="lightbulb">lightbulb</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+</body></html>

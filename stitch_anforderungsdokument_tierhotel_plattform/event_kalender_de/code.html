@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de-CH"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Event-Kalender | Evergreen Paws</title>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#53c2b5",
+              "tertiary-fixed-dim": "#6bd8cb",
+              "on-tertiary-fixed-variant": "#005049",
+              "inverse-on-surface": "#ecf1ff",
+              "tertiary-container": "#004d46",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#404944",
+              "on-background": "#111c2d",
+              "surface-bright": "#f9f9ff",
+              "secondary-fixed": "#ffdbca",
+              "primary-container": "#064e3b",
+              "surface-variant": "#d8e3fb",
+              "surface-tint": "#2b6954",
+              "secondary-fixed-dim": "#ffb690",
+              "on-error": "#ffffff",
+              "tertiary": "#00342f",
+              "surface-dim": "#cfdaf2",
+              "primary": "#003527",
+              "tertiary-fixed": "#89f5e7",
+              "secondary": "#9d4300",
+              "on-secondary": "#ffffff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#783200",
+              "on-primary-fixed-variant": "#0b513d",
+              "surface-container-highest": "#d8e3fb",
+              "surface-container-high": "#dee8ff",
+              "surface": "#f9f9ff",
+              "error": "#ba1a1a",
+              "background": "#f9f9ff",
+              "on-primary-fixed": "#002117",
+              "surface-container-low": "#f0f3ff",
+              "secondary-container": "#fd761a",
+              "primary-fixed": "#b0f0d6",
+              "on-surface": "#111c2d",
+              "on-primary-container": "#80bea6",
+              "inverse-primary": "#95d3ba",
+              "surface-container": "#e7eeff",
+              "primary-fixed-dim": "#95d3ba",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed": "#00201d",
+              "inverse-surface": "#263143",
+              "outline": "#707974",
+              "on-secondary-fixed": "#341100",
+              "on-secondary-container": "#5c2400",
+              "error-container": "#ffdad6",
+              "outline-variant": "#bfc9c3"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(216, 227, 251, 0.6);
+        backdrop-filter: blur(24px);
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #003527 0%, #064e3b 100%);
+      }
+      body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- Sidebar Navigation (The Sanctuary Shell) -->
+<aside class="h-screen w-64 fixed left-0 top-0 z-50 bg-emerald-950 flex flex-col p-4 gap-2 shadow-[20px_0_40px_rgba(17,28,45,0.06)]">
+<div class="flex items-center gap-3 px-2 py-4 mb-6">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="pets">pets</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-white leading-tight">The Sanctuary</h1>
+<p class="text-[10px] uppercase tracking-widest text-emerald-200/50">Tierhotel-Management</p>
+</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="text-emerald-200/70 hover:bg-emerald-800 hover:text-white px-4 py-2 flex items-center gap-3 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Benutzende</span>
+</a>
+<a class="text-emerald-200/70 hover:bg-emerald-800 hover:text-white px-4 py-2 flex items-center gap-3 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+<span>Absenzen</span>
+</a>
+<a class="text-emerald-200/70 hover:bg-emerald-800 hover:text-white px-4 py-2 flex items-center gap-3 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+<span>Aufgaben</span>
+</a>
+<a class="text-emerald-200/70 hover:bg-emerald-800 hover:text-white px-4 py-2 flex items-center gap-3 transition-all rounded-lg" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Tagesnotizen</span>
+</a>
+<!-- Active Tab: Events -->
+<a class="bg-emerald-800/50 text-white rounded-lg px-4 py-2 flex items-center gap-3 scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span>Events</span>
+</a>
+</nav>
+<div class="mt-auto pt-6 border-t border-emerald-900/50 flex flex-col gap-1">
+<button class="w-full hero-gradient text-white font-semibold py-3 px-4 rounded-md mb-4 flex items-center justify-center gap-2 shadow-lg">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Neue Buchung
+            </button>
+<a class="text-emerald-200/70 px-4 py-2 flex items-center gap-3 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="help">help</span>
+<span>Support</span>
+</a>
+<a class="text-emerald-200/70 px-4 py-2 flex items-center gap-3 hover:text-white transition-colors" href="#">
+<span class="material-symbols-outlined text-sm" data-icon="logout">logout</span>
+<span>Abmelden</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen bg-surface p-8 lg:p-12">
+<!-- Header Section -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h2 class="font-headline text-on-surface font-extrabold text-4xl tracking-tight mb-2">Oktober 2023</h2>
+<div class="flex items-center gap-4">
+<span class="flex items-center gap-2 text-on-surface-variant font-medium">
+<span class="material-symbols-outlined text-secondary" data-icon="calendar_today">calendar_today</span>
+                        Redaktionsplanung
+                    </span>
+<div class="h-1 w-1 bg-outline-variant rounded-full"></div>
+<span class="text-on-surface-variant/70 text-sm">12 aktive Events</span>
+</div>
+</div>
+<div class="flex items-center gap-3 bg-surface-container-low p-1.5 rounded-xl">
+<button class="p-2 bg-surface-container-lowest rounded-lg text-on-surface shadow-sm transition-all hover:bg-white">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<button class="px-4 py-2 font-semibold text-primary">Heute</button>
+<button class="p-2 bg-surface-container-lowest rounded-lg text-on-surface shadow-sm transition-all hover:bg-white">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Main Calendar Canvas (9 columns) -->
+<div class="col-span-12 xl:col-span-9 bg-surface-container-lowest rounded-xl p-8 shadow-[0_20px_40px_rgba(17,28,45,0.04)]">
+<!-- Days of Week Header -->
+<div class="grid grid-cols-7 border-b border-outline-variant/15 mb-4">
+<div class="text-center py-4 font-label text-[10px] font-bold text-on-surface-variant tracking-[0.1em] uppercase">Mon</div>
+<div class="text-center py-4 font-label text-[10px] font-bold text-on-surface-variant tracking-[0.1em] uppercase">Die</div>
+<div class="text-center py-4 font-label text-[10px] font-bold text-on-surface-variant tracking-[0.1em] uppercase">Mit</div>
+<div class="text-center py-4 font-label text-[10px] font-bold text-on-surface-variant tracking-[0.1em] uppercase">Don</div>
+<div class="text-center py-4 font-label text-[10px] font-bold text-on-surface-variant tracking-[0.1em] uppercase">Fre</div>
+<div class="text-center py-4 font-label text-[10px] font-bold text-on-surface-variant tracking-[0.1em] uppercase">Sam</div>
+<div class="text-center py-4 font-label text-[10px] font-bold text-on-surface-variant tracking-[0.1em] uppercase">Son</div>
+</div>
+<!-- Calendar Grid -->
+<div class="grid grid-cols-7 auto-rows-[140px]">
+<!-- Placeholder empty days -->
+<div class="p-3 opacity-20"><span class="text-sm font-semibold">25</span></div>
+<div class="p-3 opacity-20"><span class="text-sm font-semibold">26</span></div>
+<div class="p-3 opacity-20"><span class="text-sm font-semibold">27</span></div>
+<div class="p-3 opacity-20"><span class="text-sm font-semibold">28</span></div>
+<div class="p-3 opacity-20"><span class="text-sm font-semibold">29</span></div>
+<div class="p-3 opacity-20"><span class="text-sm font-semibold">30</span></div>
+<!-- Day 1 -->
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg">
+<span class="text-sm font-semibold mb-2 block">1</span>
+</div>
+<!-- Day 2: Grundreinigung -->
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg bg-surface-container-low/30">
+<span class="text-sm font-semibold mb-2 block">2</span>
+<div class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold py-1 px-2 rounded-full mb-1 flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="cleaning_services">cleaning_services</span>
+                            Grundreinigung
+                        </div>
+</div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">3</span></div>
+<!-- Day 4: Team-Sitzung -->
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg">
+<span class="text-sm font-semibold mb-2 block">4</span>
+<div class="bg-surface-container-highest text-primary text-[10px] font-bold py-1 px-2 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="groups">groups</span>
+                            Team-Sitzung
+                        </div>
+</div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">5</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">6</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">7</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">8</span></div>
+<!-- Day 9: Feiertag -->
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg relative overflow-hidden">
+<span class="text-sm font-semibold mb-2 block">9</span>
+<div class="absolute inset-0 bg-secondary/5 pointer-events-none"></div>
+<div class="bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-bold py-1 px-2 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="event_note">event_note</span>
+                            Feiertag
+                        </div>
+</div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">10</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">11</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">12</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">13</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">14</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">15</span></div>
+<!-- Day 16: Night Shift Logic & Events -->
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg bg-surface-container-low">
+<span class="text-sm font-semibold mb-2 block">16</span>
+<div class="space-y-1">
+<div class="bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold py-1 px-2 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="cleaning_services">cleaning_services</span>
+                                Grundreinigung
+                            </div>
+<div class="bg-inverse-surface text-inverse-on-surface text-[10px] font-bold py-1 px-2 rounded-full flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" data-icon="dark_mode">dark_mode</span>
+                                Audit-Schicht
+                            </div>
+</div>
+</div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">17</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">18</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">19</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">20</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">21</span></div>
+<div class="p-3 group hover:bg-surface-container-low transition-colors rounded-lg"><span class="text-sm font-semibold block">22</span></div>
+</div>
+</div>
+<!-- Side Assets (3 columns) -->
+<div class="col-span-12 xl:col-span-3 space-y-8">
+<!-- Event-Vorlagen Panel -->
+<div class="bg-surface-container-low rounded-xl p-6 shadow-sm border border-outline-variant/10">
+<h3 class="font-headline font-bold text-lg mb-6 flex items-center justify-between">
+                        Vorlagen
+                        <span class="material-symbols-outlined text-primary-container" data-icon="auto_awesome">auto_awesome</span>
+</h3>
+<div class="space-y-4">
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 group cursor-pointer hover:bg-primary-fixed/20 transition-all border border-transparent hover:border-primary-fixed">
+<div class="w-10 h-10 bg-primary-fixed/30 rounded-full flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="cleaning_services">cleaning_services</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Grundreinigung</p>
+<p class="text-[11px] text-on-surface-variant">4-Stunden-Block • Alle Zonen</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 group cursor-pointer hover:bg-tertiary-fixed/20 transition-all border border-transparent hover:border-tertiary-fixed">
+<div class="w-10 h-10 bg-tertiary-fixed/30 rounded-full flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Team-Sitzung</p>
+<p class="text-[11px] text-on-surface-variant">45 Min. • Strategieraum</p>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-4 group cursor-pointer hover:bg-secondary-fixed/20 transition-all border border-transparent hover:border-secondary-fixed">
+<div class="w-10 h-10 bg-secondary-fixed/30 rounded-full flex items-center justify-center text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined" data-icon="celebration">celebration</span>
+</div>
+<div>
+<p class="text-sm font-semibold text-on-surface">Tier-Geburtstag</p>
+<p class="text-[11px] text-on-surface-variant">1 Stunde • Spielbereich</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-2 text-xs font-bold text-primary uppercase tracking-widest border-2 border-primary/10 rounded-lg hover:bg-primary/5 transition-colors">
+                        Vorlagen verwalten
+                    </button>
+</div>
+<!-- Featured Pet Insight Card (Glassmorphism) -->
+<div class="glass-card p-6 rounded-xl border border-white/20 relative overflow-hidden">
+<img alt="Fröhlicher Golden Retriever in einem sonnigen Pflegestudio" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30 pointer-events-none" data-alt="glücklicher golden retriever hund in einem hellen modernen haustierstudio mit weicher warmer beleuchtung und minimalistischem hintergrund" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyBD6mCgNj3aZ6fO39Vc-xEZQPdmLVYk675PMoWLq5vZIYOn3fZae3ibap4u27qwBbzRGthh0tXm8GNf6_fqslmzX8Fk4p4XwkUx9IktJ7CbLaLa7OW7k9Yos7uEd9li758SAU7bFX5n2urmxHqAQW6ivAQO6UajkoMy9aedC_DFntAP-f2SjxJIVw10Nd0BOT7naC0YnljhjhC_JIMjX4ApqzLA8Eze3BFUHytBT3pEYLAHRXdBUrqetZBH8r0bXKejXuOneSXPA"/>
+<div class="relative z-10">
+<span class="label-SM bg-secondary text-white px-2 py-0.5 rounded-full text-[9px] font-bold tracking-[0.05em] uppercase mb-3 inline-block">Belegungswarnung</span>
+<h4 class="font-headline font-extrabold text-2xl text-primary leading-tight mb-2">92% Kapazität</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-4">
+                            Viele Ankünfte für den 12. Okt. geplant. Ziehen Sie zusätzliche "Welcome-Springer" als Mitarbeitende in Betracht.
+                        </p>
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="porträt einer jungen lächelnden fachfrau in geschäftskleidung" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC07MbzClMlT4PkUc0becw0YHIGOEjwyIIbD5Nj6Sa2Ontu0Fq7e9n7d7aV-z0077cRvN30cEU3NbUrxADg_Rrb5lwakIjnbuKtZ07es_Z5prFm8prC6szSlDbiOgCSFSroTrqSJSsXT13ZMVY30Zvc-BmWKJZJijkC493ohqxnCcb8r7o_iWtFbZce0GXBnEvIyL1VE5AL9YeKwvW2f1uza1ZhjDcZ6V-7RMKlReQzR0l-vPiqv3ypeOl4nCAmlSg_NYu6jHXlBzI"/>
+<img class="w-8 h-8 rounded-full border-2 border-white object-cover" data-alt="porträt eines selbstbewussten mannes mit kurzem bart, der in einem sonnigen büro lächelt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsjvNetSclUxBddmHSbM_9SCPwHdlVivJMWLC278EgehgESVRmL-QIcNLrnUOge_SlABuxj_XCJRERwsa3yP7auH6hVFBvy3VCU8pLD04aKGTU_zwaUVBm4wUQybqrWx2KbLgaZ0NtorRgwzfQMOo8HXf6uCkYpIFttMsp5IUKnhrmmMiShuttaPD1pl2ZqimDEQzVHFJcOmuCwLaNLIR1mmjaQAjE-0_Rnxj3NWd6T5ERLYh9hTfAxRUIxnl2m0jMzH9GlV0zQhQ"/>
+<div class="w-8 h-8 rounded-full border-2 border-white bg-primary-container text-[10px] text-white flex items-center justify-center font-bold">+3</div>
+</div>
+</div>
+</div>
+<!-- Legende -->
+<div class="p-4">
+<h5 class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-4">Legende</h5>
+<ul class="space-y-2">
+<li class="flex items-center gap-3 text-xs font-medium text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-primary-fixed"></span> Reinigung
+                        </li>
+<li class="flex items-center gap-3 text-xs font-medium text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-surface-container-highest"></span> Mitarbeitende/Team
+                        </li>
+<li class="flex items-center gap-3 text-xs font-medium text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-secondary-fixed"></span> Feiertag
+                        </li>
+<li class="flex items-center gap-3 text-xs font-medium text-on-surface-variant">
+<span class="w-3 h-3 rounded-full bg-inverse-surface"></span> Nachtschicht
+                        </li>
+</ul>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for quick action -->
+<button class="fixed bottom-8 right-8 hero-gradient text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center group active:scale-95 transition-all">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</body></html>

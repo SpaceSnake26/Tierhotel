@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tierhotel 5 Stern - Staff Dashboard</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e6e9e8",
+              "surface-container-low": "#f2f4f3",
+              "on-surface-variant": "#3e4944",
+              "on-secondary": "#ffffff",
+              "error": "#ba1a1a",
+              "on-primary-fixed-variant": "#00513f",
+              "inverse-primary": "#82d7ba",
+              "secondary-fixed": "#c8eadc",
+              "surface-tint": "#016b54",
+              "on-error-container": "#93000a",
+              "on-primary-fixed": "#002118",
+              "on-background": "#191c1c",
+              "outline-variant": "#bec9c3",
+              "on-primary": "#ffffff",
+              "on-tertiary-fixed-variant": "#753229",
+              "tertiary-fixed": "#ffdad4",
+              "primary-fixed": "#9ef3d6",
+              "primary-container": "#006b54",
+              "on-secondary-container": "#4c6b5f",
+              "on-surface": "#191c1c",
+              "secondary-container": "#c8eadc",
+              "surface-container-highest": "#e1e3e2",
+              "on-secondary-fixed-variant": "#2f4d42",
+              "on-secondary-fixed": "#012018",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-container": "#ffcdc5",
+              "secondary": "#466559",
+              "outline": "#6f7a74",
+              "surface": "#f8faf9",
+              "inverse-on-surface": "#eff1f0",
+              "surface-variant": "#e1e3e2",
+              "on-primary-container": "#94e8cb",
+              "inverse-surface": "#2e3131",
+              "background": "#f8faf9",
+              "error-container": "#ffdad6",
+              "surface-bright": "#f8faf9",
+              "surface-dim": "#d8dada",
+              "tertiary-container": "#92493e",
+              "tertiary-fixed-dim": "#ffb4a8",
+              "on-tertiary-fixed": "#3c0804",
+              "on-error": "#ffffff",
+              "primary": "#00513f",
+              "secondary-fixed-dim": "#adcec0",
+              "tertiary": "#753229",
+              "primary-fixed-dim": "#82d7ba",
+              "surface-container": "#eceeed",
+              "on-tertiary": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low text-on-background">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-50 bg-[#f8faf9] flex flex-col p-6 space-y-2">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-extrabold text-[#006B54]">Tierhotel 5 Stern</h1>
+<p class="text-[12px] text-on-surface-variant/70 font-medium tracking-wider">CONCIERGE PORTAL</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-[#006B54] shadow-[0_4px_12px_rgba(0,81,63,0.05)] rounded-xl font-medium transition-transform duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_view_day">calendar_view_day</span>
+<span>Roster</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+<span>Absences</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span>Tasks</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Notes</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="event">event</span>
+<span>Events</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Users</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300 font-medium" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="mt-auto p-4 rounded-2xl bg-primary-container/10 flex items-center gap-3">
+<img alt="Profile" class="w-10 h-10 rounded-full border-2 border-white" data-alt="Portrait of a friendly male hotel staff member with a professional smile, warm lighting, upscale resort background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnOu2h8P3fyimRCnLF4y1owfQEhP3wL_Ok-TkAJJUpxjPNOoiPYZASQJC4d69YyhJLUj7xUfNbkAfyLTLqkg0_5egqLZP7fT35t78HK42LlgveufNucJNo7AK30X_uO0v4OD2DcnDGAq8-N5EQFKmTOjKXv-lV7wuD-f2B9VWf6G0aEQp1k3ahINv-fLzoxiRBn3mSgBh679gGaFrVd3sT-hdU1_MOp1NDua2LwfaeNWkNjtJeYGHZXEeo6cIxsPgQisOifSaFqNU"/>
+<div>
+<p class="text-sm font-bold text-primary">Lukas M.</p>
+<p class="text-[10px] text-on-surface-variant font-semibold">SENIOR CARE</p>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 z-40 w-full bg-white/80 backdrop-blur-xl flex items-center justify-between px-8 h-16 ml-64 pl-[288px] shadow-[0_8px_30px_rgb(0,81,63,0.04)]">
+<div class="flex items-center bg-zinc-50 px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-zinc-400 mr-2 text-sm" data-icon="search">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder-zinc-400" placeholder="Suche nach Gästen oder Aufgaben..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative p-2 text-zinc-500 hover:bg-zinc-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+<span class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full border-2 border-white"></span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/30"></div>
+<div class="flex items-center gap-3">
+<span class="text-sm font-semibold text-primary">Status: Online</span>
+<div class="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-12 px-12 min-h-screen">
+<!-- Welcome Section -->
+<header class="mb-12 flex items-end justify-between">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tight text-on-surface mb-2">Guten Morgen, Lukas</h2>
+<p class="text-on-surface-variant font-medium text-lg">Es ist ein schöner Tag im Hotel. Heute sind 24 vierbeinige Gäste eingecheckt.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 rounded-xl bg-surface-container-highest text-primary font-bold text-sm hover:bg-surface-container-high transition-all">
+                    Schichtbericht
+                </button>
+<button class="px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-primary-container text-white font-bold text-sm shadow-lg shadow-primary/10 flex items-center gap-2 scale-98 active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-[18px]" data-icon="add">add</span>
+                    Neuer Check-in
+                </button>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-12 gap-6">
+<!-- My Shift Today (Medium Card) -->
+<div class="col-span-12 lg:col-span-4 bg-surface-container-lowest rounded-[2rem] p-8 shadow-[0_4px_12px_rgba(0,81,63,0.02)]">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-xl font-bold text-primary">Meine Schicht</h3>
+<span class="bg-secondary-container text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase">AKTUELL</span>
+</div>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-primary-fixed rounded-2xl flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant font-medium">Heutige Zeit</p>
+<p class="text-lg font-bold">08:00 — 16:30</p>
+<p class="text-xs text-zinc-400 mt-1 font-medium">Tagesschicht • Sektor A</p>
+</div>
+</div>
+<div class="h-[1px] bg-outline-variant/10"></div>
+<div>
+<p class="text-sm text-on-surface-variant font-medium mb-4">Anstehende Pausen</p>
+<div class="flex items-center gap-3">
+<div class="flex-1 h-2 bg-surface-container-low rounded-full overflow-hidden">
+<div class="w-1/2 h-full bg-primary rounded-full"></div>
+</div>
+<span class="text-xs font-bold text-on-surface">12:30 - 13:00</span>
+</div>
+</div>
+<button class="w-full py-4 mt-4 bg-surface-container-high rounded-2xl text-primary font-bold text-sm hover:bg-secondary-container transition-colors">
+                        Dienstplan ansehen
+                    </button>
+</div>
+</div>
+<!-- Priority Tasks (Large Card) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-[2rem] p-8 shadow-[0_4px_12px_rgba(0,81,63,0.02)]">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-xl font-bold text-primary">Tagesaufgaben</h3>
+<p class="text-sm text-on-surface-variant font-medium">3 von 8 Aufgaben abgeschlossen</p>
+</div>
+<button class="text-primary font-bold text-sm flex items-center gap-1">
+                        Alle anzeigen <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Task Item -->
+<div class="p-4 bg-surface-container-low rounded-2xl border-l-4 border-primary group hover:bg-white transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-tighter">Fütterung</span>
+<h4 class="font-bold text-on-surface mt-1">Spezialdiät für 'Luna'</h4>
+<p class="text-xs text-on-surface-variant mt-1">Zimmer 104 • Kein Getreide</p>
+</div>
+<span class="material-symbols-outlined text-zinc-300 group-hover:text-primary" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Task Item -->
+<div class="p-4 bg-surface-container-low rounded-2xl border-l-4 border-amber-400 group hover:bg-white transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[10px] font-bold text-amber-600 uppercase tracking-tighter">Medikamente</span>
+<h4 class="font-bold text-on-surface mt-1">Insulin-Spritze 'Max'</h4>
+<p class="text-xs text-on-surface-variant mt-1">Um 10:00 Uhr fällig</p>
+</div>
+<span class="material-symbols-outlined text-zinc-300 group-hover:text-amber-500" data-icon="pending">pending</span>
+</div>
+</div>
+<!-- Task Item -->
+<div class="p-4 bg-surface-container-low rounded-2xl border-l-4 border-primary-fixed group hover:bg-white transition-all cursor-pointer">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-tighter">Pflege</span>
+<h4 class="font-bold text-on-surface mt-1">Fellpflege Golden Retriever</h4>
+<p class="text-xs text-on-surface-variant mt-1">Garten-Suite 02</p>
+</div>
+<span class="material-symbols-outlined text-zinc-300 group-hover:text-primary" data-icon="check_circle">check_circle</span>
+</div>
+</div>
+<!-- Task Item -->
+<div class="p-4 bg-surface-container-low rounded-2xl border-l-4 border-outline group hover:bg-white transition-all cursor-pointer opacity-60">
+<div class="flex items-start justify-between">
+<div>
+<span class="text-[10px] font-bold text-zinc-500 uppercase tracking-tighter">Check-Out</span>
+<h4 class="font-bold text-on-surface mt-1">Abreise Vorbereitung 'Bella'</h4>
+<p class="text-xs text-on-surface-variant mt-1">Tasche packen &amp; Bericht</p>
+</div>
+<span class="material-symbols-outlined text-primary" data-icon="check_circle" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Team News (Featured Wide Card) -->
+<div class="col-span-12 lg:col-span-7 bg-surface-container-lowest rounded-[2rem] overflow-hidden shadow-[0_4px_12px_rgba(0,81,63,0.02)] relative group">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10"></div>
+<img alt="Team news" class="w-full h-80 object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Team of professional animal caregivers smiling together in a modern luxury pet hotel lobby, natural light, high-end interior" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCa_xYxLavXE8BhlKSoWvCsN7Cvy2RxYkN7yiQ2N_PLPmBOrPTmizCtU-CviVnSMi1S1vfI8r9AqqU6gHQ0E5jIZeIyGOC7D5UusGNNfAzBOjHZmejGw1oCeaRTNxXBJ9naE3pqMVEjFkmXO91CcFA1EEYC1s9tKFXbN_zROY4g0p3YWDe1Eny90JKjB4Y61-TC_epbgbW3l1Xjo4DecLvlsk1Rlx6ILD5D5qV49RXxcW7mb-89f8N4i9FB-DWpsvMsUPcwc6yK4jE"/>
+<div class="absolute bottom-0 left-0 p-8 z-20 w-full">
+<span class="bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-block">TEAM NEWS</span>
+<h3 class="text-2xl font-bold text-white mb-2">Sommerfest am nächsten Freitag!</h3>
+<p class="text-white/80 font-medium mb-4 max-w-lg">Wir laden alle Mitarbeiter herzlich zu unserem jährlichen Grillabend im Hotelgarten ein. Für Speis und Trank ist gesorgt.</p>
+<div class="flex items-center gap-4">
+<div class="flex -space-x-2">
+<img class="w-8 h-8 rounded-full border-2 border-white" data-alt="Female team member portrait small" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTljORhX-8YFHS_VNS7rZBk3Dulr9DbS7pFcPEHjHpaUGxY5Y4MjZv1h5j1SxYTZJsx7UJddGcMPpGy2014MhmUHvaCR-IU94z4FWBsd9l3b0BOBo2HBlLehMBi07pt9b9NuO3Ia0FTWitNs-0Gi4gqYFKH56QFX-KJvsgUOhFwzahn-wy2iBneU3WCfFWiWX8Ws7blEG7o15J0YXD_yZeHaUMuuNLwcF8tvsRUXYVZ1Uwdch_vBJ2Rs-O-iwW2fG8wluW2x6i3U4"/>
+<img class="w-8 h-8 rounded-full border-2 border-white" data-alt="Male team member portrait small" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr8C4kAccGKJFji7lyjM_djaE4BOuOxT8fkYK9GFvd0GHc1U0YoG4xhArO33slGXcR7XDmOAXbY3ZooftGgZ-gXyoB0WFC3VfdhC5pVvSnSBHVVxW5m-569Nj03MF6Lhz2pXfC6OdEgTKnUZB-ZMN0GWaE4YPx3z4VAdYfxRosNUSCHwNJbuJRPo4IFv6V4g9v0mSoS7RNMmi430EConP-ogKBDIbQwzSIWwgbCmHPnuUwFszA5r19shMTwVNn58vfx0mEGC_Wy5k"/>
+<img class="w-8 h-8 rounded-full border-2 border-white" data-alt="Female team member portrait small" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCU7kKjYd5CqLLA12tOeBcQ0Gv_xcPorX7HtbiWeNcGXEAMWphpAJtisfjhr0MikB-Wb9DMf9ulg99RdYywZD3V33WOdxsqFh5hm0AFdTqfucUogDA0YGAjsRZQeul6zZY32vEiH7NAB76swgXqkEK28L2HzLPV-FXkpuLC7Y3rFKVqd4miWZ5GIL9K1yqiXBL6jCg-SDcsJg6QFq3DD-YNSi1XKTk0grn2X2NWIUWloQdRCx4hGzU7F6aDUn_Rk7puHKCcP7R1j0"/>
+</div>
+<span class="text-white/60 text-xs font-bold">+12 Kollegen nehmen teil</span>
+</div>
+</div>
+</div>
+<!-- Guests of the Day (Vertical List) -->
+<div class="col-span-12 lg:col-span-5 bg-surface-container-lowest rounded-[2rem] p-8 shadow-[0_4px_12px_rgba(0,81,63,0.02)]">
+<h3 class="text-xl font-bold text-primary mb-6">Heutige Gäste</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between p-3 rounded-2xl hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of a happy golden retriever in soft sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc44GyBAO5ijr0Qh4jHWTWz5pRJZtVd8KwqFxfh-wYLsvkFisfY_Ye0k6VDPi9kAUREb-DjHx2OBetlzYte19CLUiufuswwXmDjvkXFtyNwMT1O2yKvNDu5GyB6AknwJd6H7QXtYQncjBgYmFprZwK5nV_O0i2_BO4MN_9_697kk6yCwloO3uc8dczVazfMkiu_q0bnYMDRVQetUSE5Flk-dtGeB45dCpnvEfZiICKyLM0Xwfgl4HI-37oDe0blv59UJsbXBVZm4s"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Luna</p>
+<p class="text-xs text-on-surface-variant font-medium">Border Collie • Suite 104</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-zinc-300 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-2xl hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-tertiary-fixed flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Beautiful ragdoll cat lounging on a soft white pillow in a luxury suite" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaoHVToiJdANtvtuTkjuuBlOMmY53qQDg0alkM6PhnXW5O7_OFg6EjZMHjBvRe_Did6pqCHIEtBsHEfHuFax9e-WfF_t-gxYEjOiMF2lBYkJAJY3WjQbYvcPETvUc_VNL2qMlT15JmhreYU80ecB6AcZLfugJYWrDQsvsHdXK9MD3pMMsmol7XOWQ2HQl5CIcEAyScjozVHAxK-Rx3e19A-M-GAkrYTERA4gPh84d5oZrKM7BLLSIhz10MU-ATXSEF34V-jNThquI"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Max</p>
+<p class="text-xs text-on-surface-variant font-medium">Siamkatze • Zimmer 302</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-zinc-300 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-3 rounded-2xl hover:bg-surface-container-low transition-colors group">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-fixed flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="French bulldog wearing a blue bandana, sitting on a designer pet bed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvMpY8_hO6UDgYd9cjB9gBDaxFM6_FuScdQbMpQ7WhM9dUw9ug1NWy0Hkf19sUFM3XKfqgzjEbktqmhZUFWecjhG3L-HEQNstDwimEhc_7YEwJwAJcfS9zaEugi_f3HQYRlTsFV-WhjoOwXtkgXYsMTC2iaeDvayJyRzWhJ-rkCURImyuTPNubRGruu1CHmnik8rixfWbSJYNOs94mfq2TzSgdeN2T2jSHFswoBKaFnZKAQFrFMuuaRhiEnIA71bIc62c0KGN_hFE"/>
+</div>
+<div>
+<p class="font-bold text-on-surface">Bella</p>
+<p class="text-xs text-on-surface-variant font-medium">Franz. Bulldogge • Suite 02</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-zinc-300 group-hover:text-primary transition-colors" data-icon="chevron_right">chevron_right</span>
+</div>
+<button class="w-full py-3 mt-2 text-primary font-bold text-sm border-2 border-primary/10 rounded-2xl hover:bg-primary/5 transition-colors">
+                        Gästeliste öffnen
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-2xl" data-icon="add">add</span>
+</button>
+</body></html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tasks Hub | Evergreen Paws</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary-container": "#53c2b5",
+                        "tertiary-fixed-dim": "#6bd8cb",
+                        "on-tertiary-fixed-variant": "#005049",
+                        "inverse-on-surface": "#ecf1ff",
+                        "tertiary-container": "#004d46",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#404944",
+                        "on-background": "#111c2d",
+                        "surface-bright": "#f9f9ff",
+                        "secondary-fixed": "#ffdbca",
+                        "primary-container": "#064e3b",
+                        "surface-variant": "#d8e3fb",
+                        "surface-tint": "#2b6954",
+                        "secondary-fixed-dim": "#ffb690",
+                        "on-error": "#ffffff",
+                        "tertiary": "#00342f",
+                        "surface-dim": "#cfdaf2",
+                        "primary": "#003527",
+                        "tertiary-fixed": "#89f5e7",
+                        "secondary": "#9d4300",
+                        "on-secondary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#783200",
+                        "on-primary-fixed-variant": "#0b513d",
+                        "surface-container-highest": "#d8e3fb",
+                        "surface-container-high": "#dee8ff",
+                        "surface": "#f9f9ff",
+                        "error": "#ba1a1a",
+                        "background": "#f9f9ff",
+                        "on-primary-fixed": "#002117",
+                        "surface-container-low": "#f0f3ff",
+                        "secondary-container": "#fd761a",
+                        "primary-fixed": "#b0f0d6",
+                        "on-surface": "#111c2d",
+                        "on-primary-container": "#80bea6",
+                        "inverse-primary": "#95d3ba",
+                        "surface-container": "#e7eeff",
+                        "primary-fixed-dim": "#95d3ba",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed": "#00201d",
+                        "inverse-surface": "#263143",
+                        "outline": "#707974",
+                        "on-secondary-fixed": "#341100",
+                        "on-secondary-container": "#5c2400",
+                        "error-container": "#ffdad6",
+                        "outline-variant": "#bfc9c3"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #003527 0%, #064e3b 100%);
+        }
+        .glass-panel {
+            background: rgba(216, 227, 251, 0.6);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface">
+<!-- SideNavBar (Authority Source: JSON) -->
+<nav class="h-screen w-64 fixed left-0 top-0 z-50 bg-emerald-950 dark:bg-black shadow-[20px_0_40px_rgba(17,28,45,0.06)] flex flex-col h-full p-4 gap-2 font-['Inter'] text-sm font-medium">
+<div class="flex items-center gap-3 px-4 py-6 mb-4">
+<div class="w-10 h-10 rounded-lg bg-primary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" data-icon="pets">pets</span>
+</div>
+<div>
+<h1 class="text-lg font-black text-white leading-none">The Sanctuary</h1>
+<p class="text-[10px] text-emerald-200/50 uppercase tracking-widest mt-1">Pet Hotel Management</p>
+</div>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<a class="text-emerald-200/70 dark:text-slate-400 px-4 py-2 flex items-center gap-3 hover:bg-emerald-800 dark:hover:bg-slate-800 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                Users
+            </a>
+<a class="text-emerald-200/70 dark:text-slate-400 px-4 py-2 flex items-center gap-3 hover:bg-emerald-800 dark:hover:bg-slate-800 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="event_busy">event_busy</span>
+                Absences
+            </a>
+<!-- Active Tab: Tasks -->
+<a class="bg-emerald-800/50 dark:bg-emerald-900/50 text-white rounded-lg px-4 py-2 flex items-center gap-3 scale-95 active:scale-100 transition-transform" href="#">
+<span class="material-symbols-outlined" data-icon="assignment_turned_in">assignment_turned_in</span>
+                Tasks
+            </a>
+<a class="text-emerald-200/70 dark:text-slate-400 px-4 py-2 flex items-center gap-3 hover:bg-emerald-800 dark:hover:bg-slate-800 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                Daily Notes
+            </a>
+<a class="text-emerald-200/70 dark:text-slate-400 px-4 py-2 flex items-center gap-3 hover:bg-emerald-800 dark:hover:bg-slate-800 hover:text-white transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+                Events
+            </a>
+</div>
+<div class="mt-auto border-t border-emerald-900/50 pt-4 flex flex-col gap-1">
+<button class="mb-4 mx-2 hero-gradient text-white font-semibold py-3 rounded-md shadow-lg flex items-center justify-center gap-2 hover:opacity-90 transition-opacity">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Booking
+            </button>
+<a class="text-emerald-200/70 dark:text-slate-400 px-4 py-2 flex items-center gap-3 hover:bg-emerald-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="help">help</span>
+                Support
+            </a>
+<a class="text-emerald-200/70 dark:text-slate-400 px-4 py-2 flex items-center gap-3 hover:bg-emerald-800 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+                Log Out
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-8 bg-surface">
+<!-- TopAppBar (Authority Source: JSON) -->
+<header class="flex justify-between items-center w-full px-6 py-4 mb-8 sticky top-0 z-40 bg-slate-50/80 backdrop-blur-md rounded-xl">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-emerald-900 font-headline">Evergreen Paws</span>
+<nav class="hidden md:flex gap-6">
+<a class="text-slate-500 hover:text-emerald-800 transition-colors font-medium" href="#">Dashboard</a>
+<a class="text-slate-500 hover:text-emerald-800 transition-colors font-medium" href="#">Staff</a>
+<a class="text-slate-500 hover:text-emerald-800 transition-colors font-medium" href="#">Analytics</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-slate-500 hover:bg-emerald-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-slate-500 hover:bg-emerald-50 rounded-full transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border-2 border-primary-fixed">
+<img alt="Manager Profile" data-alt="professional headshot of a friendly female pet care manager with a warm smile in a brightly lit modern office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8HQFX7fxcyCBYz79oACcLimtPKXxkyzlV_nAJGTqCBwzPx3DNtABlhiIN0YqAmxEZXCDs2ekOGAJlNYwO8_nuuX3hk9NsdIzcuOsvXcF5aOyLJ_a_8BvAzTALNMe7zkk8tJ-cUIZ0YNEhwClKtFvjZi6VGGXy48N6pCiJ8ahi89RjooSTVBeFiTBcu5nq5-KFhXvYHjuLaZInSUKPhMkRfg10KDc8kcv_q-s7k6qwnpYIxJeOFNOEankjG5fbEEZHmWH8GD8Bxz0"/>
+</div>
+</div>
+</header>
+<!-- Tasks Content -->
+<div class="max-w-7xl mx-auto">
+<!-- Header Section with Hero Action -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 pl-4 border-l-4 border-secondary">
+<div>
+<h2 class="text-4xl font-headline font-extrabold text-on-surface tracking-tight mb-2">Tasks Hub</h2>
+<p class="text-on-surface-variant font-medium">Manage and monitor sanctuary operations across all departments.</p>
+</div>
+<button class="hero-gradient text-on-primary px-8 py-4 rounded-lg font-bold flex items-center gap-2 shadow-xl hover:scale-105 transition-transform">
+<span class="material-symbols-outlined" data-icon="add_task">add_task</span>
+                    New Task
+                </button>
+</div>
+<!-- Asymmetrical Bento Filter Bar -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-4 mb-10">
+<div class="md:col-span-4 bg-surface-container-low p-6 rounded-xl flex flex-col gap-3">
+<span class="text-xs font-label uppercase tracking-widest text-secondary font-bold">Search &amp; Filter</span>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full bg-surface-container-lowest border-none rounded-lg pl-10 py-3 text-sm focus:ring-2 focus:ring-primary-container" placeholder="Search tasks, pets, or staff..." type="text"/>
+</div>
+</div>
+<div class="md:col-span-8 bg-surface-container-low p-6 rounded-xl flex items-center justify-between overflow-x-auto gap-4">
+<div class="flex items-center gap-2">
+<span class="text-xs font-label uppercase tracking-widest text-outline font-bold mr-2">Status:</span>
+<button class="px-4 py-2 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant text-xs font-bold whitespace-nowrap">Open (12)</button>
+<button class="px-4 py-2 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-xs font-bold whitespace-nowrap">In Progress (5)</button>
+<button class="px-4 py-2 rounded-full bg-error-container text-on-error-container text-xs font-bold whitespace-nowrap">Overdue (2)</button>
+</div>
+<div class="h-8 w-[1px] bg-outline-variant/30 hidden lg:block"></div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-label uppercase tracking-widest text-outline font-bold mr-2">Category:</span>
+<select class="bg-transparent border-none text-sm font-semibold focus:ring-0 text-primary">
+<option>All Categories</option>
+<option>Cleaning</option>
+<option>Feeding</option>
+<option>Admin</option>
+</select>
+</div>
+</div>
+</div>
+<!-- Tasks Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Task Card 1: Overdue/Urgent -->
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group hover:bg-white transition-colors">
+<div class="absolute top-0 left-0 w-1 h-full bg-error"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="px-3 py-1 rounded-full bg-error-container text-on-error-container text-[10px] font-label font-bold uppercase tracking-widest">Overdue</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
+</div>
+<h3 class="text-lg font-headline font-bold text-on-surface mb-2">Sterilize Suite 402</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2 mb-6">High-priority cleaning after departure of senior cat with respiratory sensitivity. Use grade-A enzymatic cleaner.</p>
+<div class="flex items-center justify-between mt-auto pt-6 border-t border-surface-container-low">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">JD</div>
+<span class="text-xs font-medium">Jordan D.</span>
+</div>
+<div class="flex items-center gap-1 text-error text-xs font-bold">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                            Expired 2h ago
+                        </div>
+</div>
+</div>
+<!-- Task Card 2: Recurring/Feeding -->
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group hover:bg-white transition-colors">
+<div class="absolute top-0 left-0 w-1 h-full bg-secondary"></div>
+<div class="flex justify-between items-start mb-4">
+<div class="flex gap-2">
+<span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant text-[10px] font-label font-bold uppercase tracking-widest">In Progress</span>
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-primary text-[10px] font-label font-bold uppercase tracking-widest">Recurring</span>
+</div>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
+</div>
+<h3 class="text-lg font-headline font-bold text-on-surface mb-2">Morning Feeding - Wing B</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2 mb-6">Standard kibble for all residents. Note: "Luna" (B-12) requires wet food mix-in for medication.</p>
+<div class="flex items-center justify-between mt-auto pt-6 border-t border-surface-container-low">
+<div class="flex items-center gap-2">
+<img alt="Staff Avatar" class="w-8 h-8 rounded-full" data-alt="close up headshot of a smiling young male staff member with a friendly expression in natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDJJ3XjZJQBjoR4tObqfEmkoDi2imG8ruxPGsVSGFL40HIfqiDFoRuAslkJKlOMH6qXM9I_3d1rQVo2dYqaAMUGgZY5wi1j2J0v85zGRW0NFPIv7M82Er1VzQqMm3eg8zHEQ1x9Gha7Y4NmTnRsOrS54AuqXheUUohx7gSu6YklCWC18s0-BpQeof8Lu2usuWCH_zCYZE3KLRQ3ctqjpAZfQVZFM5Rp2eFGEZZtkNSG9AlmV_WryCKgKdqxH9bTpalLk3b8DIDDWM0"/>
+<span class="text-xs font-medium">Marcus L.</span>
+</div>
+<div class="text-on-surface-variant text-xs font-medium flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="sync">sync</span>
+                            Daily @ 08:00
+                        </div>
+</div>
+</div>
+<!-- Task Card 3: One-time/Admin -->
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group hover:bg-white transition-colors">
+<div class="absolute top-0 left-0 w-1 h-full bg-tertiary-fixed-dim"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-label font-bold uppercase tracking-widest">Open</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
+</div>
+<h3 class="text-lg font-headline font-bold text-on-surface mb-2">Review Vaccination Records</h3>
+<p class="text-sm text-on-surface-variant line-clamp-2 mb-6">Verify records for incoming boarders for the weekend peak. Flag any missing certificates.</p>
+<div class="flex items-center justify-between mt-auto pt-6 border-t border-surface-container-low">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-[10px] font-bold">EP</div>
+<span class="text-xs font-medium">Unassigned</span>
+</div>
+<div class="text-on-surface-variant text-xs font-medium">
+                            Due: Today, 17:00
+                        </div>
+</div>
+</div>
+<!-- Task Card 4: Cleaning -->
+<div class="bg-surface-container-lowest p-6 rounded-xl relative overflow-hidden group hover:bg-white transition-colors lg:col-span-2">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex justify-between items-start mb-4">
+<span class="px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed-variant text-[10px] font-label font-bold uppercase tracking-widest">Open</span>
+<div class="flex gap-2">
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="attach_file">attach_file</span>
+<span class="material-symbols-outlined text-outline cursor-pointer hover:text-primary" data-icon="more_vert">more_vert</span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row gap-8">
+<div class="flex-1">
+<h3 class="text-xl font-headline font-bold text-on-surface mb-2">Quarterly Deep Clean: Outdoor Play Area</h3>
+<p class="text-sm text-on-surface-variant mb-6">Power wash turf, inspect fencing for gaps, and sanitize all shared water fountains. Safety inspection required after completion.</p>
+<div class="flex gap-4">
+<div class="px-3 py-2 bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="layers">layers</span>
+<span class="text-xs font-bold text-primary">Priority: Medium</span>
+</div>
+<div class="px-3 py-2 bg-surface-container-low rounded-lg flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="history">history</span>
+<span class="text-xs font-bold text-primary">Est: 4 hours</span>
+</div>
+</div>
+</div>
+<div class="md:w-48 flex-shrink-0">
+<div class="rounded-xl overflow-hidden aspect-video md:aspect-square">
+<img alt="Outdoor area" class="w-full h-full object-cover" data-alt="sunny outdoor dog play area with artificial turf, blue agility tunnels, and clean white fencing under a clear sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuABhkVW_YeSDdK-W2x9z3RJB7U2CxO9QOtnqLf14xeu85DPBK-9HCPJPcFHGLbHglbvHMtXiaiIqiv3ihbn2MA8PaHZ3lAkJ8SsC4jRwSLBUhomZhDZ1OWUseWN7dyZmdxheNOUXOhKUoxhTSIVaAvuShjhzdigjaGdM2RO5v0x2Vw8oYBdx3_5q8tuDzWgmGFzI6WB71cpFELUd6lIPY1w5kgdbLT8Jfy_qz0xzF9QxmGfAl0kPgd6FWN3vCrcLbPPrGBKrmGQUhc"/>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between mt-6 pt-6 border-t border-surface-container-low">
+<div class="flex -space-x-3">
+<img class="w-8 h-8 rounded-full border-2 border-surface" data-alt="portrait of a man" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCL-vKEG9KkJXJ3aUr4QYiilinO3GpI8JZDIKsL-f_zJoLYREK0Cy9yhQSuWWTz8ZCMkSwJdrzXL7wrUV4QYWRlLS3cZr9TMaUgd1GoXGf7ysdxidwahViNImLxsjX9OhJubxfwW8ZPko_Quwo7LooN09NIP54d17M2Kyy35ezMHrjV-AYKcS55cjr8aCGU-AIFxqWaclUc9n8U8zQNbJRsjRQN0GLoX5XGKth_Xfg86DLQFAP-2t3R7zsycIQJNCxGIAUPqkcc3q4"/>
+<img class="w-8 h-8 rounded-full border-2 border-surface" data-alt="portrait of a woman" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZSaf-z6-jrzeh3f1eF8ofcyItPP9jM8-uD8kExmK8hehNx-NRN6BHr45mVb3kqNOzW7l0YPKlBeiAvYIs7hwWE1WDew9qbI3W4mvGJQHeXAZN79Ugiyeq5N4x3WexAyvdQYkE0CqFltzroU6o06LWInHThyxcmoW6vqVBYyao7AhTBxuvABtl1IXN4Cpsyb0pc2n_z-B56ZIUyJzTIdGE8Tqtb8g85oQR6CbZISIhaNMr7rotCwNd-onwsyPMJC3LwpY0vlobZ0A"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+2</div>
+</div>
+<div class="text-on-surface-variant text-xs font-medium">
+                            Scheduled: Aug 24, 09:00
+                        </div>
+</div>
+</div>
+<!-- Shift Block Summary Card -->
+<div class="hero-gradient p-6 rounded-xl flex flex-col justify-between text-white shadow-2xl">
+<div>
+<span class="text-xs font-label uppercase tracking-widest text-primary-fixed/70 font-bold">Active Shift</span>
+<h3 class="text-2xl font-headline font-extrabold mt-2 mb-1">Morning Crew</h3>
+<p class="text-sm text-primary-fixed/80">06:00 — 14:00</p>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-end">
+<span class="text-sm font-medium">Tasks Completion</span>
+<span class="text-lg font-bold">64%</span>
+</div>
+<div class="w-full h-2 bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-primary-fixed w-[64%]"></div>
+</div>
+<p class="text-[10px] text-white/60 italic">*3 urgent tasks pending for this shift</p>
+</div>
+<button class="mt-4 w-full py-3 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-colors">
+                        View Shift Log
+                    </button>
+</div>
+</div>
+<!-- Recently Completed (Tonal Section) -->
+<div class="mt-16 bg-surface-container-low p-10 rounded-3xl">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-2xl font-headline font-bold">Recently Resolved</h3>
+<button class="text-primary font-bold text-sm flex items-center gap-1 hover:underline">
+                        View History
+                        <span class="material-symbols-outlined text-sm" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+<div class="space-y-2">
+<!-- Row 1 -->
+<div class="flex items-center justify-between bg-surface-container-lowest p-4 rounded-xl">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<p class="font-bold text-sm">Refill Medical Supplies</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-label font-bold tracking-widest">Admin • Completed by Sarah K.</p>
+</div>
+</div>
+<span class="text-xs text-on-surface-variant">15m ago</span>
+</div>
+<!-- Row 2 (Alternating Background Shift) -->
+<div class="flex items-center justify-between bg-surface-container p-4 rounded-xl">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<p class="font-bold text-sm">Afternoon Walkies - Sector 1</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-label font-bold tracking-widest">Exercise • Completed by Marcus L.</p>
+</div>
+</div>
+<span class="text-xs text-on-surface-variant">42m ago</span>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center justify-between bg-surface-container-lowest p-4 rounded-xl">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary-fixed flex items-center justify-center">
+<span class="material-symbols-outlined text-on-tertiary-fixed-variant" data-icon="check_circle">check_circle</span>
+</div>
+<div>
+<p class="font-bold text-sm">Suite 101 Preparation</p>
+<p class="text-[10px] text-on-surface-variant uppercase font-label font-bold tracking-widest">Cleaning • Completed by Jordan D.</p>
+</div>
+</div>
+<span class="text-xs text-on-surface-variant">1h ago</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Suppressed on Details, but kept here as requested for Main Task Hub) -->
+<button class="fixed bottom-8 right-8 w-16 h-16 rounded-full hero-gradient text-white shadow-2xl flex items-center justify-center hover:scale-110 transition-transform md:hidden">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</body></html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Abwesenheitsverwaltung | Tierhotel 5 Stern</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container-high": "#e6e9e8",
+                        "surface-container-low": "#f2f4f3",
+                        "on-surface-variant": "#3e4944",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#00513f",
+                        "inverse-primary": "#82d7ba",
+                        "secondary-fixed": "#c8eadc",
+                        "surface-tint": "#016b54",
+                        "on-error-container": "#93000a",
+                        "on-primary-fixed": "#002118",
+                        "on-background": "#191c1c",
+                        "outline-variant": "#bec9c3",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#753229",
+                        "tertiary-fixed": "#ffdad4",
+                        "primary-fixed": "#9ef3d6",
+                        "primary-container": "#006b54",
+                        "on-secondary-container": "#4c6b5f",
+                        "on-surface": "#191c1c",
+                        "secondary-container": "#c8eadc",
+                        "surface-container-highest": "#e1e3e2",
+                        "on-secondary-fixed-variant": "#2f4d42",
+                        "on-secondary-fixed": "#012018",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ffcdc5",
+                        "secondary": "#466559",
+                        "outline": "#6f7a74",
+                        "surface": "#f8faf9",
+                        "inverse-on-surface": "#eff1f0",
+                        "surface-variant": "#e1e3e2",
+                        "on-primary-container": "#94e8cb",
+                        "inverse-surface": "#2e3131",
+                        "background": "#f8faf9",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#f8faf9",
+                        "surface-dim": "#d8dada",
+                        "tertiary-container": "#92493e",
+                        "tertiary-fixed-dim": "#ffb4a8",
+                        "on-tertiary-fixed": "#3c0804",
+                        "on-error": "#ffffff",
+                        "primary": "#00513f",
+                        "secondary-fixed-dim": "#adcec0",
+                        "tertiary": "#753229",
+                        "primary-fixed-dim": "#82d7ba",
+                        "surface-container": "#eceeed",
+                        "on-tertiary": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 z-50 bg-[#f8faf9] flex flex-col p-6 space-y-2 font-manrope text-[15px] font-medium">
+<div class="mb-10 px-2">
+<h1 class="text-lg font-extrabold text-[#006B54] tracking-tighter">Tierhotel 5 Stern</h1>
+<p class="text-xs text-on-surface-variant/70 tracking-wide uppercase font-bold">Concierge Portal</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">calendar_view_day</span> Roster
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-white text-[#006B54] shadow-[0_4px_12px_rgba(0,81,63,0.05)] rounded-xl" href="#">
+<span class="material-symbols-outlined">event_busy</span> Absences
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">assignment</span> Tasks
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">description</span> Notes
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">event</span> Events
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">group</span> Users
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:text-[#006B54] hover:translate-x-1 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">settings</span> Settings
+            </a>
+</nav>
+<div class="mt-auto pt-6 border-t border-outline-variant/10">
+<div class="flex items-center gap-3 px-2">
+<img alt="Hotel Management Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="professional portrait of a luxury hotel manager in a smart suit, soft warm indoor lighting, blurred lobby background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_doyN-xypPxeNp8EbFX-CCc1B0B-lsiA0MVUSyROMDKw-RQUhQjXr9iWCt6I6dDcSyLyaAm5YlS3V38hMczTfbzc04iQqCY9xFgYbNaceQdG2NtbKdht7ahWz6gh69TjzNeYiU0kmCkzO51I1Lx_lKUJk2JGBBQkwzdrBWTTL2QecXXEQFF-4F3PusVH7ZF8KELx9cnLB5R6KmPZs6dSCDuuB4-mMEx2xC8J-Ds69e8rZEIb-wV7SEPQF0HZntAUMfPI4nBE8QnY"/>
+<div>
+<p class="text-sm font-bold text-on-surface">Admin</p>
+<p class="text-xs text-on-surface-variant">Management</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- TopNavBar -->
+<header class="fixed top-0 right-0 z-40 w-full flex items-center justify-between px-8 h-16 ml-64 bg-white/80 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,81,63,0.04)] font-manrope text-sm tracking-tight pl-[288px]">
+<div class="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full w-96">
+<span class="material-symbols-outlined text-on-surface-variant">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-full placeholder:text-zinc-400" placeholder="Suche nach Mitarbeitern..." type="text"/>
+</div>
+<div class="flex items-center gap-6">
+<button class="relative text-zinc-500 hover:text-[#006B54] transition-colors duration-200">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute -top-1 -right-1 w-2 h-2 bg-error rounded-full"></span>
+</button>
+<div class="h-8 w-[1px] bg-outline-variant/20"></div>
+<button class="flex items-center gap-2 text-zinc-500 hover:text-[#006B54] transition-colors duration-200">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="font-semibold text-[#006B54]">Profil</span>
+</button>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="ml-64 mt-16 p-10 min-h-screen bg-surface-container-low">
+<!-- Header Section -->
+<header class="mb-12">
+<h2 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">Abwesenheitsverwaltung</h2>
+<p class="text-on-surface-variant text-lg max-w-2xl leading-relaxed">
+                Verwalten und koordinieren Sie die Urlaubsanträge und Abwesenheiten Ihres 5-Sterne-Teams mit präziser Übersicht.
+            </p>
+</header>
+<!-- Stats Bento Row -->
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(0,81,63,0.03)] border border-outline-variant/10">
+<p class="text-label-md text-on-surface-variant font-bold uppercase tracking-widest mb-2">Heute Abwesend</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-primary">4</span>
+<span class="text-on-surface-variant/60">Mitarbeiter</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(0,81,63,0.03)] border border-outline-variant/10">
+<p class="text-label-md text-on-surface-variant font-bold uppercase tracking-widest mb-2">Offene Anträge</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-tertiary">7</span>
+<span class="text-on-surface-variant/60">Prüfung nötig</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-xl shadow-[0_4px_20px_rgba(0,81,63,0.03)] border border-outline-variant/10">
+<p class="text-label-md text-on-surface-variant font-bold uppercase tracking-widest mb-2">Team-Kapazität</p>
+<div class="flex items-baseline gap-2">
+<span class="text-3xl font-extrabold text-primary">92%</span>
+<span class="text-on-surface-variant/60">Optimiert</span>
+</div>
+</div>
+<div class="bg-primary bg-gradient-to-br from-primary to-primary-container p-6 rounded-xl shadow-lg flex flex-col justify-between">
+<p class="text-white/80 font-bold text-xs uppercase tracking-widest">Aktion</p>
+<button class="text-white flex items-center justify-between group">
+<span class="text-lg font-bold">Neuer Eintrag</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">add_circle</span>
+</button>
+</div>
+</div>
+<!-- Main Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Calendar Section (Editorial Style) -->
+<section class="lg:col-span-8 bg-surface-container-lowest rounded-xl p-8 shadow-[0_8px_40px_rgba(0,81,63,0.04)] border border-outline-variant/5">
+<div class="flex items-center justify-between mb-8">
+<div class="flex items-center gap-4">
+<h3 class="text-2xl font-bold">Oktober 2023</h3>
+<div class="flex gap-1">
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">chevron_left</span>
+</button>
+<button class="p-2 hover:bg-surface-container-low rounded-lg transition-colors">
+<span class="material-symbols-outlined text-xl">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex gap-2">
+<span class="px-3 py-1 bg-secondary-container text-on-secondary-container text-xs font-bold rounded-full">Monat</span>
+<span class="px-3 py-1 text-on-surface-variant text-xs font-bold rounded-full hover:bg-surface-container-low cursor-pointer">Woche</span>
+</div>
+</div>
+<!-- Custom Calendar Grid -->
+<div class="grid grid-cols-7 gap-px bg-outline-variant/10 rounded-lg overflow-hidden border border-outline-variant/10">
+<!-- Days Header -->
+<div class="bg-surface p-4 text-center text-xs font-bold text-on-surface-variant uppercase tracking-widest">Mo</div>
+<div class="bg-surface p-4 text-center text-xs font-bold text-on-surface-variant uppercase tracking-widest">Di</div>
+<div class="bg-surface p-4 text-center text-xs font-bold text-on-surface-variant uppercase tracking-widest">Mi</div>
+<div class="bg-surface p-4 text-center text-xs font-bold text-on-surface-variant uppercase tracking-widest">Do</div>
+<div class="bg-surface p-4 text-center text-xs font-bold text-on-surface-variant uppercase tracking-widest">Fr</div>
+<div class="bg-surface p-4 text-center text-xs font-bold text-on-surface-variant uppercase tracking-widest text-error/60">Sa</div>
+<div class="bg-surface p-4 text-center text-xs font-bold text-on-surface-variant uppercase tracking-widest text-error/60">So</div>
+<!-- Calendar Cells -->
+<!-- Row 1 -->
+<div class="bg-surface-container-lowest min-h-[120px] p-2 opacity-40">25</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2 opacity-40">26</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2 opacity-40">27</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2 opacity-40">28</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2 opacity-40">29</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2 opacity-40">30</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2">1</div>
+<!-- Row 2 -->
+<div class="bg-surface-container-lowest min-h-[120px] p-2">2</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2">3</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2">
+<span>4</span>
+<div class="mt-2 space-y-1">
+<div class="bg-secondary-container/50 border-l-4 border-primary p-1.5 rounded text-[10px] font-bold text-primary truncate">Urlaub: Schmidt</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2 relative">
+<span>5</span>
+<div class="mt-2 space-y-1">
+<div class="bg-secondary-container/50 border-l-4 border-primary p-1.5 rounded text-[10px] font-bold text-primary truncate">Urlaub: Schmidt</div>
+<div class="bg-tertiary-fixed/50 border-l-4 border-tertiary p-1.5 rounded text-[10px] font-bold text-tertiary truncate">Krank: Weber</div>
+</div>
+</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2">6</div>
+<div class="bg-surface-container-low min-h-[120px] p-2">7</div>
+<div class="bg-surface-container-low min-h-[120px] p-2">8</div>
+<!-- Row 3 -->
+<div class="bg-surface-container-lowest min-h-[120px] p-2 ring-2 ring-primary ring-inset z-10">
+<span class="font-bold text-primary">9</span>
+<p class="text-[9px] text-primary font-bold mt-1 uppercase">Heute</p>
+</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2">10</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2">11</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2">12</div>
+<div class="bg-surface-container-lowest min-h-[120px] p-2">13</div>
+<div class="bg-surface-container-low min-h-[120px] p-2">14</div>
+<div class="bg-surface-container-low min-h-[120px] p-2">15</div>
+</div>
+</section>
+<!-- Upcoming Absences List -->
+<section class="lg:col-span-4 space-y-6">
+<div class="bg-surface-container-lowest rounded-xl p-6 shadow-[0_8px_40px_rgba(0,81,63,0.04)] border border-outline-variant/5">
+<h4 class="text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">pending_actions</span>
+                        Aktuelle &amp; Kommende
+                    </h4>
+<div class="space-y-6">
+<!-- Absence Card -->
+<div class="relative pl-6">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-outline-variant/10"></div>
+<div class="absolute left-[-4px] top-1 w-2.5 h-2.5 rounded-full bg-primary ring-4 ring-white"></div>
+<div class="flex items-start justify-between">
+<div>
+<h5 class="font-bold text-on-surface">Anna Schmidt</h5>
+<p class="text-xs text-on-surface-variant font-medium">Jahresurlaub • 04. Okt - 12. Okt</p>
+</div>
+<span class="bg-secondary-container text-on-secondary-container px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Aktiv</span>
+</div>
+</div>
+<!-- Absence Card -->
+<div class="relative pl-6">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-outline-variant/10"></div>
+<div class="absolute left-[-4px] top-1 w-2.5 h-2.5 rounded-full bg-tertiary ring-4 ring-white"></div>
+<div class="flex items-start justify-between">
+<div>
+<h5 class="font-bold text-on-surface">Markus Weber</h5>
+<p class="text-xs text-on-surface-variant font-medium">Krankmeldung • Seit 05. Okt</p>
+</div>
+<span class="bg-error-container text-on-error-container px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Krank</span>
+</div>
+</div>
+<!-- Absence Card -->
+<div class="relative pl-6">
+<div class="absolute left-0 top-0 bottom-0 w-[2px] bg-outline-variant/10"></div>
+<div class="absolute left-[-4px] top-1 w-2.5 h-2.5 rounded-full bg-outline ring-4 ring-white"></div>
+<div class="flex items-start justify-between">
+<div>
+<h5 class="font-bold text-on-surface">Elena Fischer</h5>
+<p class="text-xs text-on-surface-variant font-medium">Fortbildung • 15. Okt - 18. Okt</p>
+</div>
+<span class="bg-surface-container-high text-on-surface-variant px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">Geplant</span>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 text-sm font-bold text-primary hover:bg-primary-fixed/20 transition-colors rounded-lg border border-primary/10">
+                        Alle Einträge anzeigen
+                    </button>
+</div>
+<!-- Editorial Sidebar Element -->
+<div class="bg-white p-6 rounded-xl overflow-hidden relative group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:scale-105 transition-transform duration-700" data-alt="blurred bright hotel lounge with staff members smiling and talking, high-end luxury aesthetic, soft daylight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzE2sOu9sqBZBNswy7FMjrCa7rBrpgqXNP1dYC1xb9PVWn27W8rYLJbtwcMzvaq0wvvdrT6C9I8VLeor58kn1AYbXFvijRTYdo1Y6KkrmWNcOpgb34grZb9TGv1TJzY4ABxz1Fh5-9XV0k9zWIyVTG4fa9TYEbrbHesrIoRAslwfUfEtr4mi8IVGmFVT-smYiSu4VC5pqf2O0csjNba0aCSVBiklHmTZ52W1YTVh5_HbDHz5kRaqTNimc3YkOqoSNyOqsFgO92jYg"/>
+<div class="relative z-10">
+<span class="material-symbols-outlined text-primary mb-4">lightbulb</span>
+<h4 class="font-bold text-on-surface mb-2">Planungs-Tipp</h4>
+<p class="text-sm text-on-surface-variant leading-relaxed">
+                            Die durchschnittliche Urlaubsrate im Herbst liegt bei 15%. Stellen Sie sicher, dass das Team-Concierge ausreichend besetzt ist.
+                        </p>
+</div>
+</div>
+</section>
+</div>
+<!-- Team Availability Section -->
+<section class="mt-12">
+<h3 class="text-2xl font-bold mb-6">Team-Verfügbarkeit Übersicht</h3>
+<div class="bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_30px_rgba(0,81,63,0.02)] border border-outline-variant/5">
+<div class="space-y-8">
+<!-- Team Row -->
+<div class="flex items-center gap-6">
+<div class="w-48">
+<p class="font-bold text-sm">Rezeption &amp; Service</p>
+<p class="text-xs text-on-surface-variant">8 von 10 verfügbar</p>
+</div>
+<div class="flex-1 h-3 bg-surface-container-low rounded-full overflow-hidden flex">
+<div class="h-full bg-primary w-[80%]"></div>
+<div class="h-full bg-tertiary w-[10%]"></div>
+<div class="h-full bg-outline-variant/30 w-[10%]"></div>
+</div>
+<div class="w-12 text-right font-bold text-primary">80%</div>
+</div>
+<!-- Team Row -->
+<div class="flex items-center gap-6">
+<div class="w-48">
+<p class="font-bold text-sm">Tierpflege &amp; Medizin</p>
+<p class="text-xs text-on-surface-variant">12 von 12 verfügbar</p>
+</div>
+<div class="flex-1 h-3 bg-surface-container-low rounded-full overflow-hidden flex">
+<div class="h-full bg-primary w-full"></div>
+</div>
+<div class="w-12 text-right font-bold text-primary">100%</div>
+</div>
+<!-- Team Row -->
+<div class="flex items-center gap-6">
+<div class="w-48">
+<p class="font-bold text-sm">Küche &amp; Gastronomie</p>
+<p class="text-xs text-on-surface-variant">4 von 6 verfügbar</p>
+</div>
+<div class="flex-1 h-3 bg-surface-container-low rounded-full overflow-hidden flex">
+<div class="h-full bg-primary w-[66%]"></div>
+<div class="h-full bg-secondary w-[34%]"></div>
+</div>
+<div class="w-12 text-right font-bold text-primary">66%</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Contextual FAB (Only on relevant screens) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl">post_add</span>
+</button>
+</body></html>

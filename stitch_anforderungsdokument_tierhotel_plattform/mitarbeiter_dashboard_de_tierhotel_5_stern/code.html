@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+
+<html class="light" lang="de-CH"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#006b54",
+              "surface-variant": "#e1e3e4",
+              "surface": "#f8f9fa",
+              "on-secondary-container": "#713b00",
+              "on-primary-fixed-variant": "#00513f",
+              "surface-container-highest": "#e1e3e4",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f0f1f2",
+              "surface-container-low": "#f3f4f5",
+              "surface-bright": "#f8f9fa",
+              "error": "#ba1a1a",
+              "surface-container": "#edeeef",
+              "on-secondary-fixed-variant": "#6e3900",
+              "on-secondary-fixed": "#2f1500",
+              "tertiary-container": "#934a00",
+              "secondary": "#904d00",
+              "on-tertiary-fixed": "#301400",
+              "on-primary-fixed": "#002118",
+              "secondary-fixed": "#ffdcc3",
+              "on-tertiary": "#ffffff",
+              "primary-fixed": "#9ef3d6",
+              "on-tertiary-container": "#ffcead",
+              "primary": "#00513f",
+              "secondary-fixed-dim": "#ffb77d",
+              "on-surface": "#191c1d",
+              "outline": "#6f7a74",
+              "on-error-container": "#93000a",
+              "on-surface-variant": "#3e4944",
+              "tertiary-fixed-dim": "#ffb783",
+              "secondary-container": "#ffa454",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#713700",
+              "surface-tint": "#016b54",
+              "on-background": "#191c1d",
+              "inverse-primary": "#82d7ba",
+              "surface-container-high": "#e7e8e9",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "background": "#f8f9fa",
+              "on-primary-container": "#94e8cb",
+              "surface-dim": "#d9dadb",
+              "tertiary-fixed": "#ffdcc5",
+              "on-secondary": "#ffffff",
+              "inverse-surface": "#2e3132",
+              "primary-fixed-dim": "#82d7ba",
+              "outline-variant": "#bec9c3",
+              "tertiary": "#703700"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Plus Jakarta Sans"],
+              "label": ["Plus Jakarta Sans"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .sidebar-active {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased flex min-h-screen">
+<!-- Sidebar Section (Shared Component: SideNavBar) -->
+<aside class="h-screen w-72 flex-col flex sticky top-0 left-0 bg-[#f3f4f5] dark:bg-slate-900 shadow-none border-none font-['Manrope'] antialiased tracking-tight">
+<div class="flex flex-col h-full py-8">
+<div class="px-8 mb-10">
+<div class="flex items-center gap-3 mb-2">
+<div class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-on-primary font-bold text-xl">T</div>
+<span class="text-xl font-bold tracking-tighter text-[#006B54] dark:text-emerald-500">Tierhotel 5 Stern</span>
+</div>
+<p class="text-[11px] uppercase tracking-widest font-bold text-slate-500">The Modern Concierge</p>
+</div>
+<nav class="flex-1 space-y-1">
+<!-- Dashboard Active State -->
+<a class="text-[#006B54] dark:text-emerald-400 font-extrabold flex items-center gap-3 py-3 px-6 bg-white/50 dark:bg-slate-800/50 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200 scale-98 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-6 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200 scale-98 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">calendar_today</span>
+<span>Roster</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-6 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200 scale-98 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">person_off</span>
+<span>Absences</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-6 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200 scale-98 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>Tasks</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-6 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200 scale-98 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">sticky_note_2</span>
+<span>Notes</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-6 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200 scale-98 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">event</span>
+<span>Events</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-6 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200 scale-98 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Users</span>
+</a>
+<a class="text-slate-500 dark:text-slate-400 font-medium flex items-center gap-3 py-3 px-6 hover:bg-white/30 dark:hover:bg-slate-800/30 transition-colors duration-200 scale-98 active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full bg-gradient-to-r from-primary to-primary-container text-on-primary py-3 rounded-md font-bold text-sm tracking-wide flex items-center justify-center gap-2 shadow-lg shadow-primary/10">
+<span class="material-symbols-outlined text-sm">add</span>
+                    New Entry
+                </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col min-w-0">
+<!-- Top Navigation (Shared Component: TopNavBar) -->
+<header class="w-full h-16 sticky top-0 z-40 bg-[#f8f9fa]/80 dark:bg-slate-950/80 backdrop-blur-xl flex justify-between items-center px-12 w-full ml-auto">
+<div class="flex items-center gap-6 w-1/2">
+<div class="relative w-full max-w-md">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline text-lg">search</span>
+<input class="w-full bg-surface-container-highest border-none rounded-md py-2 pl-10 pr-4 font-['Manrope'] uppercase tracking-widest text-[11px] font-bold focus:ring-1 focus:ring-primary transition-all" placeholder="SUCHEN NACH GÄSTEN ODER AUFGABEN..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="text-[11px] font-bold uppercase tracking-widest text-on-surface-variant">Lukas Müller</span>
+<img alt="Profile" class="w-8 h-8 rounded-full border-2 border-primary/20" data-alt="close-up portrait of a professional male hotel staff member with a friendly smile in a modern uniform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1hwjABhakxqMLGVdp_adA7LBKmqsyfSARWF8VZLqw3nXizhO-_AKlsKymyTC_veWLlg4kF5BLA632P91UTMNAgXuM6AnS5IBcyRrLY2lw5OIJLWSkrr1jpylyYQHOEGcOnHPTj8wZ0ZOFqAnurY0-gG-vDZQ2iGJY1i5pC0SjrdKWkYezPJzG4Hf0e0fQBoo7kGyX6TJX4JQH1vJ4K5R_yiPZwz9m4oqzwINtLS_igsdqhMMb_jvthVTQGmku0MilmiejP1xO-O0"/>
+</div>
+<div class="flex items-center gap-4 text-slate-400">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">notifications</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">help_outline</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">account_circle</span>
+</div>
+</div>
+</header>
+<!-- Content Canvas -->
+<div class="p-12 space-y-12 max-w-7xl">
+<!-- Editorial Header Section -->
+<section class="flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="space-y-4 max-w-2xl">
+<span class="inline-block py-1 px-3 bg-secondary-fixed text-on-secondary-fixed text-[11px] font-bold uppercase tracking-widest rounded-sm">Herzlich Willkommen</span>
+<h1 class="text-6xl font-extrabold tracking-tighter text-on-surface leading-none">Guten Morgen, <br/><span class="text-primary-container">Lukas.</span></h1>
+<p class="text-lg text-on-surface-variant font-medium leading-relaxed">Dein Concierge-Dashboard für den heutigen Tag im Tierhotel. Alle Gäste sind wohlauf.</p>
+</div>
+<div class="bg-surface-container-lowest p-6 rounded-lg flex items-center gap-6 min-w-[320px]">
+<div class="w-14 h-14 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-3xl">schedule</span>
+</div>
+<div>
+<p class="text-[11px] font-bold uppercase tracking-widest text-outline">Aktuelle Schicht</p>
+<p class="text-xl font-bold text-on-surface">Frühschicht</p>
+<p class="text-sm text-on-surface-variant">07:00 — 15:30 • Zone A</p>
+</div>
+</div>
+</section>
+<!-- Bento Grid Dashboard -->
+<div class="grid grid-cols-12 gap-8">
+<!-- Focus: Priority Tasks (Large Card) -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-lowest rounded-xl overflow-hidden relative group">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-secondary"></div>
+<div class="p-10">
+<div class="flex justify-between items-center mb-10">
+<h2 class="text-2xl font-bold text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary">assignment_late</span>
+                                Dringende Aufgaben
+                            </h2>
+<button class="text-[11px] font-bold uppercase tracking-widest text-primary hover:text-primary-container transition-colors">Alle ansehen</button>
+</div>
+<div class="space-y-4">
+<!-- Task Item -->
+<div class="flex items-center justify-between p-5 rounded-lg bg-surface hover:bg-surface-variant/50 transition-all group/item">
+<div class="flex items-center gap-6">
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant flex items-center justify-center cursor-pointer group-hover/item:border-primary">
+<span class="material-symbols-outlined text-xs text-transparent group-hover/item:text-primary">check</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Medikamentengabe: Bella (Suite 4)</p>
+<p class="text-sm text-on-surface-variant">Schilddrüsentablette mit dem Futter verabreichen</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-error-container text-on-error-container text-[10px] font-bold uppercase tracking-widest rounded-full">Sofort</span>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+</div>
+<!-- Task Item -->
+<div class="flex items-center justify-between p-5 rounded-lg bg-surface hover:bg-surface-variant/50 transition-all group/item">
+<div class="flex items-center gap-6">
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant flex items-center justify-center cursor-pointer group-hover/item:border-primary">
+<span class="material-symbols-outlined text-xs text-transparent group-hover/item:text-primary">check</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Check-In Vorbereitung: Max</p>
+<p class="text-sm text-on-surface-variant">Ankunft um 11:30 Uhr. VIP-Paket bereitstellen.</p>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 bg-secondary-fixed text-on-secondary-fixed text-[10px] font-bold uppercase tracking-widest rounded-full">Heute</span>
+<span class="material-symbols-outlined text-outline">more_vert</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Stats / Quick Info -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<div class="bg-primary p-10 rounded-xl text-on-primary relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 opacity-10">
+<span class="material-symbols-outlined text-[160px]" style="font-variation-settings: 'wght' 700;">pets</span>
+</div>
+<p class="text-[11px] font-bold uppercase tracking-widest opacity-80 mb-2">Belegung Heute</p>
+<h3 class="text-5xl font-extrabold mb-6">24 / 30</h3>
+<div class="h-2 w-full bg-white/20 rounded-full overflow-hidden">
+<div class="h-full bg-white w-[80%] rounded-full"></div>
+</div>
+<p class="mt-4 text-xs font-medium opacity-80">Noch 6 Plätze verfügbar für Last-Minute Buchungen.</p>
+</div>
+<div class="bg-surface-container-low p-8 rounded-xl border border-outline-variant/10">
+<h3 class="text-lg font-bold text-on-surface mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">analytics</span>
+                            Tages-Vorschau
+                        </h3>
+<div class="space-y-6">
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-on-surface-variant">Check-Ins</span>
+<span class="font-bold text-on-surface">5 Tiere</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-on-surface-variant">Check-Outs</span>
+<span class="font-bold text-on-surface">3 Tiere</span>
+</div>
+<div class="flex justify-between items-center">
+<span class="text-sm font-medium text-on-surface-variant">Spaziergänge</span>
+<span class="font-bold text-on-surface">12 geplant</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Personal Notes & Handover -->
+<div class="col-span-12 lg:col-span-6 bg-surface-container-lowest rounded-xl p-10">
+<div class="flex justify-between items-center mb-8">
+<h2 class="text-2xl font-bold text-on-surface">Übergabe-Notizen</h2>
+<span class="material-symbols-outlined text-outline">edit_note</span>
+</div>
+<div class="space-y-6">
+<div class="p-6 bg-surface-container rounded-lg border-l-4 border-primary">
+<p class="text-[10px] font-bold text-primary uppercase tracking-widest mb-2">Von: Sarah (Nachtschicht)</p>
+<p class="text-sm leading-relaxed text-on-surface">"Balu war nachts etwas unruhig. Bitte heute Morgen besonders lange mit ihm in den Garten gehen. Er hat sein Abendessen fast ganz stehen lassen."</p>
+<p class="mt-4 text-[10px] font-medium text-outline">Vor 4 Stunden gesendet</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded-lg border-l-4 border-outline-variant">
+<p class="text-[10px] font-bold text-outline-variant uppercase tracking-widest mb-2">Eigene Notiz</p>
+<p class="text-sm italic text-on-surface-variant">Klicken zum Hinzufügen einer Notiz für die Spätschicht...</p>
+</div>
+</div>
+</div>
+<!-- Pet Highlight / Status Card -->
+<div class="col-span-12 lg:col-span-6 bg-surface-container-lowest rounded-xl overflow-hidden flex flex-col md:flex-row">
+<div class="md:w-1/2 relative h-64 md:h-auto">
+<img class="w-full h-full object-cover" data-alt="high-end studio portrait of a friendly golden retriever dog looking directly at the camera with warm expressive eyes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhhVkpdYL4fthOw6bpQ-yuhZyStmFRj9AfCzqX_oHdPc3KVBH325qnLLzCq5iv_vYMhrlPgedkUer0RAE-4X2NXRDDyGqJ6zXLRH4guwJ2WlXhNf34xfUBXqWCxzIZ1FuyCrc5er6aCjJe05zlk3eQHNsYATcGPjJpFjkA8Q-GqGrfX9h3odPMSln10_JUKHzOBw6why0AOLHMhBgtmeLi59hZKx1221woTtKRf-BDwvyZgjhorpH9u4mD-PZwy52rCE16lzAheyQ"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-on-secondary rounded-sm">VIP Gast</span>
+</div>
+</div>
+<div class="md:w-1/2 p-10 flex flex-col justify-center">
+<h3 class="text-3xl font-extrabold text-on-surface mb-2">Cooper</h3>
+<p class="text-primary font-bold tracking-tight mb-6">Suite "Matterhorn"</p>
+<div class="space-y-3 mb-8">
+<div class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">restaurant</span>
+<span>Spezialdiät: Getreidefrei</span>
+</div>
+<div class="flex items-center gap-2 text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-sm">favorite</span>
+<span>Besonders verschmust</span>
+</div>
+</div>
+<button class="w-full border border-primary text-primary py-3 rounded-md font-bold text-[11px] uppercase tracking-widest hover:bg-primary-fixed transition-colors">Profil ansehen</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Floating Feedback Toast (Concierge Style) -->
+<div class="fixed bottom-10 right-10 bg-on-surface text-surface py-4 px-6 rounded-lg shadow-2xl flex items-center gap-4 border-l-4 border-primary z-50">
+<div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">priority_high</span>
+</div>
+<div>
+<p class="text-sm font-bold">Neue Mitteilung</p>
+<p class="text-[11px] opacity-70">Empfang meldet eine verfrühte Ankunft (Leo).</p>
+</div>
+<button class="ml-4 material-symbols-outlined text-lg opacity-50 hover:opacity-100 transition-opacity">close</button>
+</div>
+</main>
+</body></html>
