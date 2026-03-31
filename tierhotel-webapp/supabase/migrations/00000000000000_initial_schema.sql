@@ -93,3 +93,122 @@ CREATE POLICY "Users can update own profile."
   ON public.profiles FOR UPDATE TO authenticated USING (auth.uid() = id);
 
 -- (Further granular RLS policies for shifts, tasks depending on roles can be added here)
+
+-- RLS for Shifts
+CREATE POLICY "Authenticated users can view all shifts."
+  ON public.shifts FOR SELECT TO authenticated USING (true);
+
+CREATE POLICY "Authenticated users can insert shifts."
+  ON public.shifts FOR INSERT TO authenticated WITH CHECK (true);
+
+CREATE POLICY "Users can update their own shifts; admins can update all."
+  ON public.shifts FOR UPDATE TO authenticated
+  USING (
+    user_id = auth.uid() OR
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+CREATE POLICY "Admins can delete shifts."
+  ON public.shifts FOR DELETE TO authenticated
+  USING (
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+-- RLS for Absences
+CREATE POLICY "Users can view their own absences; admins can view all."
+  ON public.absences FOR SELECT TO authenticated
+  USING (
+    user_id = auth.uid() OR
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+CREATE POLICY "Users can insert their own absences."
+  ON public.absences FOR INSERT TO authenticated
+  WITH CHECK (user_id = auth.uid());
+
+CREATE POLICY "Admins can update absences."
+  ON public.absences FOR UPDATE TO authenticated
+  USING (
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+CREATE POLICY "Admins can delete absences."
+  ON public.absences FOR DELETE TO authenticated
+  USING (
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+-- RLS for Tasks
+CREATE POLICY "Authenticated users can view all tasks."
+  ON public.tasks FOR SELECT TO authenticated USING (true);
+
+CREATE POLICY "Authenticated users can insert tasks."
+  ON public.tasks FOR INSERT TO authenticated
+  WITH CHECK (created_by = auth.uid());
+
+CREATE POLICY "Users can update tasks they created or are assigned to."
+  ON public.tasks FOR UPDATE TO authenticated
+  USING (
+    created_by = auth.uid() OR
+    assigned_to = auth.uid() OR
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+CREATE POLICY "Users can delete tasks they created; admins can delete all."
+  ON public.tasks FOR DELETE TO authenticated
+  USING (
+    created_by = auth.uid() OR
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+-- RLS for Daily Notes
+CREATE POLICY "Authenticated users can view all notes."
+  ON public.daily_notes FOR SELECT TO authenticated USING (true);
+
+CREATE POLICY "Authenticated users can insert notes."
+  ON public.daily_notes FOR INSERT TO authenticated
+  WITH CHECK (author_id = auth.uid());
+
+CREATE POLICY "Authors and admins can update notes."
+  ON public.daily_notes FOR UPDATE TO authenticated
+  USING (
+    author_id = auth.uid() OR
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+CREATE POLICY "Authors and admins can delete notes."
+  ON public.daily_notes FOR DELETE TO authenticated
+  USING (
+    author_id = auth.uid() OR
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+-- RLS for Events
+CREATE POLICY "Authenticated users can view all events."
+  ON public.events FOR SELECT TO authenticated USING (true);
+
+CREATE POLICY "Authenticated users can insert events."
+  ON public.events FOR INSERT TO authenticated
+  WITH CHECK (created_by = auth.uid());
+
+CREATE POLICY "Creators and admins can update events."
+  ON public.events FOR UPDATE TO authenticated
+  USING (
+    created_by = auth.uid() OR
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+CREATE POLICY "Creators and admins can delete events."
+  ON public.events FOR DELETE TO authenticated
+  USING (
+    created_by = auth.uid() OR
+    EXISTS (SELECT 1 FROM public.profiles WHERE id = auth.uid() AND role IN ('admin', 'super_admin'))
+  );
+
+-- Indexes for foreign key columns (performance)
+CREATE INDEX idx_shifts_user_id ON public.shifts(user_id);
+CREATE INDEX idx_absences_user_id ON public.absences(user_id);
+CREATE INDEX idx_tasks_created_by ON public.tasks(created_by);
+CREATE INDEX idx_tasks_assigned_to ON public.tasks(assigned_to);
+CREATE INDEX idx_daily_notes_author_id ON public.daily_notes(author_id);
+CREATE INDEX idx_events_created_by ON public.events(created_by);

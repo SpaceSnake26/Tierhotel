@@ -2,7 +2,8 @@ import React from "react";
 import { login, signup } from "./actions";
 import Link from "next/link";
 
-export default function LoginPage({ searchParams }: { searchParams: { error?: string } }) {
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+  const { error: errorMsg } = await searchParams
 
   return (
     <div className="bg-surface font-body text-on-surface min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -23,9 +24,9 @@ export default function LoginPage({ searchParams }: { searchParams: { error?: st
               </p>
             </div>
             
-            {searchParams?.error && (
+            {errorMsg && (
               <div className="bg-error/10 text-error p-4 rounded-md mb-6 font-bold text-sm border-l-4 border-error">
-                {searchParams.error}
+                {errorMsg}
               </div>
             )}
             
@@ -69,11 +70,23 @@ export default function LoginPage({ searchParams }: { searchParams: { error?: st
                 </div>
               </div>
 
-              <div className="flex items-center mt-2 px-1">
-                <label className="flex items-center gap-2 cursor-pointer group">
-                  <input type="checkbox" className="w-4 h-4 rounded border-outline text-primary focus:ring-primary" />
-                  <span className="text-sm font-medium text-on-surface-variant group-hover:text-on-surface transition-colors">Angemeldet bleiben</span>
+              <div className="space-y-2">
+                <label className="font-label text-xs font-semibold text-on-surface-variant uppercase tracking-wider ml-1" htmlFor="fullName">
+                  Vollständiger Name <span className="text-outline font-normal normal-case tracking-normal">(nur bei Registrierung)</span>
                 </label>
+                <div className="relative">
+                  <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <span className="material-symbols-outlined text-outline text-lg" aria-hidden="true">person</span>
+                  </div>
+                  <input
+                    className="block w-full pl-11 pr-4 py-3 bg-surface-container-low border-none rounded-lg text-on-surface placeholder-outline focus:ring-2 focus:ring-primary-container text-sm transition-all"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Vor- und Nachname"
+                    type="text"
+                    autoComplete="name"
+                  />
+                </div>
               </div>
 
               <div className="pt-6 space-y-4">

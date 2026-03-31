@@ -25,24 +25,22 @@ export async function login(formData: FormData) {
 export async function signup(formData: FormData) {
   const supabase = await createClient()
 
-  const data = {
-    email: formData.get('email') as string,
-    password: formData.get('password') as string,
-  }
+  const email = formData.get('email') as string
+  const password = formData.get('password') as string
+  const fullName = ((formData.get('fullName') as string) ?? '').trim() || null
 
-  const { error, data: authData } = await supabase.auth.signUp(data)
+  const { error, data: authData } = await supabase.auth.signUp({ email, password })
 
   if (error) {
     return redirect('/login?error=Fehler bei der Registrierung: ' + error.message)
   }
 
-  // Auto-insert a profile since the schema requires it for shifts and absences
   if (authData.user) {
     await supabase.from('profiles').upsert({
       id: authData.user.id,
-      email: data.email,
-      full_name: 'Test Benutzer',
-      role: 'employee'
+      email,
+      full_name: fullName,
+      role: 'employee',
     })
   }
 

@@ -53,9 +53,10 @@ export default function NewUserPage() {
 
         <div className="space-y-2">
           <label htmlFor="role" className="text-sm font-bold text-on-surface">Zugriffsrolle *</label>
-          <select 
-            id="role" 
-            name="role" 
+          <select
+            id="role"
+            name="role"
+            defaultValue="employee"
             className="w-full bg-surface-container-low border border-outline/20 rounded-md px-4 py-3 focus:ring-1 focus:ring-primary focus:outline-none"
           >
             <option value="employee">Mitarbeitende</option>

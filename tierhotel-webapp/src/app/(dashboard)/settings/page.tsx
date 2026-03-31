@@ -1,6 +1,21 @@
-import React from "react";
+import { createClient } from '@/utils/supabase/server'
+import { saveProfile } from '@/app/actions/settings'
 
-export default function SettingsPage() {
+export default async function SettingsPage() {
+  const supabase = await createClient()
+
+  const { data: { user } } = await supabase.auth.getUser()
+  const { data: profile } = user
+    ? await supabase.from('profiles').select('full_name, email, role').eq('id', user.id).single()
+    : { data: null }
+
+  const ROLE_LABELS: Record<string, string> = {
+    super_admin: 'Super Admin',
+    admin: 'Admin / GL',
+    employee: 'Mitarbeitende',
+    screen: 'Nur-Lese Screen',
+  }
+
   return (
     <div className="p-12 space-y-12 max-w-7xl mx-auto w-full">
       <section className="flex flex-col md:flex-row justify-between items-end gap-8 border-none">
@@ -11,51 +26,80 @@ export default function SettingsPage() {
             Allgemeine Systemeinstellungen und Konfigurationen für die Plattform.
           </p>
         </div>
-        <button className="bg-primary text-on-primary py-3 px-6 rounded shadow-lg flex items-center justify-center gap-2 font-bold tracking-tight hover:scale-[1.02] active:scale-95 transition-transform">
-          <span className="material-symbols-outlined">save</span>
-          <span>Speichern</span>
-        </button>
       </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
-          <h3 className="text-xl font-bold mb-6 border-b border-surface-container-high pb-4">Profil & Anzeige</h3>
-          
+        {/* Profile Settings */}
+        <form action={saveProfile} className="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+          <h3 className="text-xl font-bold mb-6 border-b border-surface-container-high pb-4">Mein Profil</h3>
+
           <div className="space-y-6">
             <div className="space-y-2">
-              <label className="text-sm font-bold">Name des Hotels</label>
-              <input type="text" className="w-full bg-surface-container-low border border-outline/20 rounded-md px-4 py-2" defaultValue="Tierhotel 5 Stern" />
+              <label htmlFor="fullName" className="text-sm font-bold">Vollständiger Name</label>
+              <input
+                type="text"
+                id="fullName"
+                name="fullName"
+                required
+                defaultValue={profile?.full_name ?? ''}
+                className="w-full bg-surface-container-low border border-outline/20 rounded-md px-4 py-2 focus:ring-1 focus:ring-primary focus:outline-none"
+                placeholder="Vor- und Nachname"
+              />
             </div>
-            
+
             <div className="space-y-2">
-              <label className="text-sm font-bold">Sprache</label>
-              <select className="w-full bg-surface-container-low border border-outline/20 rounded-md px-4 py-2">
-                <option>Deutsch (Schweiz)</option>
-                <option>Englisch</option>
-              </select>
+              <label className="text-sm font-bold">E-Mail Adresse</label>
+              <input
+                type="email"
+                value={profile?.email ?? user?.email ?? ''}
+                disabled
+                className="w-full bg-surface-container-low border border-outline/20 rounded-md px-4 py-2 text-outline cursor-not-allowed"
+              />
+              <p className="text-xs text-outline">Die E-Mail-Adresse kann nicht geändert werden.</p>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-sm font-bold">Zugriffsrolle</label>
+              <input
+                type="text"
+                value={ROLE_LABELS[profile?.role ?? ''] ?? profile?.role ?? '—'}
+                disabled
+                className="w-full bg-surface-container-low border border-outline/20 rounded-md px-4 py-2 text-outline cursor-not-allowed"
+              />
+              <p className="text-xs text-outline">Die Rolle kann nur von einem Administrator geändert werden.</p>
             </div>
           </div>
-        </div>
 
+          <div className="mt-8 flex justify-end">
+            <button
+              type="submit"
+              className="bg-primary text-on-primary py-3 px-6 rounded shadow flex items-center gap-2 font-bold hover:scale-[1.02] active:scale-95 transition-transform"
+            >
+              <span className="material-symbols-outlined" aria-hidden="true">save</span>
+              Speichern
+            </button>
+          </div>
+        </form>
+
+        {/* Info Card */}
         <div className="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
-          <h3 className="text-xl font-bold mb-6 border-b border-surface-container-high pb-4">Benachrichtigungen</h3>
-          
-          <div className="space-y-4">
-            <label className="flex items-center gap-3 cursor-pointer">
-              <input type="checkbox" defaultChecked className="w-5 h-5 rounded text-primary focus:ring-primary" />
-              <span>Neue Aufgaben Benachrichtigung</span>
-            </label>
-            <label className="flex items-center gap-3 cursor-pointer">
-              <input type="checkbox" defaultChecked className="w-5 h-5 rounded text-primary focus:ring-primary" />
-              <span>Tägliche Zusammenfassung per Email</span>
-            </label>
-            <label className="flex items-center gap-3 cursor-pointer">
-              <input type="checkbox" className="w-5 h-5 rounded text-primary focus:ring-primary" />
-              <span>Dienstplan-Änderungen sofort melden</span>
-            </label>
+          <h3 className="text-xl font-bold mb-6 border-b border-surface-container-high pb-4">System-Info</h3>
+          <div className="space-y-4 text-sm text-on-surface-variant">
+            <div className="flex justify-between">
+              <span className="font-bold text-on-surface">Plattform</span>
+              <span>Tierhotel 5 Stern</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-bold text-on-surface">Sprache</span>
+              <span>Deutsch (Schweiz)</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="font-bold text-on-surface">Screen URL</span>
+              <span className="text-primary font-mono text-xs">/screen</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 }

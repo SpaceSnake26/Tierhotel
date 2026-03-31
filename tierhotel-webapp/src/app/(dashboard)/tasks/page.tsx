@@ -1,7 +1,95 @@
-import React from "react";
-import Link from "next/link";
+import { createClient } from '@/utils/supabase/server'
+import { updateTaskStatus } from '@/app/actions/task'
+import Link from 'next/link'
 
-export default function TasksPage() {
+const PRIORITY_STYLES: Record<string, string> = {
+  high: 'bg-error/10 text-error',
+  medium: 'bg-surface-variant text-on-surface',
+  low: 'bg-secondary/10 text-secondary',
+}
+const PRIORITY_LABELS: Record<string, string> = { high: 'Hoch', medium: 'Normal', low: 'Niedrig' }
+
+type Task = {
+  id: string
+  title: string
+  description: string | null
+  priority: string
+  due_date: string | null
+  status: string
+  profiles: { full_name: string } | null
+}
+
+function TaskCard({ task }: { task: Task }) {
+  const initials = task.profiles?.full_name
+    ? task.profiles.full_name.split(' ').map((n: string) => n[0]).join('').slice(0, 2).toUpperCase()
+    : null
+
+  const dueLabel = task.due_date
+    ? new Date(task.due_date).toLocaleDateString('de-CH', { day: 'numeric', month: 'short' })
+    : null
+
+  return (
+    <div className={`bg-surface-container-lowest p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow ${task.status === 'done' ? 'opacity-70' : ''}`}>
+      <div className="flex justify-between items-start mb-2">
+        <span className={`text-[10px] px-2 py-0.5 rounded font-bold uppercase ${PRIORITY_STYLES[task.priority] ?? 'bg-surface-variant text-on-surface'}`}>
+          {PRIORITY_LABELS[task.priority] ?? task.priority}
+        </span>
+        {dueLabel && <span className="text-outline text-xs">{dueLabel}</span>}
+      </div>
+      <h4 className={`font-bold mb-1 ${task.status === 'done' ? 'line-through text-outline' : ''}`}>{task.title}</h4>
+      {task.description && (
+        <p className="text-sm text-on-surface-variant mb-4 line-clamp-2">{task.description}</p>
+      )}
+      <div className="flex justify-between items-center mt-3">
+        {initials ? (
+          <div className="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-xs font-bold" title={task.profiles?.full_name}>
+            {initials}
+          </div>
+        ) : (
+          <div />
+        )}
+        {task.status !== 'done' && (
+          <div className="flex gap-2">
+            {task.status === 'open' && (
+              <form action={async () => {
+                'use server'
+                await updateTaskStatus(task.id, 'in_progress')
+              }}>
+                <button type="submit" className="text-[10px] px-2 py-1 rounded bg-secondary/10 text-secondary font-bold hover:bg-secondary/20 transition-colors">
+                  Starten
+                </button>
+              </form>
+            )}
+            {task.status === 'in_progress' && (
+              <form action={async () => {
+                'use server'
+                await updateTaskStatus(task.id, 'done')
+              }}>
+                <button type="submit" className="text-[10px] px-2 py-1 rounded bg-primary/10 text-primary font-bold hover:bg-primary/20 transition-colors">
+                  Erledigt
+                </button>
+              </form>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
+export default async function TasksPage() {
+  const supabase = await createClient()
+
+  const { data: tasks } = await supabase
+    .from('tasks')
+    .select('id, title, description, priority, due_date, status, profiles!tasks_created_by_fkey(full_name)')
+    .order('due_date', { nullsFirst: false })
+    .order('created_at', { ascending: false })
+
+  const open = (tasks ?? []).filter((t) => t.status === 'open')
+  const inProgress = (tasks ?? []).filter((t) => t.status === 'in_progress')
+  const done = (tasks ?? []).filter((t) => t.status === 'done')
+
   return (
     <div className="p-12 space-y-12 max-w-7xl mx-auto w-full">
       <section className="flex flex-col md:flex-row justify-between items-end gap-8 border-none">
@@ -12,96 +100,67 @@ export default function TasksPage() {
             Offene und erledigte Aufgaben für das Team. Priorisieren Sie die Gästebetreuung.
           </p>
         </div>
-        <Link href="/tasks/new" className="bg-primary text-on-primary py-3 px-6 rounded shadow-lg flex items-center justify-center gap-2 font-bold tracking-tight hover:scale-[1.02] active:scale-95 transition-transform">
-          <span className="material-symbols-outlined">add</span>
-          <span>Neue Aufgabe</span>
+        <Link href="/tasks/new" className="bg-primary text-on-primary py-3 px-6 rounded shadow-lg flex items-center gap-2 font-bold tracking-tight hover:scale-[1.02] active:scale-95 transition-transform">
+          <span className="material-symbols-outlined" aria-hidden="true">add</span>
+          Neue Aufgabe
         </Link>
       </section>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Open Tasks Column */}
+        {/* Open */}
         <div className="bg-surface-container-low rounded-xl p-6 border-none">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-lg font-headline font-bold flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary">circle</span>
+              <span className="material-symbols-outlined text-primary" aria-hidden="true">circle</span>
               Offen
             </h3>
-            <span className="bg-surface-container-highest text-on-surface text-xs font-bold px-2 py-1 rounded-full">3</span>
+            <span className="bg-surface-container-highest text-on-surface text-xs font-bold px-2 py-1 rounded-full">{open.length}</span>
           </div>
-          <div className="space-y-4">
-            <div className="bg-surface-container-lowest p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-[10px] px-2 py-0.5 rounded bg-error/10 text-error font-bold uppercase">Hoch</span>
-                <span className="text-outline text-xs">Heute</span>
-              </div>
-              <h4 className="font-bold mb-1">VIP Suite Endreinigung</h4>
-              <p className="text-sm text-on-surface-variant mb-4 line-clamp-2">Zimmer 402 sorgfältig für den nächsten Gast (Golden Retriever 'Bello') vorbereiten.</p>
-              <div className="flex justify-between items-center">
-                <div className="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-xs font-bold">LM</div>
-                <span className="material-symbols-outlined text-outline hover:text-primary transition-colors">more_horiz</span>
-              </div>
+          {open.length > 0 ? (
+            <div className="space-y-4">
+              {open.map((task) => <TaskCard key={task.id} task={task as Task} />)}
             </div>
-            
-            <div className="bg-surface-container-lowest p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-[10px] px-2 py-0.5 rounded bg-surface-variant text-on-surface font-bold uppercase">Normal</span>
-                <span className="text-outline text-xs">Morgen</span>
-              </div>
-              <h4 className="font-bold mb-1">Futterbestellung Premium</h4>
-              <p className="text-sm text-on-surface-variant mb-4 line-clamp-2">Inventar prüfen und wöchentliche Bestellung auslösen.</p>
-              <div className="flex justify-between items-center">
-                <div className="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-xs font-bold">JS</div>
-                <span className="material-symbols-outlined text-outline hover:text-primary transition-colors">more_horiz</span>
-              </div>
-            </div>
-          </div>
+          ) : (
+            <p className="text-sm text-outline text-center py-8">Keine offenen Aufgaben.</p>
+          )}
         </div>
 
-        {/* In Progress Column */}
+        {/* In Progress */}
         <div className="bg-surface-container-low rounded-xl p-6 border-none">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-lg font-headline font-bold flex items-center gap-2">
-              <span className="material-symbols-outlined text-secondary">pending</span>
+              <span className="material-symbols-outlined text-secondary" aria-hidden="true">pending</span>
               In Bearbeitung
             </h3>
-            <span className="bg-surface-container-highest text-on-surface text-xs font-bold px-2 py-1 rounded-full">1</span>
+            <span className="bg-surface-container-highest text-on-surface text-xs font-bold px-2 py-1 rounded-full">{inProgress.length}</span>
           </div>
-          <div className="space-y-4">
-            <div className="bg-surface-container-lowest p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow cursor-pointer border-l-4 border-secondary">
-              <div className="flex justify-between items-start mb-2">
-                <span className="text-[10px] px-2 py-0.5 rounded bg-surface-variant text-on-surface font-bold uppercase">Normal</span>
-                <span className="text-outline text-xs">Heute</span>
-              </div>
-              <h4 className="font-bold mb-1">Gassi-Runde Gruppe B</h4>
-              <p className="text-sm text-on-surface-variant mb-4 line-clamp-2">Waldweg Route 2 mit Max, Luna und Rocky.</p>
-              <div className="flex justify-between items-center">
-                <div className="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center text-xs font-bold">DW</div>
-                <span className="material-symbols-outlined text-outline hover:text-primary transition-colors">more_horiz</span>
-              </div>
+          {inProgress.length > 0 ? (
+            <div className="space-y-4">
+              {inProgress.map((task) => <TaskCard key={task.id} task={task as Task} />)}
             </div>
-          </div>
+          ) : (
+            <p className="text-sm text-outline text-center py-8">Keine Aufgaben in Bearbeitung.</p>
+          )}
         </div>
 
-        {/* Done Column */}
+        {/* Done */}
         <div className="bg-surface-container-low rounded-xl p-6 border-none opacity-80">
           <div className="flex justify-between items-center mb-6">
             <h3 className="text-lg font-headline font-bold flex items-center gap-2">
-              <span className="material-symbols-outlined text-primary-container">check_circle</span>
+              <span className="material-symbols-outlined text-primary-container" aria-hidden="true">check_circle</span>
               Erledigt
             </h3>
-            <span className="bg-surface-container-highest text-on-surface text-xs font-bold px-2 py-1 rounded-full">2</span>
+            <span className="bg-surface-container-highest text-on-surface text-xs font-bold px-2 py-1 rounded-full">{done.length}</span>
           </div>
-          <div className="space-y-4">
-            <div className="bg-surface-container-lowest p-5 rounded-xl shadow-sm cursor-pointer opacity-75">
-              <h4 className="font-bold mb-1 line-through text-outline">Social Media Update</h4>
-              <p className="text-sm text-outline mb-4 line-clamp-1">Post über neue Gäste hochgeladen.</p>
-              <div className="flex justify-between items-center">
-                <div className="text-[10px] text-outline font-bold">Erledigt um 08:30</div>
-              </div>
+          {done.length > 0 ? (
+            <div className="space-y-4">
+              {done.map((task) => <TaskCard key={task.id} task={task as Task} />)}
             </div>
-          </div>
+          ) : (
+            <p className="text-sm text-outline text-center py-8">Noch keine erledigten Aufgaben.</p>
+          )}
         </div>
       </div>
     </div>
-  );
+  )
 }

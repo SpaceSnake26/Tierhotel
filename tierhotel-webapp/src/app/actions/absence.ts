@@ -6,19 +6,28 @@ import { redirect } from 'next/navigation'
 
 export async function createAbsence(formData: FormData) {
   const supabase = await createClient()
-  
+
+  const { data: { user } } = await supabase.auth.getUser()
+  if (!user) {
+    redirect('/login')
+  }
+
   const type = formData.get('type') as string
   const startDate = formData.get('startDate') as string
   const endDate = formData.get('endDate') as string
 
-  // Fetch current user (if any)
-  const { data: { user } } = await supabase.auth.getUser()
+  if (!type || !startDate || !endDate) {
+    throw new Error('Alle Pflichtfelder müssen ausgefüllt sein.')
+  }
 
-  // Insert absence
+  if (new Date(endDate) < new Date(startDate)) {
+    throw new Error('Das Enddatum darf nicht vor dem Startdatum liegen.')
+  }
+
   const { error } = await supabase
     .from('absences')
     .insert({
-      user_id: user?.id, // NOTE: this will fail if user is not authenticated and NOT NULL constraint exists.
+      user_id: user.id,
       type: type || 'other',
       start_date: startDate,
       end_date: endDate,
@@ -26,8 +35,7 @@ export async function createAbsence(formData: FormData) {
     })
 
   if (error) {
-    console.error('Error creating absence:', error)
-    throw new Error('Could not create absence. Ensure you are logged in and RLS is configured: ' + error.message)
+    throw new Error('Abwesenheit konnte nicht eingetragen werden. Bitte versuchen Sie es erneut.')
   }
 
   revalidatePath('/absences')
