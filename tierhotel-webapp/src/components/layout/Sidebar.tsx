@@ -4,14 +4,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const navItems = [
-  { href: '/dashboard', icon: 'dashboard', label: 'Dashboard' },
-  { href: '/roster', icon: 'calendar_today', label: 'Dienstplan' },
-  { href: '/absences', icon: 'person_off', label: 'Abwesenheiten' },
-  { href: '/tasks', icon: 'assignment', label: 'Aufgaben' },
-  { href: '/notes', icon: 'sticky_note_2', label: 'Notizen' },
-  { href: '/events', icon: 'event', label: 'Kalender' },
-  { href: '/users', icon: 'group', label: 'Benutzer' },
-  { href: '/settings', icon: 'settings', label: 'Einstellungen' },
+  { href: '/dashboard',      icon: 'dashboard',      label: 'Dashboard' },
+  { href: '/dienstplan',     icon: 'grid_view',       label: 'Einsatzplan' },
+  { href: '/jahresregister', icon: 'analytics',       label: 'Jahresregister' },
+  { href: '/roster',         icon: 'calendar_today',  label: 'Dienstplan (alt)' },
+  { href: '/absences',       icon: 'person_off',      label: 'Abwesenheiten' },
+  { href: '/tasks',          icon: 'assignment',      label: 'Aufgaben' },
+  { href: '/notes',          icon: 'sticky_note_2',   label: 'Notizen' },
+  { href: '/events',         icon: 'event',           label: 'Kalender' },
+  { href: '/users',          icon: 'group',           label: 'Benutzer' },
+  { href: '/settings',       icon: 'settings',        label: 'Einstellungen' },
 ]
 
 export function Sidebar() {
@@ -31,9 +33,9 @@ export function Sidebar() {
             </div>
           </div>
         </div>
-        <nav className="flex-1 space-y-1" aria-label="Hauptnavigation">
+        <nav className="flex-1 space-y-1 overflow-y-auto" aria-label="Hauptnavigation">
           {navItems.map(({ href, icon, label }) => {
-            const isActive = pathname === href || pathname.startsWith(href + '/')
+            const isActive = pathname === href || (href !== '/dashboard' && pathname.startsWith(href + '/'))
             return (
               <Link
                 key={href}
@@ -45,19 +47,19 @@ export function Sidebar() {
                     : "text-slate-500 font-medium flex items-center gap-3 py-3 px-8 hover:bg-white/30 transition-colors duration-200"
                 }
               >
-                <span className="material-symbols-outlined shrink-0" aria-hidden="true">{icon}</span>
+                <span className="material-symbols-outlined shrink-0 text-[20px]" aria-hidden="true">{icon}</span>
                 <span>{label}</span>
               </Link>
             )
           })}
         </nav>
-        <div className="px-8 mt-auto">
+        <div className="px-8 mt-auto pt-4">
           <Link
-            href="/roster/new"
+            href="/dienstplan"
             className="w-full bg-primary text-on-primary py-4 rounded shadow-lg flex items-center justify-center gap-2 font-bold tracking-tight hover:scale-[1.02] active:scale-95 transition-transform"
           >
-            <span className="material-symbols-outlined shrink-0" aria-hidden="true">add</span>
-            <span>Neuer Eintrag</span>
+            <span className="material-symbols-outlined shrink-0" aria-hidden="true">grid_view</span>
+            <span>Einsatzplan</span>
           </Link>
         </div>
       </div>

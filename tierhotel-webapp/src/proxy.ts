@@ -32,6 +32,8 @@ export async function proxy(request: NextRequest) {
   const path = request.nextUrl.pathname
   const isProtectedRoute = path.startsWith('/dashboard') ||
     path.startsWith('/roster') ||
+    path.startsWith('/dienstplan') ||
+    path.startsWith('/jahresregister') ||
     path.startsWith('/absences') ||
     path.startsWith('/tasks') ||
     path.startsWith('/notes') ||
